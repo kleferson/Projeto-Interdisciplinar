@@ -1,0 +1,321 @@
+<head>
+    <title>Prontuario WEB</title>
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-lg-nowrap p-0 shadow">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Prontuário WEB</a>
+        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <button class="btn btn-sm btn-primary my-2 my-sm-0" type="submit">Pesquisar</button>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.globo.com/" target="_nblank">Prontuário1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Prontuário2</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Prontuário3</a>
+                        </li>
+                    </ul>
+
+                    <h6
+                        class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                        <span>Opções</span>
+                        <a class="d-flex align-items-center text-muted" href="#">
+                            <span data-feather="plus-circle"></span>
+                        </a>
+                    </h6>
+                </div>
+            </nav>
+
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1>Prontuário</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group mr-2">
+                            <button type="button" class="btn btn-sm btn-outline-primary">Novo</button>
+                            <button type="button" class="btn btn-sm btn-outline-primary">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+                <form>
+                    <br>
+                    <h1 id="h1dadospessoais">DADOS PESSOAIS</h1>
+                    <!-- Nome,data de nascimento-->
+                    <div class="form-row">
+                        <div class="form-group col mb-3">
+                            <label>Nome do prontuário</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label>Data de nasc.</label>
+                            <input type="date" class="form-control">
+                        </div>
+                    </div>
+                    <!-- Email,telefone,sexo -->
+                    <div class="form-row">
+                        <div class="form-group col-md-5">
+                            <label for="inputEmail4">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Email">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputPassword4">Telefone</label>
+                            <input type="number" class="form-control" id="telefone" placeholder="(65) 9999 9999">
+                        </div>
+                        <div class="form group col-md-2">
+                            <label>Sexo:</label>
+                            <div class="custom-control custom-radio custom-control-inline" style="margin-left:0.3em">
+                                <input type="radio" id="Sexo1" name="Sexo1" class="custom-control-input">
+                                <label class="custom-control-label" for="Sexo1">Masculino</label>
+                            </div>
+                            <div class=" custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="Sexo2" name="Sexo1" class="custom-control-input">
+                                <label class="custom-control-label" style="margin-left:3.60em"
+                                    for="Sexo2">Feminino</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Escolariedade,ocupação-->
+                    <div class="form-row">
+                        <div class="col mb-3">
+                            <label>Ocupação</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-sm-5">
+                            <label>Escolaridade</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <!--Observacões-->
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label>Observações</label>
+                            <textarea class="form-control" id="observacoes" rows="5"></textarea>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <h1 id="h1endereco">ENDEREÇO</h1>
+                    <!--cep-->
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label>CEP</label>
+                            <input type="text" class="form-control" id="cep">
+                        </div>
+                    </div>
+                    <!--endereço,numero-->
+                    <div class="form-row">
+                        <div class="form-group col-md-6 mb-3">
+                            <label>Endereço</label>
+                            <input type="text" class="form-control" id="endereco">
+                        </div>
+                        <div class="form-group col-md-2 mb-3">
+                            <label>Numero</label>
+                            <input type="number" class="form-control" id="numero">
+                        </div>
+                    </div>
+
+                    <!--Complemento,bairro-->
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Complemento</label>
+                            <input type="text" class="form-control" id="complemento">
+                        </div>
+                        <div class="form-group col-md-2 mb-3">
+                            <label>Bairro</label>
+                            <input type="text" class="form-control" id="bairro">
+                        </div>
+                    </div>
+
+                    <!--Cidade,estado,pais-->
+                    <div class="form-row">
+                        <div class="form-group col-md-3 mb-3">
+                            <label>Cidade</label>
+                            <input type="text" class="form-control" id="cidade">
+                        </div>
+                        <div class="col-md-2 mb-3">
+                            <label>Estado</label>
+                            <input type="text" class="form-control" id="estado">
+                        </div>
+                        <div class="col-md-2 mb-3">
+                            <label>Pais</label>
+                            <input type="text" class="form-control" id="pais">
+                        </div>
+                    </div>
+
+                    <!--limitações-->
+                    <div class="form-row">
+
+                        <label>Limitação:</label>
+
+                        <div class="form-group col mb-3">
+                            <input type="text" class="form-control" placeholder="Outros">
+                        </div>
+
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <div class="form-group col-md-3 mb-3">
+                                <input class="form-check-input" type="checkbox" id="cognitiva" value="option1">
+                                <label class="form-check-label" for="inlineCheckbox1">Cognitiva</label>
+                            </div>
+                        </div>
+
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <div class="form-group col-md-3 mb-3">
+                                <input class="form-check-input" type="checkbox" id="locomoção" value="option2">
+                                <label class="form-check-label" for="inlineCheckbox2">Locomoção</label>
+                            </div>
+                        </div>
+
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <div class="form-group col-md-3 mb-3">
+                                <input class="form-check-input" type="checkbox" id="visão" value="option2">
+                                <label class="form-check-label" for="inlineCheckbox2">Visão</label>
+                            </div>
+                        </div>
+
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <div class="form-group col-md-3 mb-3">
+                                <input class="form-check-input" type="checkbox" id="audição" value="option2">
+                                <label class="form-check-label" for="inlineCheckbox2">Audição</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Alergia-->
+
+                    <div class="form-group">
+                        <label>Alergia</label>
+                        <input type="text" class="form-control" id="alergia">
+                    </div>
+                    <div class="form-group">
+                        <label>Motivo do Atendimento</label>
+                        <input type="text" class="form-control" id="motivoatendimento">
+                    </div>
+
+                    <!--Sinais Vitais-->
+                    <div class="form-row">
+                        <label>Sinais Vitais:</label>
+                        <label>PA</label>
+                        <div class="form-group col-md-1 mb-3">
+                            <input type="text" class="form-control" id="pa">
+                        </div>
+                        <label>FC</label>
+                        <div class="form-group col-md-1 mb-3">
+                            <input type="text" class="form-control" id="fc">
+                        </div>
+                        <label>FR</label>
+                        <div class="form-group col-md-1 mb-3">
+                            <input type="text" class="form-control" id="fr">
+                        </div>
+                        <label>T</label>
+                        <div class="form-group col-md-1 mb-3">
+                            <input type="text" class="form-control" id="t">
+                        </div>
+                    </div>
+                    <!--Doencas Cronicas-->
+                    <div class="form-row">
+                        <div class="form-group col mb-3">
+                            <label>Doenças Cronicas:</label>
+                            <input type="text" class="form-control" id="doencascronicas">
+                        </div>
+                    </div>
+                    <!--Queixa-->
+                    <div class="form-row">
+                        <div class="form-group col mb-3">
+                            <label>Queixa no momento:</label>
+                            <input type="text" class="form-control" id="queixamomento">
+                        </div>
+                    </div>
+
+                    <!--Anamnese-->
+                    <div class="form-row">
+
+                        <div class="form-group col mb-3">
+                            <label>Anamnese</label>
+                            <textarea class="form-control" id="anamnese" rows="10"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col mb-3">
+                            <label>Exame Fisico</label>
+                            <textarea class="form-control" id="examefisico" rows="10"></textarea>
+                        </div>
+                    </div>
+
+
+                    <!-- Botão cadastrar -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                        id="btncadastrar">
+                        Cadastrar
+                    </button>
+
+                    <!-- Gatilho do botão cadastrar -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Deseja cadastrar o prontuário
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                                    <button type="button" class="btn btn-primary">Sim</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+            </main>
+        </div>
+
+    </div>
+    <br>
+    <br>
+
+
+
+
+    <footer>
+        <script src="bootstrap-4.3.1-dist/js/jquery.js"></script>
+        <script src="bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+    </footer>
+</body>
