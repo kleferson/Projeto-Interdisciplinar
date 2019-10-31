@@ -65,7 +65,7 @@ router.post('/cadastrar-prontuario/new-prontuario', (req,res)=>{
     //criando o schema no banco
     new prontuario(novoProntuario).save().then(()=>{
         req.flash('success_msg', 'Prontuario cadastrado com sucesso!')
-        res.redirect('/')
+        res.redirect('/showprontuarios')
     }).catch((erro)=>{
         req.flash('error_msg', 'Houve um erro, Tente Novamente!')
         console.log('Erro: '+erro)
@@ -89,6 +89,31 @@ router.get('/showprontuarios', (req,res)=>{
     }).catch((erro)=>{
         req.flash('error_msg','Houve um erro ao listar os prontuarios')
         res.redirect('/')
+    })
+})
+
+//Editando prontuario
+router.get('/showprontuarios/edit/:id', (req,res)=>{
+    prontuario.findOne({_id:req.params.id}).then((prontuario)=>{
+        res.render('usuario/edit', {prontuario: prontuario})
+    }).catch((erro)=>{
+        req.flash('error_msg', 'Este prontuario não existe')
+        res.redirect('/showprontuarios')
+    })
+    
+})
+
+router.post('/showprontuarios/edit', (req,res)=>{
+    prontuario.findOne({_id:req.body.id}).then((prontuario)=>{
+    prontuario.nome = req.body.nome
+    prontuario.endereco = req.body.endereco
+    prontuario.save().then(()=>{
+        req.flash('success_msg', 'Prontuario editado com sucesso!')
+        res.redirect('/showprontuarios')
+    })
+    }).catch((erro)=>{
+        req.flash('error_msg', 'Houve um erro ao editar prontuario')
+        res.redirect('/showprontuarios')
     })
 })
 

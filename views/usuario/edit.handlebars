@@ -1,0 +1,15 @@
+<form action="/showprontuarios/edit" method="POST">
+<input type="hidden" name="id" value="{{prontuario._id}}" >
+  <div class="row">
+    <div class="col">
+        <label for="login">Nome</label>
+        <input type="text" class="form-control" name="nome" value="{{prontuario.nome}}">
+    </div>
+    <div class="col">
+        <label for="senha">Endereço</label> 
+        <input type="text" class="form-control" name="endereco" value="{{prontuario.endereco}}">
+    </div>
+  </div>
+      <br>
+    <button type="submit" class="btn btn-success">Editar</button>
+</form>
