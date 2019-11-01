@@ -19,7 +19,7 @@ router.get('/login', (req,res)=>{
 router.get('/login/cadastrar-usuario',(req,res)=>{
     res.render('usuario/adduser')
 })
-
+//validando cadastro
 router.post('/login/cadastrar-usuario/newuser',(req,res)=>{
     var erros = []
     if(!req.body.login || typeof req.body.login == undefined || req.body.login == null){
@@ -56,20 +56,30 @@ router.post('/login/cadastrar-usuario/newuser',(req,res)=>{
 router.get('/cadastrar-prontuario', (req,res)=>{
     res.render('usuario/addprontuario')
 })
-
+//validando cadastro
 router.post('/cadastrar-prontuario/new-prontuario', (req,res)=>{
-    const novoProntuario ={
+    var erros = []
+    if(!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null){
+        erros.push({texto: 'Nome Vazio!'})
+    }
+
+    if(erros.length > 0){
+        res.render('usuario/addprontuario', {erros: erros})
+    }else{
+        const novoProntuario ={
         nome: req.body.nome,
         endereco: req.body.endereco
+        }
+        //criando o schema no banco
+        new prontuario(novoProntuario).save().then(()=>{
+            req.flash('success_msg', 'Prontuario cadastrado com sucesso!')
+            res.redirect('/showprontuarios')
+        }).catch((erro)=>{
+            req.flash('error_msg', 'Houve um erro, Tente Novamente!')
+            console.log('Erro: '+erro)
+        })
     }
-    //criando o schema no banco
-    new prontuario(novoProntuario).save().then(()=>{
-        req.flash('success_msg', 'Prontuario cadastrado com sucesso!')
-        res.redirect('/showprontuarios')
-    }).catch((erro)=>{
-        req.flash('error_msg', 'Houve um erro, Tente Novamente!')
-        console.log('Erro: '+erro)
-    })
+    
 })
 
 //rota de visualização de usuarios
