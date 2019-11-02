@@ -1,16 +1,28 @@
-<center><h1>Prontuarios</h1></center>
+<center>
+    <h1>Prontuarios</h1>
+</center>
 <hr>
 <a href="/cadastrar-prontuario" class="btn btn-primary">Cadastrar Prontuario</a>
+
+
 {{#each prontuarios}}
-    <div class="card mt-4">
-        <div class="card-body">
-            <h4>{{nome}}</h4>
-            <h6>{{endereco}}</h6>
-            <h5>{{date}}</h5>
-            <a href="/showprontuarios/edit/{{_id}}"><button class="btn btn-success mt-4">Editar Prontuario</button></a>
-        </div>
+<div class="card mt-4">
+    <div class="card-body">
+        <h4>{{nome}}</h4>
+        <small>{{endereco}}</small><br>
+        <h5>{{date}}</h5>
+        <a href="/showprontuarios/edit/{{_id}}"><button class="btn btn-success mt-4">Editar Prontuario</button></a>
+        <form action="/showprontuarios/delete/" method="POST">
+            <input type="hidden" name="id" value="{{_id}}">
+            <button type="submit" class="btn btn-danger mt-2">Deletar</button>
+        </form>
     </div>
+</div>
 
 {{else}}
-
+    <div class="card mt-4">
+        <div class="card-body">
+            <h4>Nenhum prontuario cadastrado!</h4>
+        </div>
+    </div>
 {{/each}}
