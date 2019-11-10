@@ -1,0 +1,28 @@
+{{>_navbar}}
+<div class="container mt-4">
+    {{>_msg}}
+    <center>
+        <h1>Usuarios</h1>
+    </center>
+    {{#each usuarios}}
+    <div class="card mt-4">
+        <div class="card-body">
+            <h4>{{nome}}</h4>
+            <small>{{senha}}</small>
+            <h5>{{email}}</h5>
+            <a href="/admin/showuser/edit/{{_id}}"><button class="btn btn-success mt-4">Editar</button></a>
+            <form action="/admin/showuser/delete" method="POST">
+                <input type="hidden" name="id" value="{{_id}}">
+                <button type="submit" class="btn btn-danger mt-2">Deletar</button>
+            </form>
+        </div>
+    </div>
+
+    {{else}}
+    <div class="card mt-4">
+        <div class="card-body">
+            <h4>Nenhum usuario cadastrado!</h4>
+        </div>
+    </div>
+</div>
+{{/each}}

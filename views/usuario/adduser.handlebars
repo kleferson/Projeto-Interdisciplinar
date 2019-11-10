@@ -3,26 +3,39 @@
 {{else}}
 
 {{/each}}
-<form action="/login/cadastrar-usuario/newuser" method="POST">
-  <div class="row">
-    <div class="col">
-        <label for="login">Nome</label>
-        <input type="text" class="form-control" name="login">
+<head>
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <div class="container mt-4">
+        {{>_msg}}
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Cadastro de Usuário</h5>
+                        <form action="/login/cadastrar-usuario/newuser" method="POST" class="form-signin" >
+                            <div class="form-label-group">
+                                <input type="text" id="inputEmail" class="form-control" name="nome" placeholder="Nome"
+                                    required>
+                                <label for="inputEmail">Nome de Usuário</label>
+                            </div>
+                            <div class="form-label-group">
+                                <input type="email" id="inputPassword" class="form-control" name="email" placeholder="Email"
+                                    required>
+                                <label for="inputPassword">Endereço de Email</label>
+                            </div>
+                            <div class="form-label-group">
+                                <input type="password" id="inputPassword" class="form-control" name="senha" placeholder="Senha"
+                                    required>
+                                <label for="inputPassword">Senha</label>
+                            </div>
+                            <button class="btn btn-success btn-block text-uppercase" type="submit">Cadastrar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col">
-        <label for="senha">Senha</label> 
-        <input type="password" class="form-control" name="senha">
-    </div>
-  </div>
-      <br>
-    <button type="submit" class="btn btn-success">Cadastrar</button>
-</form>
-
-<!--<form action="/login/cadastrar-usuario/newuser" method="POST">
-    <label for="login">Nome</label>
-        <input type="text" class="form-control" id="nome" name="login" placeholder="Entre com seu nome">
-    <label for="senha">Senha</label>
-        <input type="password" class="form-control" id="senha" name="senha" placeholder="Entre com sua senha">
-    <br>
-    <button type="submit" class="btn btn-success">Cadastrar</button>
-</form>
+</body>

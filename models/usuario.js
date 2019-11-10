@@ -2,7 +2,11 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const Usuario = new Schema({
-    login: {
+    nome: {
+        type: String,
+        required: true
+    },
+    email: {
         type: String,
         required: true
     },
@@ -10,9 +14,9 @@ const Usuario = new Schema({
         type: String,
         required: true
     },
-    date: {
-        type: Date,
-        default: Date.now()
+    admin: {
+        type: Number,
+        default: 0
     }
 })
 

@@ -1,19 +1,361 @@
 {{#each erros}}
-    <div class="alert alert-danger">{{texto}}</div>
+<div class="alert alert-danger">{{texto}}</div>
 {{else}}
 
 {{/each}}
-<form action="/cadastrar-prontuario/new-prontuario" method="POST">
-  <div class="row">
-    <div class="col">
-        <label for="login">Nome</label>
-        <input type="text" class="form-control" name="nome">
+
+<head>
+
+  <title>Cadastro</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="/css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+  {{>_navbar}}
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">Prontuário WEB </div>
+      <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item list-group-item-action bg-light">Prontuário1</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Prontuário2</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Prontuário3</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Prontuário4</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Prontuário5</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Prontuário6</a>
+      </div>
     </div>
-    <div class="col">
-        <label for="senha">Endereço</label> 
-        <input type="text" class="form-control" name="endereco">
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <button class="btn btn-primary" id="menu-toggle">Menu</button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        &ensp;&nbsp;
+
+        <!-- Busca -->
+        <!-- <form id="demo-2"> -->
+        <form id="demo-2" class="example" action="http://www.fasipecpa.com.br/">
+          <input type="search" placeholder="Search">
+        </form>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Homepage <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/showprontuarios">Prontuários</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Áreas
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Bio Medicina</a>
+                <a class="dropdown-item" href="#">Medicina</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Enfermagem</a>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+      </nav>
+      <div class="container-fluid">
+        <h1 class="mt-4">Prontuário Enfermagem </h1>
+        <br>
+
+        {{>_msg}}
+
+        <!--Botao novo e cancelar-->
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h3>Cadastro</h3>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group mr-2">
+              <button type="button" class="btn btn-sm btn-outline-primary">Novo</button>
+              <button type="button" class="btn btn-sm btn-outline-primary">Cancelar</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulario do prontuário-->
+        <form action="/cadastrar-prontuario/new-prontuario" method="POST">
+          <br>
+          <!-- Nome,data de nascimento-->
+          <div class="form-row">
+            <div class="form-group col">
+              <label>Nome completo</label>
+              <input type="text" name="nome" class="form-control">
+            </div>
+            <div class="col">
+              <label>Data de nasc.</label>
+              <input type="date" name="data_nasc" class="form-control">
+            </div>
+            <div class="col">
+              <label>Ocupação</label>
+              <input type="text" name="ocupacao" class="form-control">
+            </div>
+          </div>
+
+          <!-- Email,telefone,sexo -->
+          <div class="form-row">
+            <div class="form-group col">
+              <label for="inputEmail4">Email</label>
+              <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+            </div>
+            <div class="form-group col">
+              <label for="inputPassword4">Telefone</label>
+              <input type="number" name="telefone" class="form-control" id="telefone" placeholder="(65) 9999 9999">
+            </div>
+            <div class="form group col">
+              <label>Sexo:</label>
+              <select name="sexo" class="form-control">
+                <option>Masculino</option>
+                <option>Feminino</option>
+              </select>
+            </div>
+          </div>
+
+          <!--Escolariedade,ocupação-->
+          <div class="form-row">
+            <div class="col -auto">
+              <label>Ocupação</label>
+              <input type="text" name="ocupacao" class="form-control">
+            </div>
+            <div class="col">
+              <label>Escolaridade</label>
+              <input type="text" name="escolaridade" class="form-control">
+            </div>
+          </div>
+          <br>
+
+          <!--Observacões-->
+          <div class="row">
+            <div class="col">
+              <label>Observações</label>
+              <textarea class="form-control" name="observacoes" id="observacoes" rows="4"></textarea>
+            </div>
+          </div>
+          <br>
+
+          <!--cep,endereço,numero-->
+          <div class="form -group row">
+            <div class="col">
+              <label>CEP</label>
+              <input type="number" name="cep" class="form-control" id="cep">
+            </div>
+            <div class="col">
+              <label>Endereço</label>
+              <input type="text" name="endereco" class="form-control" name="endereco" id="endereco">
+            </div>
+            <div class="col">
+              <label>Numero</label>
+              <input type="number" name="numero" class="form-control" id="numero">
+            </div>
+          </div>
+          <br>
+
+          <!--Complemento,bairro-->
+          <div class="form-row">
+            <div class="form-group col">
+              <label>Complemento</label>
+              <input type="text" name="complemento" class="form-control" id="complemento">
+            </div>
+            <div class="form-group col">
+              <label>Bairro</label>
+              <input type="text" name="bairro" class="form-control" id="bairro">
+            </div>
+          </div>
+
+          <!--Cidade,estado,pais-->
+          <div class="form-row">
+            <div class="form-group col">
+              <label>Cidade</label>
+              <input type="text" name="cidade" class="form-control" id="cidade">
+            </div>
+            <div class="col">
+              <label>Estado</label>
+              <input type="text" name="estado" class="form-control" id="estado">
+            </div>
+            <div class="col">
+              <label>Pais</label>
+              <input type="text" name="pais" class="form-control" id="pais">
+            </div>
+          </div>
+          <br>
+
+          <!--limitações-->
+          <div class="form-row">
+            <label>Limitação</label>
+            <div class="form-group col">
+              <input type="text" name="limitacao" class="form-control" placeholder="Outros">
+            </div>
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <div class="col">
+                <input class="form-check-input" type="checkbox" id="cognitiva" value="option1">
+                <label class="form-check-label" for="inlineCheckbox1">Cognitiva</label>
+              </div>
+            </div>
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <div class="col">
+                <input class="form-check-input" type="checkbox" id="locomoção" value="option2">
+                <label class="form-check-label" for="inlineCheckbox2">Locomoção</label>
+              </div>
+            </div>
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <div class="col">
+                <input class="form-check-input" type="checkbox" id="visão" value="option2">
+                <label class="form-check-label" for="inlineCheckbox2">Visão</label>
+              </div>
+            </div>
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <div class="col">
+                <input class="form-check-input" type="checkbox" id="audição" value="option2">
+                <label class="form-check-label" for="inlineCheckbox2">Audição</label>
+              </div>
+            </div>
+          </div>
+
+          <!--Alergia-->
+          <div class="form-group">
+            <label>Alergia</label>
+            <input type="text" name="alergia" class="form-control" id="alergia">
+          </div>
+          <div class="form-group">
+            <label>Motivo do Atendimento</label>
+            <input type="text" name="motivo_atendimento" class="form-control" id="motivoatendimento">
+          </div>
+
+          <!--Sinais Vitais-->
+          <div class="form-row">
+            <label>Sinais Vitais:</label>
+            &nbsp;&nbsp;&nbsp;
+            <label>PA</label>
+            <div class="form-group col">
+              <input type="text" name="pa" class="form-control" id="pa">
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <label>FC</label>
+            <div class="form-group col">
+              <input type="text" name="fc" class="form-control" id="fc">
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <label>FR</label>
+            <div class="form-group col">
+              <input type="text" name="fr" class="form-control" id="fr">
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <label>T</label>
+            <div class="form-group col">
+              <input type="text" name="t" class="form-control" id="t">
+            </div>
+          </div>
+
+          <!--Doencas Cronicas-->
+          <div class="form-row">
+            <div class="form-group col -auto">
+              <label>Doenças Cronicas:</label>
+              <input type="text" name="doencas_cronicas" class="form-control" id="doencascronicas">
+            </div>
+          </div>
+
+          <!--Queixa-->
+          <div class="form-row">
+            <div class="form-group col -auto">
+              <label>Queixa no momento:</label>
+              <input type="text" name="queixa" class="form-control" id="queixamomento">
+            </div>
+          </div>
+
+          <!--Anamnese-->
+          <div class="form-row">
+            <div class="form-group col -auto">
+              <label>Anamnese</label>
+              <textarea class="form-control" name="anamnese" id="anamnese" rows="4"></textarea>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col -auto">
+              <label>Exame Fisico</label>
+              <textarea class="form-control" name="exame_fisico" id="examefisico" rows="4"></textarea>
+            </div>
+          </div>
+
+          <!-- Botão cadastrar -->
+
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+            Cadastrar
+          </button>
+
+          <!-- Gatilho do botão cadastrar -->
+
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  Deseja cadastrar o prontuário
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                  <button type="submit" class="btn btn-primary">Sim</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          &nbsp;
+          <!--Botão resetar -->
+          <button type="reset" class="btn btn-secondary col-md-1 mb-0">Limpar</button>
+
+        </form>
+
+      </div>
+
+
     </div>
   </div>
-      <br>
-    <button type="submit" class="btn btn-success">Cadastrar</button>
-</form>
+  <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function (e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+</body>
+
+</html>

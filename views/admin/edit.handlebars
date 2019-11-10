@@ -1,0 +1,30 @@
+{{>_navbar}}
+
+<div class="container mt-4">
+  {{#each erros}}
+  <div class="alert alert-danger">{{texto}}</div>
+  {{else}}
+
+  {{/each}}
+  <form action="/admin/showuser/edit" method="POST">
+    <input type="hidden" name="id" value="{{usuarios._id}}">
+    <div class="row">
+      <div class="col">
+        <label for="login">Nome</label>
+        <input type="text" class="form-control" name="nome" value="{{usuarios.nome}}">
+      </div>
+      <div class="col">
+        <label for="senha">Email</label>
+        <input type="text" class="form-control" name="email" value="{{usuarios.email}}">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="login">Senha</label>
+        <input type="text" class="form-control" name="senha" value="{{usuarios.senha}}">
+      </div>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-success">Editar</button>
+  </form>
+</div>
