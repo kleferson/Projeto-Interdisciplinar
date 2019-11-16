@@ -86,17 +86,38 @@ router.post('/cadastrar-prontuario/new-prontuario', (req, res) => {
         erros.push({ texto: 'Nome Vazio!' })
     }
 
-    if (!req.body.endereco || typeof req.body.endereco == undefined || req.body.endereco == null) {
-        erros.push({ texto: 'Endereço Vazio!' })
-    }
-
     if (erros.length > 0) {
         res.render('usuario/addprontuario', { erros: erros })
     } else {
-
         const novoProntuario = {
             nome: req.body.nome,
-            endereco: req.body.endereco
+            data_nasc: req.body.data_nasc,
+            ocupacao: req.body.ocupacao,
+            email: req.body.email,
+            telefone: req.body.telefone,
+            sexo: req.body.sexo,
+            escolaridade: req.body.escolaridade,
+            observacoes: req.body.observacoes,
+            cep: req.body.cep,
+            endereco: req.body.endereco,
+            numero: req.body.numero,
+            complemento: req.body.complemento,
+            bairro: req.body.bairro,
+            cidade: req.body.cidade,
+            estado: req.body.estado,
+            pais: req.body.pais,
+            limitacao: req.body.limitacao,
+            alergia: req.body.alergia,
+            motivo_atendimento: req.body.motivo_atendimento,
+            pa: req.body.pa,
+            fc: req.body.fc,
+            fr: req.body.fr,
+            t: req.body.t,
+            doencas_cronicas: req.body.doencas_cronicas,
+            queixa_momento: req.body.queixa_momento,
+            anamnese: req.body.anamnese,
+            exame_fisico: req.body.exame_fisico,
+            aluno: req.body.aluno,
         }
         //criando o schema no banco
         new prontuario(novoProntuario).save().then(() => {

@@ -4,7 +4,7 @@ module.exports ={
             return next()
         }
         
-        req.flash('error_msg', 'Usuario sem permissão!')
-        res.redirect('/')
+        req.flash('error_msg', 'Faça login para continuar!')
+        res.redirect('/login')
     },
 }
