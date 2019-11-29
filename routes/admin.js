@@ -17,6 +17,27 @@ router.get('/', eAdmin, (req, res) => {
         res.redirect('/')
     })
 })
+//Editar Prontuário
+router.get('/showprontuarios/edit/:id', eAdmin, (req, res) => {
+    prontuario.findOne({ _id: req.params.id }).then((prontuario) => {
+        res.render('admin/edit', { prontuario: prontuario })
+    }).catch((erro) => {
+        req.flash('error_msg', 'Este prontuário não existe')
+        res.redirect('/showprontuarios')
+    })
+
+})
+
+//Deletar Prontuário
+router.post('/showprontuarios/delete', (req, res) => {
+    prontuario.remove({ _id: req.body.id }).then(() => {
+        req.flash('success_msg', 'Prontuário deletado com sucesso!')
+        res.redirect('/admin')
+    }).catch((erro) => {
+        req.flash('error_msg', 'Houve um erro ao deletar o prontuario')
+        res.redirect('/admin')
+    })
+})
 
 //rota de visualização de usuarios
 router.get('/showuser', eAdmin, (req, res) => {

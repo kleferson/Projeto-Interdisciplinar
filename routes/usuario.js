@@ -10,7 +10,7 @@ const bcrypt = require('bcryptjs')
 const { eUser } = require('../helpers/eUser')
 
 //rotas
-router.get('/', (req, res) => {
+router.get('/', eUser, (req, res) => {
     res.render('usuario/index')
 })
 
@@ -23,6 +23,10 @@ router.post('/login/cadastrar-usuario/newuser', (req, res) => {
 
     if (!req.body.senha || typeof req.body.senha == undefined || req.body.senha == null) {
         erros.push({ texto: 'Senha Invalida!' })
+    }
+
+    if (req.body.senha != req.body.senha2) {
+        erros.push({ texto: 'Senhas não conferem!' })
     }
 
     if (!req.body.email || typeof req.body.email == undefined || req.body.email == null) {
@@ -47,9 +51,9 @@ router.post('/login/cadastrar-usuario/newuser', (req, res) => {
                     senha: req.body.senha
                 })
 
-                bcrypt.genSalt(10,(erro,salt)=>{
-                    bcrypt.hash(novoUsuario.senha, salt, (erro,hash)=>{
-                        if(erro){
+                bcrypt.genSalt(10, (erro, salt) => {
+                    bcrypt.hash(novoUsuario.senha, salt, (erro, hash) => {
+                        if (erro) {
                             req.flash('error_msg', 'Houve um erro no salvamento')
                             res.redirect('/login/cadastrar-usuario')
                         }
@@ -173,17 +177,6 @@ router.post('/showprontuarios/edit', (req, res) => {
     })
 })
 
-//Deletando prontuario
-router.post('/showprontuarios/delete', (req, res) => {
-    prontuario.remove({ _id: req.body.id }).then(() => {
-        req.flash('success_msg', 'Prontuário deletado com sucesso!')
-        res.redirect('/showprontuarios')
-    }).catch((erro) => {
-        req.flash('error_msg', 'Houve um erro ao deletar o prontuario')
-        res.redirect('/showprontuarios')
-    })
-})
-
 //rota de login
 router.get('/login', (req, res) => {
     res.render('usuario/login')
@@ -200,7 +193,7 @@ router.post('/login', (req, res, next) => {
 router.get('/logout', (req, res) => {
     req.logout()
     req.flash('success_msg', 'Deslogado com sucesso')
-    res.redirect('/')
+    res.redirect('/login')
 })
 
 //rota de cadastro de usuarios

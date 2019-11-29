@@ -1,346 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
 <head>
 
-  <title>Cadastro</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-  <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <title>Prontuário Eletrônico</title>
 
-  <!-- Custom styles for this template -->
-  <link href="/css/simple-sidebar.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
-<body>
-  {{>_navbar}}
+<body id="page-top">
 
-  <div class="d-flex" id="wrapper">
+  <!-- Page Wrapper -->
+  <div id="wrapper">
 
     <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Prontuário WEB </div>
-      <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light">Prontuário1</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Prontuário2</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Prontuário3</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Prontuário4</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Prontuário5</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Prontuário6</a>
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">Painel <sup></sup></div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Opções
       </div>
-    </div>
-    <!-- /#sidebar-wrapper -->
 
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
+      <!-- inicio nav-item -->
+      <li class="nav-item">
+        <a class="nav-link" href="/">
+          <i class="fas fa-fw fa-home"></i>
+          <span>Inicío</span></a>
+      </li>
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <button class="btn btn-primary" id="menu-toggle">Menu</button>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+      <!-- Formularios nav-item -->
+      <li class="nav-item">
+        <a class="nav-link" href="/showprontuarios">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Formulários</span></a>
+      </li>
 
-        &ensp;&nbsp;
+      <!-- Nav Item - Prontuarios -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+          aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-clipboard"></i>
+          <span>Prontuário</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Opções</h6>
+            <a class="collapse-item" href="/cadastrar-prontuario">Criar</a>
+            <a class="collapse-item" href="/showprontuarios">Editar</a>
+            <a class="collapse-item" href="#">Pesquisar</a>
+          </div>
+        </div>
+      </li>
 
-        <!-- Busca -->
-        <!-- <form id="demo-2"> -->
-        <form id="demo-2" class="example" action="http://www.fasipecpa.com.br/">
-          <input type="search" placeholder="Search">
-        </form>
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
 
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Homepage <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/showprontuarios">Prontuários</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Search -->
+          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Pesquisar..."
+                aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                Áreas
+                <i class="fas fa-search fa-fw"></i>
               </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Bio Medicina</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Medicina</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Enfermagem</a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                      aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
               </div>
             </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                {{#if user}}
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user.nome}}</span>
+                {{/if}}
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Perfil
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Configurações
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Registro de atividades
+                </a>
+                {{#if user.admin}}
+                <a class="dropdown-item" href="/admin">
+                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Painel de Administrador
+                </a>
+                {{/if}}
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/lougout" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Sair
+                </a>
+              </div>
+            </li>
+
           </ul>
 
-        </div>
+        </nav>
+      </div>
+      <!-- End of Topbar -->
 
-      </nav>
+      <!-- Begin Page Content -->
       <div class="container-fluid">
-        <h1 class="mt-4">Prontuário Enfermagem </h1>
-        <br>
 
-        {{>_msg}}
-        {{#each erros}}
-        <div class="alert alert-danger">{{texto}}</div>
-        {{else}}
-
-        {{/each}}
-
-        <!--Botao novo e cancelar-->
-        <div
-          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h3>Cadastro</h3>
-        </div>
-
-        <!-- Formulario do prontuário-->
         <form action="/cadastrar-prontuario/new-prontuario" method="POST">
-          <br>
           <input type="hidden" name="aluno" value="{{user.nome}}">
-          <!-- Nome,data de nascimento-->
+          <br>
+          <!-- inicio do Prontuário -->
+          <!-- Nome do prontuario e nome completo,data de abertura-->
+          {{>_msg}}
+          {{#each erros}}
+          <div class="alert alert-danger">{{texto}}</div>
+          {{else}}
+
+          {{/each}}
+          <h1>Cadastrar Prontuário</h1>
+          <br>
+
           <div class="form-row">
             <div class="form-group col">
+              <label>Nome do prontuário</label>
+              <input type="text" class="form-control" id="nomepront" name="nompront">
+            </div>
+
+            <div class="col">
+              <label>Data de Abertura.</label>
+              <input type="date" class="form-control" id="dataAbertura" name="databert">
+            </div>
+
+            <div class="col">
               <label>Nome completo</label>
-              <input type="text" name="nome" class="form-control">
+              <input type="text" class="form-control" id="nome" name="nome">
             </div>
-            <div class="col">
-              <label>Data de nasc.</label>
-              <input type="date" name="data_nasc" class="form-control">
-            </div>
-            <div class="col">
-              <label>Ocupação</label>
-              <input type="text" name="ocupacao" class="form-control">
-            </div>
+
           </div>
 
-          <!-- Email,telefone,sexo -->
+          <!-- data nascimento,endereço,sexo -->
           <div class="form-row">
             <div class="form-group col">
-              <label for="inputEmail4">Email</label>
-              <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+              <label>Data de nascimento</label>
+              <input type="date" class="form-control" id="data_nasc" name="data_nasc">
             </div>
-            <div class="form-group col">
-              <label for="inputPassword4">Telefone</label>
-              <input type="number" name="telefone" class="form-control" id="telefone" placeholder="(65) 9999 9999">
+
+            <div class="col">
+              <label>Endereço</label>
+              <input type="text" class="form-control" id="endereco" name="endereco">
             </div>
-            <div class="form group col">
+
+            <div class="col" id="sexo">
               <label>Sexo:</label>
-              <select name="sexo" class="form-control">
+              <select class="form-control" name="sexo">
                 <option>Masculino</option>
                 <option>Feminino</option>
               </select>
             </div>
+
           </div>
 
-          <!--Escolariedade,ocupação-->
+          <!-- Email,telefone,nome responsavel,escolaridade -->
           <div class="form-row">
+            <div class="form-group col">
+              <label for="inputEmail4">Email</label>
+              <input type="email" class="form-control" id="email1" placeholder="exemplo@gmail.com" name="email">
+            </div>
+            <div class="col">
+              <label for="inputPassword4">Telefone</label>
+              <input type="tel" class="form-control" id="telefone1" placeholder="(65) 9999 9999" name="telefone">
+            </div>
+
             <div class="col">
               <label>Escolaridade</label>
-              <input type="text" name="escolaridade" class="form-control">
+              <select class="form-control" name="escolaridade" id="escol">
+                <option>Médio</option>
+                <option>Superior</option>
+                <option>Pos-Graduado</option>
+                <option>Mestrado</option>
+                <option>Doutorado</option>
+              </select>
             </div>
+
+          </div>
+
+          <!-- contato,nome responsavel/cuidador -->
+          <div class="form-group" id="cuidador">
+            <label>Nome, Telefone ou outro tipo tipo de contato do responsável/cuidador (se aplicável)</label>
+            <input type="text" class="form-control" id="cuidador1" name="observacoes">
           </div>
           <br>
-
-          <!--Observacões-->
-          <div class="row">
-            <div class="col">
-              <label>Observações</label>
-              <textarea class="form-control" name="observacoes" id="observacoes" rows="4"></textarea>
-            </div>
-          </div>
+          <hr>
+          <h1>Dados Clínicos</h1>
           <br>
-
-          <!--cep,endereço,numero-->
-          <div class="form -group row">
-            <div class="col">
-              <label>CEP</label>
-              <input type="number" name="cep" class="form-control" id="cep">
-            </div>
-            <div class="col">
-              <label>Endereço</label>
-              <input type="text" name="endereco" class="form-control" name="endereco" id="endereco">
-            </div>
-            <div class="col">
-              <label>Numero</label>
-              <input type="number" name="numero" class="form-control" id="numero">
-            </div>
-          </div>
-          <br>
-
-          <!--Complemento,bairro-->
+          <!--Alergia, ocupação-->
           <div class="form-row">
             <div class="form-group col">
-              <label>Complemento</label>
-              <input type="text" name="complemento" class="form-control" id="complemento">
+              <label>Alergia</label>
+              <input type="text" class="form-control" id="alergia1" name="alergia">
             </div>
-            <div class="form-group col">
-              <label>Bairro</label>
-              <input type="text" name="bairro" class="form-control" id="bairro">
-            </div>
-          </div>
 
-          <!--Cidade,estado,pais-->
-          <div class="form-row">
-            <div class="form-group col">
-              <label>Cidade</label>
-              <input type="text" name="cidade" class="form-control" id="cidade">
-            </div>
             <div class="col">
-              <label>Estado</label>
-              <input type="text" name="estado" class="form-control" id="estado">
+              <label>Ocupação</label>
+              <select class="form-control" name="ocupacao" id="ocupacao1">
+                <option>Estudante</option>
+                <option>Profissional</option>
+              </select>
             </div>
-            <div class="col">
-              <label>Pais</label>
-              <input type="text" name="pais" class="form-control" id="pais">
-            </div>
+
           </div>
-          <br>
 
           <!--limitações-->
+          </br>
           <div class="form-row">
+
             <label>Limitação</label>
             <div class="form-group col">
-              <input type="text" name="limitacao" class="form-control" placeholder="Outros">
-            </div>
-            <div class="custom-control custom-checkbox custom-control-inline">
-              <div class="col">
-                <input class="form-check-input" type="checkbox" id="cognitiva" value="option1">
-                <label class="form-check-label" for="inlineCheckbox1">Cognitiva</label>
-              </div>
-            </div>
-            <div class="custom-control custom-checkbox custom-control-inline">
-              <div class="col">
-                <input class="form-check-input" type="checkbox" id="locomoção" value="option2">
-                <label class="form-check-label" for="inlineCheckbox2">Locomoção</label>
-              </div>
-            </div>
-            <div class="custom-control custom-checkbox custom-control-inline">
-              <div class="col">
-                <input class="form-check-input" type="checkbox" id="visão" value="option2">
-                <label class="form-check-label" for="inlineCheckbox2">Visão</label>
-              </div>
-            </div>
-            <div class="custom-control custom-checkbox custom-control-inline">
-              <div class="col">
-                <input class="form-check-input" type="checkbox" id="audição" value="option2">
-                <label class="form-check-label" for="inlineCheckbox2">Audição</label>
-              </div>
-            </div>
-          </div>
 
-          <!--Alergia-->
-          <div class="form-group">
-            <label>Alergia</label>
-            <input type="text" name="alergia" class="form-control" id="alergia">
-          </div>
-          <div class="form-group">
-            <label>Motivo do Atendimento</label>
-            <input type="text" name="motivo_atendimento" class="form-control" id="motivoatendimento">
+              <input type="text" class="form-control" placeholder="Outras" id="outras1" name="outras">
+            </div>
+
+            <div class="col">
+              <select class="form-control" name="cognitiva" id="cognitiva1">
+                <option>...</option>
+                <option>Cognitiva</option>
+              </select>
+            </div>
+
+            <div class="col">
+              <select class="form-control" name="locomocao" id="locomocao1">
+                <option>...</option>
+                <option>Locomoção</option>
+              </select>
+            </div>
+
+            <div class="col">
+              <select class="form-control" name="visao" id="visao1">
+                <option>...</option>
+                <option>Visão</option>
+              </select>
+            </div>
+
+            <div class="col">
+              <select class="form-control" name="audicao" id="audicao1">
+                <option>...</option>
+                <option>Audição</option>
+              </select>
+            </div>
+
+
+
           </div>
 
           <!--Sinais Vitais-->
+          <br>
           <div class="form-row">
             <label>Sinais Vitais:</label>
-            &nbsp;&nbsp;&nbsp;
+            &nbsp;
             <label>PA</label>
             <div class="form-group col">
-              <input type="text" name="pa" class="form-control" id="pa">
+              <input type="number" class="form-control" id="pa1" name="pa">
             </div>
             &nbsp;&nbsp;&nbsp;&nbsp;
             <label>FC</label>
             <div class="form-group col">
-              <input type="text" name="fc" class="form-control" id="fc">
+              <input type="number" class="form-control" id="fc1" name="fc">
             </div>
             &nbsp;&nbsp;&nbsp;&nbsp;
             <label>FR</label>
             <div class="form-group col">
-              <input type="text" name="fr" class="form-control" id="fr">
+              <input type="number" class="form-control" id="fr1" name="fr">
             </div>
             &nbsp;&nbsp;&nbsp;&nbsp;
             <label>T</label>
             <div class="form-group col">
-              <input type="text" name="t" class="form-control" id="t">
+              <input type="number" class="form-control" id="t1" name="t">
             </div>
           </div>
+
+          <!--Motivo do atendimento-->
+          <div class="form-group">
+            <label>Motivo do Atendimento</label>
+            <input type="text" class="form-control" id="motivoatendimento1" name="motivo_atendimento">
+          </div>
+
+
 
           <!--Doencas Cronicas-->
           <div class="form-row">
             <div class="form-group col -auto">
               <label>Doenças Cronicas:</label>
-              <input type="text" name="doencas_cronicas" class="form-control" id="doencascronicas">
+              <input type="text" class="form-control" id="doencascronicas1" name="doencas_cronicas">
             </div>
           </div>
-
           <!--Queixa-->
           <div class="form-row">
             <div class="form-group col -auto">
               <label>Queixa no momento:</label>
-              <input type="text" name="queixa" class="form-control" id="queixamomento">
+              <input type="text" class="form-control" id="queixamomento1" name="queixa_momento">
             </div>
           </div>
 
           <!--Anamnese-->
           <div class="form-row">
+
             <div class="form-group col -auto">
               <label>Anamnese</label>
-              <textarea class="form-control" name="anamnese" id="anamnese" rows="4"></textarea>
+              <textarea class="form-control" id="anamnese1" name="anamnese" rows="4"></textarea>
             </div>
           </div>
+
+          <!-- Exame fisico -->
           <div class="form-row">
             <div class="form-group col -auto">
               <label>Exame Fisico</label>
-              <textarea class="form-control" name="exame_fisico" id="examefisico" rows="4"></textarea>
+              <textarea class="form-control" id="examefisico1" name="exame_fisico" rows="4"></textarea>
             </div>
           </div>
 
           <!-- Botão cadastrar -->
-          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-            Cadastrar
-          </button>
+          <center>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+              Cadastrar
+            </button>
 
-          <!-- Gatilho do botão cadastrar -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  Deseja cadastrar o prontuário
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-                  <button type="submit" class="btn btn-primary">Sim</button>
+            <!-- Gatilho do botão cadastrar -->
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    Deseja cadastrar o prontuário
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                    <button type="submit" class="btn btn-primary">Sim</button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          &nbsp;
-          <!--Botão resetar -->
-          <button type="reset" class="btn btn-secondary col-md-1 mb-0">Limpar</button>
-
+            &nbsp;
+            <!--Botão resetar -->
+            <button type="reset" class="btn btn-secondary col-md-1 mb-0">Limpar</button>
+          </center>
         </form>
-
+        <!-- div container fluid -->
       </div>
 
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Prontuário Eletrônico 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
 
     </div>
+    <!-- End of Content Wrapper -->
+
   </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Deseja Sair?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Selecione "Sim" abaixo caso queira sair da sua sessão atual.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Não</button>
+          <a class="btn btn-primary" name="sairsim" href="/logout">Sim</a>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- Bootstrap core JavaScript -->
+  <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Menu Toggle Script -->
-  <script>
-    $("#menu-toggle").click(function (e) {
-      e.preventDefault();
-      $("#wrapper").toggleClass("toggled");
-    });
-  </script>
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
 
