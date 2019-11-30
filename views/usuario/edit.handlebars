@@ -11,14 +11,14 @@
 
   <title>Prontuário Eletrônico</title>
 
-  <!-- Custom fonts for this template-->
+  <!-- Custom fonts for this template
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link
     href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
     rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+  <!--<link href="/css/sb-admin-2.min.css" rel="stylesheet">-->
 
 </head>
 
@@ -51,14 +51,14 @@
 
       <!-- inicio nav-item -->
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="/">
           <i class="fas fa-fw fa-home"></i>
           <span>Inicío</span></a>
       </li>
 
       <!-- Formularios nav-item -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="/showprontuarios">
           <i class="fas fa-fw fa-table"></i>
           <span>Formulários</span></a>
       </li>
@@ -73,9 +73,9 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Opções</h6>
-            <a class="collapse-item" href="form.html">Criar</a>
-            <a class="collapse-item" href="form2.html">Editar</a>
-            <a class="collapse-item" href="404.html">Pesquisar</a>
+            <a class="collapse-item" href="/cadastrar-prontuario">Criar</a>
+            <a class="collapse-item" href="/showprontuarios">Editar</a>
+            <a class="collapse-item" href="#">Pesquisar</a>
           </div>
         </div>
       </li>
@@ -144,94 +144,15 @@
               </div>
             </li>
 
-            <!-- Nav Item - Alerts -->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell fa-fw"></i>
-                <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">2</span>
-              </a>
-              <!-- Dropdown - Alerts -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="alertsDropdown">
-                <h6 class="dropdown-header">
-                  Notificações
-                </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-primary">
-                      <i class="fas fa-file-alt text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">24 De Novembro, 2019</div>
-                    <span class="font-weight-bold">Um novo prontuário foi criado</span>
-                  </div>
-                </a>
-
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-warning">
-                      <i class="fas fa-exclamation-triangle text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">22 De Novembro , 2019</div>
-                    Alerta: Detectamos uma atividade suspeita em sua conta.
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Mostrar todas notificações</a>
-              </div>
-            </li>
-
-            <!-- Nav Item - Messages -->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-envelope fa-fw"></i>
-                <!-- Counter - Messages -->
-                <span class="badge badge-danger badge-counter">2</span>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="messagesDropdown">
-                <h6 class="dropdown-header">
-                  Mensagens
-                </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="imgs/gabe.jfif" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div class="font-weight-bold">
-                    <div class="text-truncate">Half-life 3 confirmed.</div>
-                    <div class="small text-gray-500">Gabe Newell · 1d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="imgs/1.jpg" alt="">
-                    <div class="status-indicator"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Não haverá salário este mês devido ao atraso na entrega</div>
-                    <div class="small text-gray-500">Kleferson · 1d</div>
-                  </div>
-                </a>
-
-                <a class="dropdown-item text-center small text-gray-500" href="#">Ler mais mensagens</a>
-              </div>
-            </li>
-
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Maycon Müller</span>
-                <img class="img-profile rounded-circle" src="imgs/2.jpg">
+                {{#if user}}
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user.nome}}</span>
+                {{/if}}
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -264,9 +185,10 @@
       <!-- Begin Page Content -->
       <div class="container-fluid">
 
-        <form action="/cadastrar-prontuario/new-prontuario" method="POST">
+        <form action="/showprontuarios/edit" method="POST">
           <br>
           <!-- Nome do prontuario e nome completo,data de abertura-->
+          {{>_msg}}
           <input type="hidden" name="id" value="{{prontuario._id}}">
           <div class="form-row">
             <div class="form-group col">
@@ -291,7 +213,7 @@
           <div class="form-row">
             <div class="form-group col">
               <label>Data de nascimento</label>
-              <input type="date" class="form-control" id="datanasc" name="data_nasc" value="{{prontuario.data_nasc}}"
+              <input type="text" class="form-control" id="datanasc" name="data_nasc" value="{{prontuario.data_nasc}}"
                 disabled>
             </div>
 
@@ -302,10 +224,8 @@
 
             <div class="col" id="sexo">
               <label>Sexo:</label>
-              <select class="form-control" name="sexo" value="{{prontuario.sexo}}" disabled>
-                <option>Masculino</option>
-                <option>Feminino</option>
-              </select>
+              <input class="form-control" name="sexo" value="{{prontuario.sexo}}" disabled>
+              </input>
             </div>
 
           </div>
@@ -460,8 +380,7 @@
 
             <div class="form-group col -auto">
               <label>Anamnese</label>
-              <textarea class="form-control" id="anamnese1" name="anamnese" rows="4"
-                value="{{prontuario.anamnese}}"></textarea>
+              <textarea class="form-control" id="anamnese1" name="anamnese" rows="4">{{prontuario.anamnese}}</textarea>
             </div>
           </div>
 
@@ -469,8 +388,8 @@
           <div class="form-row">
             <div class="form-group col -auto">
               <label>Exame Fisico</label>
-              <textarea class="form-control" id="examefisico1" name="exame_fisico" rows="4"
-                value="{{prontuario.exame_fisico}}"></textarea>
+              <textarea class="form-control" id="examefisico1" name="exame_fisico"
+                rows="4">{{prontuario.exame_fisico}}</textarea>
             </div>
           </div>
 

@@ -165,8 +165,8 @@ router.get('/showprontuarios/edit/:id', eUser, (req, res) => {
 
 router.post('/showprontuarios/edit', (req, res) => {
     prontuario.findOne({ _id: req.body.id }).then((prontuario) => {
-        prontuario.nome = req.body.nome
-        prontuario.endereco = req.body.endereco
+        prontuario.anamnese = req.body.anamnese
+        prontuario.exame_fisico = req.body.exame_fisico
         prontuario.save().then(() => {
             req.flash('success_msg', 'Prontuário editado com sucesso!')
             res.redirect('/showprontuarios')
