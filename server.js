@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const app = express();
 const admin = require("./routes/admin")
-const usuario =require("./routes/usuario")
+const usuario = require("./routes/usuario")
 const path = require('path')
 const session = require('express-session')
 const flash = require('connect-flash')
@@ -24,7 +24,7 @@ app.use(passport.session())
 app.use(flash())
 
 //MiddleWare
-app.use((req,res,next)=>{
+app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg')
     res.locals.error_msg = req.flash('error_msg')
     res.locals.error = req.flash('error')
@@ -33,24 +33,24 @@ app.use((req,res,next)=>{
 })
 
 //config Body Parser
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 //config handlebars
-app.engine('handlebars', handlebars({defaultLayout:'main'}))
+app.engine('handlebars', handlebars({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
 //Mongoose
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/app",{ useNewUrlParser: true } ).then(()=>{
+mongoose.connect("mongodb+srv://kleferson:k01250924@prontuarioapp-0it5t.mongodb.net/test?retryWrites=true&w=majority").then(() => {
     console.log('MongoDB started')
-}).catch((erro)=>{
-    console.log('Erro: '+erro)
+}).catch((erro) => {
+    console.log('Erro: ' + erro)
 })
 
 //Public
-app.use(express.static(path.join(__dirname,'public')))
-app.use((req,res,next)=>{
+app.use(express.static(path.join(__dirname, 'public')))
+app.use((req, res, next) => {
     console.log('OI eu SOu o MIddleWAre!')
     next()
 })
@@ -62,7 +62,7 @@ app.use('/', usuario)
 
 //localhost
 const port = 8000
-app.listen(port,()=>{
-    console.log('Servidor Rodando em: 127.0.0.1:' +port)
+app.listen(port, () => {
+    console.log('Servidor Rodando em: 127.0.0.1:' + port)
 })
 
