@@ -61,7 +61,7 @@ app.use('/', usuario)
 
 
 //localhost
-const port = 8000
+const port = process.env.PORT || 8000
 app.listen(port, () => {
     console.log('Servidor Rodando em: 127.0.0.1:' + port)
 })
