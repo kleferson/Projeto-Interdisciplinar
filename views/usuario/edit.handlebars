@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
 
@@ -11,14 +11,14 @@
 
   <title>Prontuário Eletrônico</title>
 
-  <!-- Custom fonts for this template
+  <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link
     href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
     rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <!--<link href="/css/sb-admin-2.min.css" rel="stylesheet">-->
+  <link href="/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -31,7 +31,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -63,30 +63,12 @@
           <span>Formulários</span></a>
       </li>
 
-      <!-- Nav Item - Prontuarios -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-          aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-clipboard"></i>
-          <span>Prontuário</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Opções</h6>
-            <a class="collapse-item" href="/cadastrar-prontuario">Criar</a>
-            <a class="collapse-item" href="/showprontuarios">Editar</a>
-            <a class="collapse-item" href="#">Pesquisar</a>
-          </div>
-        </div>
-      </li>
+      
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
-      <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
+      
 
     </ul>
     <!-- End of Sidebar -->
@@ -132,7 +114,7 @@
                 aria-labelledby="searchDropdown">
                 <form class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Pesquisar..."
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                       aria-label="Search" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                       <button class="btn btn-primary" type="button">
@@ -156,20 +138,26 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="404.html">
+                <a class="dropdown-item" href="#">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Perfil
                 </a>
-                <a class="dropdown-item" href="404.html">
+                <a class="dropdown-item" href="#">
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                   Configurações
                 </a>
-                <a class="dropdown-item" href="404.html">
+                <a class="dropdown-item" href="#">
                   <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                   Registro de atividades
                 </a>
+                {{#if user.admin}}
+                <a class="dropdown-item" href="/admin">
+                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Painel de Administrador
+                </a>
+                {{/if}}
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="404.html" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="/lougout" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Sair
                 </a>
@@ -394,39 +382,12 @@
           </div>
 
           <!-- Botão cadastrar -->
-          <center>
-            <button type="button" name="salvar" class="btn btn-primary " data-toggle="modal"
-              data-target="#exampleModal">
-              Salvar
-            </button>
+         <center>
+         <button type="submit" name="salvar" class="btn btn-primary">Salvar</button>
 
+            <!--Botão voltar -->
 
-            <!-- Gatilho do botão cadastrar -->
-
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-              aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    Deseja salvar as alterações?
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-                    <button type="submit" name="salvarsim" class="btn btn-primary">Sim</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!--Botão resetar -->
-
-            <a class="btn btn-secondary" href="index.html">Voltar</a>
+            <a class="btn btn-secondary" href="/showprontuarios">Voltar</a>
           </center>
         </form>
         <!-- div container fluid -->
@@ -469,7 +430,7 @@
         <div class="modal-body">Selecione "Sim" abaixo caso queira sair da sua sessão atual.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Não</button>
-          <a class="btn btn-primary" name="sairsim" href="404.html">Sim</a>
+          <a class="btn btn-primary" name="sairsim" href="/logout">Sim</a>
         </div>
       </div>
     </div>
