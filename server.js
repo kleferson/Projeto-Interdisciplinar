@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars')
 
 //Mongoose
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb+srv://kleferson:k01250924@prontuarioapp-0it5t.mongodb.net/test?retryWrites=true&w=majority").then(() => {
+mongoose.connect("mongodb+srv://kleferson:Gt1A82wif9kmcbas@prontuarioapp-0it5t.mongodb.net/test?retryWrites=true&w=majority", { useUnifiedTopology: true }).then(() => {
     console.log('MongoDB started')
 }).catch((erro) => {
     console.log('Erro: ' + erro)
@@ -51,7 +51,6 @@ mongoose.connect("mongodb+srv://kleferson:k01250924@prontuarioapp-0it5t.mongodb.
 //Public
 app.use(express.static(path.join(__dirname, 'public')))
 app.use((req, res, next) => {
-    console.log('OI eu SOu o MIddleWAre!')
     next()
 })
 
