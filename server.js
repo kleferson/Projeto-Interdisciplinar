@@ -2,7 +2,7 @@ const express = require('express')
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-const app = express();
+const app = express()
 const admin = require("./routes/admin")
 const usuario = require("./routes/usuario")
 const path = require('path')
@@ -64,4 +64,3 @@ const port = process.env.PORT || 8000
 app.listen(port, () => {
     console.log('Servidor Rodando em: 127.0.0.1:' + port)
 })
-

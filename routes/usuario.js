@@ -3,15 +3,19 @@ const router = express.Router()
 const mongoose = require('mongoose')
 require("../models/usuario")
 require("../models/prontuario")
+require("../models/postagem")
 const Usuario = mongoose.model("usuarios")
 const prontuario = mongoose.model("prontuarios")
+const postagem = mongoose.model("postagens")
 const passport = require('passport')
 const bcrypt = require('bcryptjs')
 const { eUser } = require('../helpers/eUser')
 
 //rotas
 router.get('/', eUser, (req, res) => {
-    res.render('usuario/index')
+    postagem.find().sort({ date: 'desc' }).then((postagens) => {
+        res.render('usuario/index', { postagens: postagens })
+    })
 })
 
 //validando cadastro
@@ -132,6 +136,19 @@ router.post('/cadastrar-prontuario/new-prontuario', (req, res) => {
 
 })
 
+router.post('/newpost', (req, res) => {
+    const novaPostagem = {
+        autor: req.body.autor,
+        conteudo: req.body.conteudo
+    }
+
+    new postagem(novaPostagem).save().then(() => {
+        req.flash('sucess_msg', 'Postagem Publicada com sucesso!')
+        res.redirect('/')
+    })
+})
+
+
 //rota de visualização para impressão
 router.get('/showprontuarios/view/:id', eUser, (req, res) => {
     prontuario.findOne({ _id: req.params.id }).then((prontuario) => {
@@ -201,4 +218,3 @@ router.get('/login/cadastrar-usuario', (req, res) => {
     res.render('usuario/adduser')
 })
 module.exports = router
-

@@ -186,26 +186,50 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
           <!-- Noticia1 -->
+          {{#if user.admin}}
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Bem-Vindo</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Area de Postagens</h6>
             </div>
             <div class="card-body">
-              <div class="text-center">
-                <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="/imgs/undraw_posting_photo.svg"
-                  alt="">
-              </div>
-              <p>Seja Bem-vindo, por favor manter os prontuários atualizados, caso necessite de ajuda entrar em contato
- com o professor.</p>
-              <a target="_blank" rel="nofollow" href="http://www.fasipecpa.com.br/">Fasipe &rarr;</a>
+
+              <form action="/newpost" method="POST">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Autor</label>
+                  <input type="hidden" name="autor" value="{{user.nome}}">
+                  <input type="email" class="form-control" id="exampleInputEmail1" value="{{user.nome}}" disabled>
+
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Conteudo</label>
+                  <textarea type="text" class="form-control" name="conteudo" rows="4"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
             </div>
           </div>
+          {{/if}}
+          <h1>Mural</h1>
+          {{#each postagens}}
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Postagens</h6>
+            </div>
 
+            <div class="card-body">
+
+              <h2>{{conteudo}}</h2>
+              <small>{{autor}}</small><br>
+              <small>{{date}}</small>
+
+            </div>
+
+          </div>
+          {{/each}}
           <!-- /.container-fluid -->
         </div>
-
         <!-- End of Main Content -->
 
 
