@@ -136,16 +136,33 @@ router.post('/cadastrar-prontuario/new-prontuario', (req, res) => {
 
 })
 
+//rota de cadastro de postagens
 router.post('/newpost', (req, res) => {
-    const novaPostagem = {
-        autor: req.body.autor,
-        conteudo: req.body.conteudo
+    var erros = []
+
+    if (!req.body.conteudo || typeof req.body.conteudo == undefined || req.body.conteudo == null) {
+        erros.push({ texto: 'Preencha o campo pra publicar uma postagem!' })
     }
 
-    new postagem(novaPostagem).save().then(() => {
-        req.flash('sucess_msg', 'Postagem Publicada com sucesso!')
-        res.redirect('/')
-    })
+    if (!req.body.titulo || typeof req.body.titulo == undefined || req.body.titulo == null) {
+        erros.push({ texto: 'Titulo Vazio!' })
+    }
+
+    if (erros.length > 0) {
+        res.render('usuario/index', { erros: erros })
+    } else {
+        const novaPostagem = {
+            autor: req.body.autor,
+            titulo: req.body.titulo,
+            conteudo: req.body.conteudo
+        }
+
+        new postagem(novaPostagem).save().then(() => {
+            req.flash('sucess_msg', 'Postagem Publicada com sucesso!')
+            res.redirect('/')
+        })
+    }
+
 })
 
 

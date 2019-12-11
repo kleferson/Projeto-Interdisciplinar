@@ -185,63 +185,59 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
-          <!-- Noticia1 -->
-          {{#if user.admin}}
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Area de Postagens</h6>
-            </div>
-            <div class="card-body">
+        <div class="container">
+          <div class="container-fluid">
+            <!-- Noticia1 -->
+            <h1>Mural</h1>
+            {{#if user.admin}}
+            {{>_msg}}
+            {{#each erros}}
+            <div class="alert alert-danger">{{texto}}</div>
+            {{else}}
 
-              <form action="/newpost" method="POST">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Autor</label>
+            {{/each}}
+            <div class="card shadow mb-4 ">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Area de Postagens</h6>
+              </div>
+              <div class="card-body">
+
+                <form action="/newpost" method="POST">
                   <input type="hidden" name="autor" value="{{user.nome}}">
-                  <input type="email" class="form-control" id="exampleInputEmail1" value="{{user.nome}}" disabled>
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="titulo" placeholder="Titulo"><br>
+                    <textarea type="text" class="form-control" name="conteudo" rows="4"
+                      placeholder="Campo de postagem"></textarea>
+                  </div>
 
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Conteudo</label>
-                  <textarea type="text" class="form-control" name="conteudo" rows="4"></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
+                  <button type="submit" class="btn btn-primary">Publicar</button>
+                </form>
+              </div>
             </div>
+            {{/if}}
+
+            {{#each postagens}}
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">{{titulo}}</h6>
+              </div>
+
+              <div class="card-body">
+
+                <h2>{{conteudo}}</h2>
+                <small>{{autor}}</small><br>
+                <small>{{date}}</small>
+
+              </div>
+
+            </div>
+            {{/each}}
+            <!-- /.container-fluid -->
           </div>
-          {{/if}}
-          <h1>Mural</h1>
-          {{#each postagens}}
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Postagens</h6>
-            </div>
-
-            <div class="card-body">
-
-              <h2>{{conteudo}}</h2>
-              <small>{{autor}}</small><br>
-              <small>{{date}}</small>
-
-            </div>
-
-          </div>
-          {{/each}}
-          <!-- /.container-fluid -->
+          <!-- End of Main Content -->
         </div>
-        <!-- End of Main Content -->
 
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <span>Copyright &copy; Prontuário Eletrônico 2019</span>
-            </div>
-          </div>
-        </footer>
-        <!-- End of Footer -->
 
       </div>
       <!-- End of Content Wrapper -->

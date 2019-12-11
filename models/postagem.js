@@ -6,6 +6,10 @@ const Postagem = new Schema({
         type: String,
         required: true
     },
+    titulo: {
+        type: String,
+        required: true
+    },
     conteudo: {
         type: String,
         required: true

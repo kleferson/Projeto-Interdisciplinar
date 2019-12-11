@@ -12,6 +12,7 @@ const passport = require('passport')
 require("./config/auth")(passport)
 require("./models/usuario")
 require("./models/prontuario")
+const db = require('./config/db')
 
 //config Sessão
 app.use(session({
@@ -42,7 +43,7 @@ app.set('view engine', 'handlebars')
 
 //Mongoose
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb+srv://kleferson:Gt1A82wif9kmcbas@prontuarioapp-0it5t.mongodb.net/test?retryWrites=true&w=majority", { useUnifiedTopology: true }).then(() => {
+mongoose.connect(db.mongoURI, { useUnifiedTopology: true }).then(() => {
     console.log('MongoDB started')
 }).catch((erro) => {
     console.log('Erro: ' + erro)
