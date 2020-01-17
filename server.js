@@ -14,6 +14,7 @@ require("./models/usuario")
 require("./models/prontuario")
 const db = require('./config/db')
 
+
 //config Sessão
 app.use(session({
     secret: "projeto",
@@ -58,6 +59,10 @@ app.use((req, res, next) => {
 //rotas
 app.use('/admin', admin)
 app.use('/', usuario)
+
+app.use((req, res, next) => {
+    res.status(404).render('usuario/404')
+})
 
 
 //localhost
