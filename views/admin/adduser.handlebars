@@ -173,50 +173,49 @@
         <div class="container">
           <div class="container-fluid">
             <!-- Noticia1 -->
-            <h1>Mural</h1>
-            {{#if user.admin}}
+            <h1>Cadastrar Usuário</h1>
+
             {{>_msg}}
             {{#each erros}}
             <div class="alert alert-danger">{{texto}}</div>
             {{else}}
 
             {{/each}}
-            <div class="card shadow mb-4 ">
+            <div class="card shadow ">
               <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Area de Postagens</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Novo Usuário</h6>
               </div>
               <div class="card-body">
 
-                <form action="/newpost" method="POST">
-                  <input type="hidden" name="autor" value="{{user.nome}}">
+                <form action="cadastrar-usuario/newuser" method="POST" class="user">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="titulo" placeholder="Titulo"><br>
-                    <textarea type="text" class="form-control" name="conteudo" rows="4"
-                      placeholder="Campo de postagem"></textarea>
+                    <div class="col">
+                      <input type="text" name="nome" class="form-control" id="exampleFirstName"
+                        placeholder="Nome completo">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col">
+                      <input type="email" name="email" class="form-control" id="exampleInputEmail" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col">
+                      <input type="password" name="senha" class="form-control" id="exampleInputPassword"
+                        placeholder="Senha">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col">
+                      <input type="password" name="senha2" class="form-control" id="exampleRepeatPassword"
+                        placeholder="Repita a Senha">
+                    </div>
                   </div>
 
-                  <button type="submit" class="btn btn-primary">Publicar</button>
+                  <button type="submit" class="btn btn-primary">Cadastrar</button>
                 </form>
               </div>
             </div>
-            {{/if}}
-
-            {{#each postagens}}
-            <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">{{titulo}}</h6>
-              </div>
-
-              <div class="card-body">
-
-                <h2>{{conteudo}}</h2>
-                <small>{{autor}}</small><br>
-                <small>{{date}}</small>
-
-              </div>
-
-            </div>
-            {{/each}}
             <!-- /.container-fluid -->
           </div>
           <!-- End of Main Content -->
