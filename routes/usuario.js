@@ -195,6 +195,7 @@ router.get('/showprontuarios/edit/:id', eUser, (req, res) => {
     }).catch((erro) => {
         req.flash('error_msg', 'Este prontuário não existe')
         res.redirect('/showprontuarios')
+        console.log(erro)
     })
 
 })
@@ -202,7 +203,7 @@ router.get('/showprontuarios/edit/:id', eUser, (req, res) => {
 router.post('/showprontuarios/edit', (req, res) => {
     prontuario.findOne({ _id: req.body.id }).then((prontuario) => {
         prontuario.anamnese = req.body.anamnese,
-        prontuario.exame_fisico = req.body.exame_fisico
+            prontuario.exame_fisico = req.body.exame_fisico
         prontuario.save().then(() => {
             req.flash('success_msg', 'Prontuário editado com sucesso!')
             res.redirect('/showprontuarios')
