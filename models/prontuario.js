@@ -2,12 +2,13 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const Prontuario = new Schema({
-    date:{type:Date, default:Date.now()},
-    nome:{type:String, required: true},
-    data_nasc:{type:Date, required: true},
-    ocupacao:{ type:String},
+    data_abertura:{type:String},
+    nome:{type:String},
+    cpf:{type:String},
+    data_nasc:{type:String},
+    ocupacao:{type:String},
     email:{type: String},    
-    telefone:{type:Number},
+    telefone:{type:String},
     sexo:{type:String},
     escolaridade:{type:String},    
     observacoes:{type:String },

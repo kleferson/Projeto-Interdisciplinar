@@ -98,6 +98,8 @@ router.post('/cadastrar-prontuario/new-prontuario', (req, res) => {
         res.render('usuario/addprontuario', { erros: erros })
     } else {
         const novoProntuario = {
+            data_abertura: req.body.exibeDataAtual,
+            cpf: req.body.cpf,
             nome: req.body.nome,
             data_nasc: req.body.data_nasc,
             ocupacao: req.body.ocupacao,
@@ -199,7 +201,7 @@ router.get('/showprontuarios/edit/:id', eUser, (req, res) => {
 
 router.post('/showprontuarios/edit', (req, res) => {
     prontuario.findOne({ _id: req.body.id }).then((prontuario) => {
-        prontuario.anamnese = req.body.anamnese
+        prontuario.anamnese = req.body.anamnese,
         prontuario.exame_fisico = req.body.exame_fisico
         prontuario.save().then(() => {
             req.flash('success_msg', 'Prontuário editado com sucesso!')

@@ -19,6 +19,26 @@
 
   <!-- Custom styles for this template-->
   <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+  
+  <script type="text/javascript">
+		$(function () {
+
+			var currentTime = new Date()
+			var month = currentTime.getMonth() + 1;
+			var day = currentTime.getDate();
+			var year = currentTime.getFullYear();
+			
+			var date = day + "/" + month + "/" + year;
+
+
+			$('[name=exibeDataAtual]').val(date);
+
+		})
+	
+	</script>
+
 
 </head>
 
@@ -174,10 +194,12 @@
       <!-- End of Topbar -->
 
       <!-- Begin Page Content -->
+      <div class="container">
       <div class="container-fluid">
 
         <form action="/cadastrar-prontuario/new-prontuario" method="POST">
           <input type="hidden" name="aluno" value="{{user.nome}}">
+          <input type="hidden" name="exibeDataAtual" value="exibeDataAtual">
           <br>
           <!-- inicio do Prontuário -->
           <!-- Nome do prontuario e nome completo,data de abertura-->
@@ -187,20 +209,14 @@
           {{else}}
 
           {{/each}}
-          <h1>Cadastrar Prontuário</h1>
+          <h1>Cadastro de Prontuário</h1>
           <br>
 
-          <div class="form-row">
-            <div class="form-group col">
-              <label>Nome do prontuário</label>
-              <input type="text" class="form-control" id="nomepront" name="nompront">
+          <div class="form-row ">
+            <div class="form-group col-md-2">
+              <label>CPF</label>
+              <input type="text" class="form-control" id="cpf" name="cpf" placeholder="___.___.___-__">
             </div>
-
-            <div class="col">
-              <label>Data de Abertura.</label>
-              <input type="date" class="form-control" id="dataAbertura" name="databert">
-            </div>
-
             <div class="col">
               <label>Nome completo</label>
               <input type="text" class="form-control" id="nome" name="nome">
@@ -210,9 +226,9 @@
 
           <!-- data nascimento,endereço,sexo -->
           <div class="form-row">
-            <div class="form-group col">
+            <div class="form-group col-md-2">
               <label>Data de nascimento</label>
-              <input type="date" class="form-control" id="data_nasc" name="data_nasc">
+              <input type="text" class="form-control" id="data_nasc" name="data_nasc" placeholder="dd/mm/aaaa">
             </div>
 
             <div class="col">
@@ -220,11 +236,13 @@
               <input type="text" class="form-control" id="endereco" name="endereco">
             </div>
 
-            <div class="col" id="sexo">
+            <div class="col-md-2" id="sexo">
               <label>Sexo:</label>
               <select class="form-control" name="sexo">
-                <option>Masculino</option>
+                <option>...</option>
                 <option>Feminino</option>
+                <option>Masculino</option>
+                
               </select>
             </div>
 
@@ -234,16 +252,17 @@
           <div class="form-row">
             <div class="form-group col">
               <label for="inputEmail4">Email</label>
-              <input type="email" class="form-control" id="email1" placeholder="exemplo@gmail.com" name="email">
+              <input type="email" class="form-control" id="email1" name="email" placeholder="Email@exemplo.com">
             </div>
             <div class="col">
               <label for="inputPassword4">Telefone</label>
-              <input type="tel" class="form-control" id="telefone1" placeholder="(65) 9999 9999" name="telefone">
+              <input type="text" class="form-control" id="telefone" name="telefone" placeholder="(99) 99999-9999">
             </div>
 
             <div class="col">
               <label>Escolaridade</label>
               <select class="form-control" name="escolaridade" id="escol">
+                <option>...</option>
                 <option>Médio</option>
                 <option>Superior</option>
                 <option>Pos-Graduado</option>
@@ -466,8 +485,9 @@
       </div>
     </div>
   </div>
-
+</div>
   <!-- Bootstrap core JavaScript-->
+  <script src="js/mask.js"></script>
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

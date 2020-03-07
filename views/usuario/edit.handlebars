@@ -63,12 +63,12 @@
           <span>Formulários</span></a>
       </li>
 
-      
+
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
-      
+
 
     </ul>
     <!-- End of Sidebar -->
@@ -170,267 +170,265 @@
       </div>
       <!-- End of Topbar -->
 
-      <!-- Begin Page Content -->
-      <div class="container-fluid">
+      <div class="container">
+        <div class="container-fluid">
 
-        <form action="/showprontuarios/edit" method="POST">
-          <br>
-          <!-- Nome do prontuario e nome completo,data de abertura-->
-          {{>_msg}}
-          <input type="hidden" name="id" value="{{prontuario._id}}">
-          <div class="form-row">
-            <div class="form-group col">
-              <label>Nome do prontuário</label>
-              <input type="text" class="form-control" id="nomepront" name="nompront" disabled>
+          <form action="/showprontuarios/edit" method="POST">
+            <br>
+            <!-- inicio do Prontuário -->
+            <!-- Nome do prontuario e nome completo,data de abertura-->
+            {{>_msg}}
+            {{#each erros}}
+            <div class="alert alert-danger">{{texto}}</div>
+            {{else}}
+
+            {{/each}}
+            <h1>Cadastro de Prontuário</h1>
+            <br>
+
+            <div class="form-row ">
+              <div class="form-group col-md-2">
+                <label>CPF</label>
+                <input type="text" class="form-control" id="cpf" name="cpf" value="{{prontuario.cpf}}" disabled>
+              </div>
+              <div class="col">
+                <label>Nome completo</label>
+                <input type="text" class="form-control" id="nome" name="nome" value="{{prontuario.nome}}" disabled>
+              </div>
+
             </div>
 
-            <div class="col">
-              <label>Data de Abertura.</label>
-              <input type="date" class="form-control" id="dataAbertura" name="databert" disabled>
+            <!-- data nascimento,endereço,sexo -->
+            <div class="form-row">
+              <div class="form-group col-md-2">
+                <label>Data de nascimento</label>
+                <input type="text" class="form-control" id="data_nasc" name="data_nasc" value="{{prontuario.data_nasc}}"
+                  disabled>
+              </div>
+
+              <div class="col">
+                <label>Endereço</label>
+                <input type="text" class="form-control" id="endereco" name="endereco" value="{{prontuario.endereco}}"
+                  disabled>
+              </div>
+
+              <div class="col-md-2" id="sexo">
+                <label>Sexo:</label>
+                <input type="text" class="form-control" id="sexo" name="sexo" value="{{prontuario.sexo}}" disabled>
+              </div>
+
             </div>
 
-            <div class="col">
-              <label>Nome completo</label>
-              <input type="text" class="form-control" id="nomecompleto" name="nome" value="{{prontuario.nome}}"
-                disabled>
+            <!-- Email,telefone,nome responsavel,escolaridade -->
+            <div class="form-row">
+              <div class="form-group col">
+                <label for="inputEmail4">Email</label>
+                <input type="email" class="form-control" id="email1" name="email" value="{{prontuario.email}}" disabled>
+              </div>
+              <div class="col">
+                <label for="inputPassword4">Telefone</label>
+                <input type="text" class="form-control" id="telefone" name="telefone" value="{{prontuario.telefone}}"
+                  disabled>
+              </div>
+
+              <div class="col">
+                <label>Escolaridade</label>
+                <input type="text" class="form-control" id="escolaridade" name="escolaridade"
+                  value="{{prontuario.escolaridade}}" disabled>
+              </div>
+
             </div>
 
-          </div>
+            <!-- contato,nome responsavel/cuidador -->
+            <div class="form-group" id="cuidador">
+              <label>Nome, Telefone ou outro tipo tipo de contato do responsável/cuidador (se aplicável)</label>
+              <input type="text" class="form-control" id="cuidador1" name="observacoes"
+                value="{{prontuario.observacoes}}" disabled>
+            </div>
+            <br>
+            <hr>
+            <h1>Dados Clínicos</h1>
+            <br>
+            <!--Alergia, ocupação-->
+            <div class="form-row">
+              <div class="form-group col">
+                <label>Alergia</label>
+                <input type="text" class="form-control" id="alergia" name="alergia" value="{{prontuario.alergia}}"
+                  disabled>
+              </div>
 
-          <!-- data nascimento,endereço,sexo -->
-          <div class="form-row">
-            <div class="form-group col">
-              <label>Data de nascimento</label>
-              <input type="text" class="form-control" id="datanasc" name="data_nasc" value="{{prontuario.data_nasc}}"
-                disabled>
+              <div class="col">
+                <label>Ocupação</label>
+                <input type="text" class="form-control" id="ocupacao" name="ocupacao" value="{{prontuario.ocupacao}}"
+                  disabled>
+              </div>
+
             </div>
 
-            <div class="col">
-              <label>Endereço</label>
-              <input type="text" class="form-control" id="endereco" name="enderec" disabled>
+            <!--limitações-->
+            </br>
+            <div class="form-row">
+
+              <label>Limitação</label>
+              <div class="form-group col">
+
+                <input type="text" class="form-control" placeholder="Outras" id="outras1" name="outras">
+              </div>
+
+              <div class="col">
+                <select class="form-control" name="cognitiva" id="cognitiva1">
+                  <option>...</option>
+                  <option>Cognitiva</option>
+                </select>
+              </div>
+
+              <div class="col">
+                <select class="form-control" name="locomocao" id="locomocao1">
+                  <option>...</option>
+                  <option>Locomoção</option>
+                </select>
+              </div>
+
+              <div class="col">
+                <select class="form-control" name="visao" id="visao1">
+                  <option>...</option>
+                  <option>Visão</option>
+                </select>
+              </div>
+
+              <div class="col">
+                <select class="form-control" name="audicao" id="audicao1">
+                  <option>...</option>
+                  <option>Audição</option>
+                </select>
+              </div>
+
+
+
             </div>
 
-            <div class="col" id="sexo">
-              <label>Sexo:</label>
-              <input class="form-control" name="sexo" value="{{prontuario.sexo}}" disabled>
-              </input>
+            <!--Sinais Vitais-->
+            <br>
+            <div class="form-row">
+              <label>Sinais Vitais:</label>
+              &nbsp;
+              <label>PA</label>
+              <div class="form-group col">
+                <input type="number" class="form-control" id="pa" name="pa" value="{{prontuario.pa}}" disabled>
+              </div>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <label>FC</label>
+              <div class="form-group col">
+                <input type="number" class="form-control" id="fc" name="fc" value="{{prontuario.fc}}" disabled>
+              </div>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <label>FR</label>
+              <div class="form-group col">
+                <input type="number" class="form-control" id="fr" name="fr" value="{{prontuario.fr}}" disabled>
+              </div>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <label>T</label>
+              <div class="form-group col">
+                <input type="number" class="form-control" id="t" name="t" value="{{prontuario.t}}" disabled>
+              </div>
             </div>
 
-          </div>
-
-          <!-- Email,telefone,nome responsavel,escolaridade -->
-          <div class="form-row">
-            <div class="form-group col">
-              <label for="inputEmail4">Email</label>
-              <input type="email" class="form-control" id="email1" placeholder="" name="email"
-                value="{{prontuario.email}}" disabled>
-            </div>
-            <div class="col">
-              <label for="inputPassword4">Telefone</label>
-              <input type="tel" class="form-control" id="telefone1" placeholder="(65) 9999 9999" name="telefone"
-                value="{{prontuario.telefone}}" disabled>
-            </div>
-
-            <div class="col">
-              <label>Escolaridade</label>
-              <select class="form-control" name="escolaridade" id="escol" disabled>
-                <option>Médio</option>
-                <option>Superior</option>
-                <option>Pos-Graduado</option>
-                <option>Mestrado</option>
-                <option>Doutorado</option>
-              </select>
-            </div>
-
-          </div>
-
-          <!-- contato,nome responsavel/cuidador -->
-          <div class="form-group" id="cuidador">
-            <label>Nome, Telefone ou outro tipo tipo de contato do responsável/cuidador (se aplicável)</label>
-            <input type="text" class="form-control" id="cuidador1" name="cuidador" disabled>
-          </div>
-
-
-          <!--Alergia, ocupação-->
-          <div class="form-row">
-            <div class="form-group col">
-              <label>Alergia</label>
-              <input type="text" class="form-control" id="alergia1" name="alergia" value="{{prontuario.alergia}}"
-                disabled>
-            </div>
-
-            <div class="col">
-              <label>Ocupação</label>
-              <select class="form-control" name="ocupacao" id="ocupacao1" disabled>
-                <option>Estudante</option>
-                <option>Profissional</option>
-              </select>
-            </div>
-
-          </div>
-
-          <!--limitações-->
-          </br>
-          <div class="form-row">
-
-            <label>Limitação</label>
-            <div class="form-group col">
-
-              <input type="text" class="form-control" placeholder="Outras" id="outras1" name="outras" disabled>
-            </div>
-
-            <div class="col">
-              <select class="form-control" name="cognitiva" id="cognitiva1" disabled>
-                <option>...</option>
-                <option>Cognitiva</option>
-              </select>
-            </div>
-
-            <div class="col">
-              <select class="form-control" name="locomocao" id="locomocao1" disabled>
-                <option>...</option>
-                <option>Locomoção</option>
-              </select>
-            </div>
-
-            <div class="col">
-              <select class="form-control" name="visao" id="visao1" disabled>
-                <option>...</option>
-                <option>Visão</option>
-              </select>
-            </div>
-
-            <div class="col">
-              <select class="form-control" name="audicao" id="audicao1" disabled>
-                <option>...</option>
-                <option>Audição</option>
-              </select>
+            <!--Motivo do atendimento-->
+            <div class="form-group">
+              <label>Motivo do Atendimento</label>
+              <input type="text" class="form-control" id="motivoatendimento1" name="motivo_atendimento"
+                value="{{prontuario.motivo_atendimento}}" disabled>
             </div>
 
 
 
-          </div>
-
-          <!--Sinais Vitais-->
-          <br>
-          <div class="form-row">
-            <label>Sinais Vitais:</label>
-            &nbsp;
-            <label>PA</label>
-            <div class="form-group col">
-              <input type="number" class="form-control" id="pa1" name="pa" value="{{prontuario.pa}}" disabled>
+            <!--Doencas Cronicas-->
+            <div class="form-row">
+              <div class="form-group col -auto">
+                <label>Doenças Cronicas:</label>
+                <input type="text" class="form-control" id="doencascronicas1" name="doencas_cronicas"
+                  value="{{prontuario.doencas_cronicas}}" disabled>
+              </div>
             </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <label>FC</label>
-            <div class="form-group col">
-              <input type="number" class="form-control" id="fc1" name="fc" value="{{prontuario.fc}}" disabled>
+            <!--Queixa-->
+            <div class="form-row">
+              <div class="form-group col -auto">
+                <label>Queixa no momento:</label>
+                <input type="text" class="form-control" id="queixamomento1" name="queixa_momento"
+                  value="{{prontuario.queixa_momento}}" disabled>
+              </div>
             </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <label>FR</label>
-            <div class="form-group col">
-              <input type="number" class="form-control" id="fr1" name="fr" value="{{prontuario.fr}}" disabled>
+
+            <!--Anamnese-->
+            <div class="form-row">
+
+              <div class="form-group col -auto">
+                <label>Anamnese</label>
+                <textarea class="form-control" id="anamnese1" name="anamnese"
+                  rows="4">{{prontuario.anamnese}}</textarea>
+              </div>
             </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <label>T</label>
-            <div class="form-group col">
-              <input type="number" class="form-control" id="t1" name="t" value="{{prontuario.t}}" disabled>
+
+            <!-- Exame fisico -->
+            <div class="form-row">
+              <div class="form-group col -auto">
+                <label>Exame Fisico</label>
+                <textarea class="form-control" id="examefisico" name="exame_fisico"
+                  rows="4">{{prontuario.exame_fisico}}</textarea>
+              </div>
             </div>
-          </div>
 
-          <!--Motivo do atendimento-->
-          <div class="form-group">
-            <label>Motivo do Atendimento</label>
-            <input type="text" class="form-control" id="motivoatendimento1" name="motivo_atendimento"
-              value="{{prontuario.motivo_atendimento}}" disabled>
-          </div>
+            <!-- Botão cadastrar -->
+            <center>
+              <button type="submit" name="salvar" class="btn btn-primary">Salvar</button>
 
+              <!--Botão voltar -->
 
-
-          <!--Doencas Cronicas-->
-          <div class="form-row">
-            <div class="form-group col -auto">
-              <label>Doenças Cronicas:</label>
-              <input type="text" class="form-control" id="doencascronicas1" name="doencas_cronicas"
-                value="{{prontuario.doencas_cronicas}}" disabled>
-            </div>
-          </div>
-          <!--Queixa-->
-          <div class="form-row">
-            <div class="form-group col -auto">
-              <label>Queixa no momento:</label>
-              <input type="text" class="form-control" id="queixamomento1" name="queixa_momento"
-                value="{{prontuario.queixa_momento}}" disabled>
-            </div>
-          </div>
-
-          <!--Anamnese-->
-          <div class="form-row">
-
-            <div class="form-group col -auto">
-              <label>Anamnese</label>
-              <textarea class="form-control" id="anamnese1" name="anamnese" rows="4">{{prontuario.anamnese}}</textarea>
-            </div>
-          </div>
-
-          <!-- Exame fisico -->
-          <div class="form-row">
-            <div class="form-group col -auto">
-              <label>Exame Fisico</label>
-              <textarea class="form-control" id="examefisico1" name="exame_fisico"
-                rows="4">{{prontuario.exame_fisico}}</textarea>
-            </div>
-          </div>
-
-          <!-- Botão cadastrar -->
-         <center>
-         <button type="submit" name="salvar" class="btn btn-primary">Salvar</button>
-
-            <!--Botão voltar -->
-
-            <a class="btn btn-secondary" href="/showprontuarios">Voltar</a>
-          </center>
-        </form>
-        <!-- div container fluid -->
-      </div>
-
-      <!-- End of Main Content -->
-
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Prontuário Eletrônico 2019</span>
-          </div>
+              <a class="btn btn-secondary" href="/showprontuarios">Voltar</a>
+            </center>
+          </form>
+          <!-- div container fluid -->
         </div>
-      </footer>
-      <!-- End of Footer -->
+
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; Prontuário Eletrônico 2019</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+
+      </div>
+      <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Content Wrapper -->
+    <!-- End of Page Wrapper -->
 
-  </div>
-  <!-- End of Page Wrapper -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Deseja Sair?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Selecione "Sim" abaixo caso queira sair da sua sessão atual.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Não</button>
-          <a class="btn btn-primary" name="sairsim" href="/logout">Sim</a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Deseja Sair?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Selecione "Sim" abaixo caso queira sair da sua sessão atual.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Não</button>
+            <a class="btn btn-primary" name="sairsim" href="/logout">Sim</a>
+          </div>
         </div>
       </div>
     </div>
