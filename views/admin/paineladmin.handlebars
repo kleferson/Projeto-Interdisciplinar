@@ -68,19 +68,15 @@
 
             <!-- Nav Item - Prontuarios -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link" href="/cadastrar-prontuario">
                     <i class="fas fa-fw fa-clipboard"></i>
-                    <span>Prontuário</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Opções</h6>
-                        <a class="collapse-item" href="/cadastrar-prontuario">Criar</a>
-                        <a class="collapse-item" href="/showprontuarios">Editar</a>
-                        <a class="collapse-item" href="">Pesquisar</a>
-                    </div>
-                </div>
+                    <span>Novo Prontuário</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="admin/cadastrar-usuario">
+                    <i class="fas fa-user fa-table"></i>
+                    <span>Novo Usuário</span></a>
             </li>
 
             <!-- Divider -->
@@ -233,7 +229,7 @@
                                                         class="btn btn-success">Editar</button></a>
                                             </td>
                                             <td><a href="/showprontuarios/view/{{_id}}"><button
-                                                        class="btn btn-primary">Imprimir</button></a>
+                                                        class="btn btn-primary">Visualizar</button></a>
                                             </td>
                                             <td>
                                                 <form action="/admin/showprontuarios/delete/" method="POST">
