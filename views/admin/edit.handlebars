@@ -12,7 +12,7 @@
   <title>Prontuário Eletrônico</title>
 
   <!-- Custom fonts for this template-->
-  <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link
     href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
     rel="stylesheet">
@@ -31,7 +31,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -51,42 +51,24 @@
 
       <!-- inicio nav-item -->
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="/">
           <i class="fas fa-fw fa-home"></i>
           <span>Inicío</span></a>
       </li>
 
       <!-- Formularios nav-item -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="/admin">
           <i class="fas fa-fw fa-table"></i>
-          <span>Formulários</span></a>
+          <span>Prontuários</span></a>
       </li>
 
-      <!-- Nav Item - Prontuarios -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-          aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-clipboard"></i>
-          <span>Prontuário</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Opções</h6>
-            <a class="collapse-item" href="form.html">Criar</a>
-            <a class="collapse-item" href="form2.html">Editar</a>
-            <a class="collapse-item" href="404.html">Pesquisar</a>
-          </div>
-        </div>
-      </li>
+
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
-      <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
+
 
     </ul>
     <!-- End of Sidebar -->
@@ -106,17 +88,11 @@
           </button>
 
           <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Pesquisar..."
-                aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
+          <div>
+            <div>
+              <h1 style="font-size: xx-large;">Editar</h1>
             </div>
-          </form>
+          </div>
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
@@ -132,7 +108,7 @@
                 aria-labelledby="searchDropdown">
                 <form class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Pesquisar..."
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                       aria-label="Search" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                       <button class="btn btn-primary" type="button">
@@ -148,30 +124,12 @@
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+              <a class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Maycon Müller</span>
+                {{#if user}}
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user.nome}}</span>
+                {{/if}}
               </a>
-              <!-- Dropdown - User Information -->
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="404.html">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Perfil
-                </a>
-                <a class="dropdown-item" href="404.html">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Configurações
-                </a>
-                <a class="dropdown-item" href="404.html">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Registro de atividades
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="404.html" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Sair
-                </a>
-              </div>
             </li>
 
           </ul>
@@ -180,286 +138,268 @@
       </div>
       <!-- End of Topbar -->
 
-      <!-- Begin Page Content -->
-      <div class="container-fluid">
+      <div class="container">
+        <div class="container-fluid">
 
-        <form action="/showprontuarios/edit" method="POST">
-          <input type="hidden" name="id" value="{{prontuario._id}}">
-          <br>
-          <!-- Nome do prontuario e nome completo,data de abertura-->
-          <div class="form-row">
-            <div class="form-group col">
-              <label>Nome do prontuário</label>
-              <input type="text" class="form-control" id="nomepront" name="nompront">
+          <form action="/admin/showprontuarios/edit" method="POST">
+            <input type="hidden" value="{{prontuario._id}}" name="id">
+            <br>
+            <!-- inicio do Prontuário -->
+            <!-- Nome do prontuario e nome completo,data de abertura-->
+            {{>_msg}}
+            {{#each erros}}
+            <div class="alert alert-danger">{{texto}}</div>
+            {{else}}
+
+            {{/each}}
+            <h1>Editar Prontuário</h1>
+            <br>
+
+            <div class="form-row ">
+              <div class="form-group col-md-2">
+                <label>CPF</label>
+                <input type="text" class="form-control" id="cpf" name="cpf" value="{{prontuario.cpf}}">
+              </div>
+              <div class="col">
+                <label>Nome completo</label>
+                <input type="text" class="form-control" id="nome" name="nome" value="{{prontuario.nome}}" >
+              </div>
+
             </div>
 
-            <div class="col">
-              <label>Data de Abertura.</label>
-              <input type="date" class="form-control" id="dataAbertura" name="databert">
+            <!-- data nascimento,endereço,sexo -->
+            <div class="form-row">
+              <div class="form-group col-md-2">
+                <label>Data de nascimento</label>
+                <input type="text" class="form-control" id="data_nasc" name="data_nasc" value="{{prontuario.data_nasc}}"
+                  >
+              </div>
+
+              <div class="col">
+                <label>Endereço</label>
+                <input type="text" class="form-control" id="endereco" name="endereco" value="{{prontuario.endereco}}"
+                  >
+              </div>
+
+              <div class="col-md-2" id="sexo">
+                <label>Sexo:</label>
+                <input type="text" class="form-control" id="sexo" name="sexo" value="{{prontuario.sexo}}" >
+              </div>
+
             </div>
 
-            <div class="col">
-              <label>Nome completo</label>
-              <input type="text" class="form-control" id="nomecompleto" name="nome" value="{{prontuario.nome}}">
+            <!-- Email,telefone,nome responsavel,escolaridade -->
+            <div class="form-row">
+              <div class="form-group col">
+                <label for="inputEmail4">Email</label>
+                <input type="email" class="form-control" id="email1" name="email" value="{{prontuario.email}}" >
+              </div>
+              <div class="col">
+                <label for="inputPassword4">Telefone</label>
+                <input type="text" class="form-control" id="telefone" name="telefone" value="{{prontuario.telefone}}"
+                  >
+              </div>
+
+              <div class="col">
+                <label>Escolaridade</label>
+                <input type="text" class="form-control" id="escolaridade" name="escolaridade"
+                  value="{{prontuario.escolaridade}}" >
+              </div>
+
             </div>
 
-          </div>
+            <!-- contato,nome responsavel/cuidador -->
+            <div class="form-group" id="cuidador">
+              <label>Nome, Telefone ou outro tipo tipo de contato do responsável/cuidador (se aplicável)</label>
+              <input type="text" class="form-control" id="cuidador1" name="observacoes"
+                value="{{prontuario.observacoes}}" >
+            </div>
+            <br>
+            <hr>
+            <h1>Dados Clínicos</h1>
+            <br>
+            <!--Alergia, ocupação-->
+            <div class="form-row">
+              <div class="form-group col">
+                <label>Alergia</label>
+                <input type="text" class="form-control" id="alergia" name="alergia" value="{{prontuario.alergia}}"
+                  >
+              </div>
 
-          <!-- data nascimento,endereço,sexo -->
-          <div class="form-row">
-            <div class="form-group col">
-              <label>Data de nascimento</label>
-              <input type="date" class="form-control" id="datanasc" name="datnasci">
+              <div class="col">
+                <label>Ocupação</label>
+                <input type="text" class="form-control" id="ocupacao" name="ocupacao" value="{{prontuario.ocupacao}}"
+                  >
+              </div>
+
             </div>
 
-            <div class="col">
-              <label>Endereço</label>
-              <input type="text" class="form-control" id="endereco" name="enderec">
+            <!--limitações-->
+            </br>
+            <div class="form-row">
+
+              <label>Limitação</label>
+              <div class="form-group col">
+
+                <input type="text" class="form-control" placeholder="Outras" id="outras1" name="outras">
+              </div>
+
+              <div class="col">
+                <select class="form-control" name="cognitiva" id="cognitiva1">
+                  <option>...</option>
+                  <option>Cognitiva</option>
+                </select>
+              </div>
+
+              <div class="col">
+                <select class="form-control" name="locomocao" id="locomocao1">
+                  <option>...</option>
+                  <option>Locomoção</option>
+                </select>
+              </div>
+
+              <div class="col">
+                <select class="form-control" name="visao" id="visao1">
+                  <option>...</option>
+                  <option>Visão</option>
+                </select>
+              </div>
+
+              <div class="col">
+                <select class="form-control" name="audicao" id="audicao1">
+                  <option>...</option>
+                  <option>Audição</option>
+                </select>
+              </div>
+
+
+
             </div>
 
-            <div class="col" id="sexo">
-              <label>Sexo:</label>
-              <select class="form-control" name="sexo">
-                <option>Masculino</option>
-                <option>Feminino</option>
-              </select>
-            </div>
-
-          </div>
-
-          <!-- Email,telefone,nome responsavel,escolaridade -->
-          <div class="form-row">
-            <div class="form-group col">
-              <label for="inputEmail4">Email</label>
-              <input type="email" class="form-control" id="email1" placeholder="" name="email">
-            </div>
-            <div class="col">
-              <label for="inputPassword4">Telefone</label>
-              <input type="tel" class="form-control" id="telefone1" placeholder="(65) 9999 9999" name="telefone">
-            </div>
-
-            <div class="col">
-              <label>Escolaridade</label>
-              <select class="form-control" name="escolaridade" id="escol">
-                <option>Médio</option>
-                <option>Superior</option>
-                <option>Pos-Graduado</option>
-                <option>Mestrado</option>
-                <option>Doutorado</option>
-              </select>
-            </div>
-
-          </div>
-
-          <!-- contato,nome responsavel/cuidador -->
-          <div class="form-group" id="cuidador">
-            <label>Nome, Telefone ou outro tipo tipo de contato do responsável/cuidador (se aplicável)</label>
-            <input type="text" class="form-control" id="cuidador1" name="cuidador">
-          </div>
-
-
-          <!--Alergia, ocupação-->
-          <div class="form-row">
-            <div class="form-group col">
-              <label>Alergia</label>
-              <input type="text" class="form-control" id="alergia1" name="alergia">
-            </div>
-
-            <div class="col">
-              <label>Ocupação</label>
-              <select class="form-control" name="ocupacao" id="ocupacao1">
-                <option>Estudante</option>
-                <option>Profissional</option>
-              </select>
-            </div>
-
-          </div>
-
-          <!--limitações-->
-          </br>
-          <div class="form-row">
-
-            <label>Limitação</label>
-            <div class="form-group col">
-
-              <input type="text" class="form-control" placeholder="Outras" id="outras1" name="outras">
-            </div>
-
-            <div class="col">
-              <select class="form-control" name="cognitiva" id="cognitiva1">
-                <option>...</option>
-                <option>Cognitiva</option>
-              </select>
-            </div>
-
-            <div class="col">
-              <select class="form-control" name="locomocao" id="locomocao1">
-                <option>...</option>
-                <option>Locomoção</option>
-              </select>
-            </div>
-
-            <div class="col">
-              <select class="form-control" name="visao" id="visao1">
-                <option>...</option>
-                <option>Visão</option>
-              </select>
-            </div>
-
-            <div class="col">
-              <select class="form-control" name="audicao" id="audicao1">
-                <option>...</option>
-                <option>Audição</option>
-              </select>
-            </div>
-
-
-
-          </div>
-
-          <!--Sinais Vitais-->
-          <br>
-          <div class="form-row">
-            <label>Sinais Vitais:</label>
-            &nbsp;
-            <label>PA</label>
-            <div class="form-group col">
-              <input type="number" class="form-control" id="pa1" name="pa">
-            </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <label>FC</label>
-            <div class="form-group col">
-              <input type="number" class="form-control" id="fc1" name="fc">
-            </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <label>FR</label>
-            <div class="form-group col">
-              <input type="number" class="form-control" id="fr1" name="fr">
-            </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <label>T</label>
-            <div class="form-group col">
-              <input type="number" class="form-control" id="t1" name="t">
-            </div>
-          </div>
-
-          <!--Motivo do atendimento-->
-          <div class="form-group">
-            <label>Motivo do Atendimento</label>
-            <input type="text" class="form-control" id="motivoatendimento1" name="motivoatendimento">
-          </div>
-
-
-
-          <!--Doencas Cronicas-->
-          <div class="form-row">
-            <div class="form-group col -auto">
-              <label>Doenças Cronicas:</label>
-              <input type="text" class="form-control" id="doencascronicas1" name="doencascronicas">
-            </div>
-          </div>
-          <!--Queixa-->
-          <div class="form-row">
-            <div class="form-group col -auto">
-              <label>Queixa no momento:</label>
-              <input type="text" class="form-control" id="queixamomento1" name="queixamomento">
-            </div>
-          </div>
-
-          <!--Anamnese-->
-          <div class="form-row">
-
-            <div class="form-group col -auto">
-              <label>Anamnese</label>
-              <textarea class="form-control" id="anamnese1" name="anamnese" rows="4"></textarea>
-            </div>
-          </div>
-
-          <!-- Exame fisico -->
-          <div class="form-row">
-            <div class="form-group col -auto">
-              <label>Exame Fisico</label>
-              <textarea class="form-control" id="examefisico1" name="examefisico" rows="4"></textarea>
-            </div>
-          </div>
-
-          <!-- Botão cadastrar -->
-          <center>
-            <button type="button" name="salvar" class="btn btn-primary " data-toggle="modal"
-              data-target="#exampleModal">
-              Salvar
-            </button>
-
-
-            <!-- Gatilho do botão cadastrar -->
-
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-              aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    Deseja salvar as alterações?
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-                    <button type="button" name="salvarsim" class="btn btn-primary">Sim</button>
-                  </div>
-                </div>
+            <!--Sinais Vitais-->
+            <br>
+            <div class="form-row">
+              <label>Sinais Vitais:</label>
+              &nbsp;
+              <label>PA</label>
+              <div class="form-group col">
+                <input type="number" class="form-control" id="pa" name="pa" value="{{prontuario.pa}}" >
+              </div>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <label>FC</label>
+              <div class="form-group col">
+                <input type="number" class="form-control" id="fc" name="fc" value="{{prontuario.fc}}" >
+              </div>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <label>FR</label>
+              <div class="form-group col">
+                <input type="number" class="form-control" id="fr" name="fr" value="{{prontuario.fr}}" >
+              </div>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <label>T</label>
+              <div class="form-group col">
+                <input type="number" class="form-control" id="t" name="t" value="{{prontuario.t}}" >
               </div>
             </div>
 
-            <!--Botão resetar -->
+            <!--Motivo do atendimento-->
+            <div class="form-group">
+              <label>Motivo do Atendimento</label>
+              <input type="text" class="form-control" id="motivoatendimento1" name="motivo_atendimento"
+                value="{{prontuario.motivo_atendimento}}" >
+            </div>
 
-            <a class="btn btn-secondary" href="index.html">Voltar</a>
-          </center>
-        </form>
-        <!-- div container fluid -->
-      </div>
 
-      <!-- End of Main Content -->
 
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Prontuário Eletrônico 2019</span>
-          </div>
+            <!--Doencas Cronicas-->
+            <div class="form-row">
+              <div class="form-group col -auto">
+                <label>Doenças Cronicas:</label>
+                <input type="text" class="form-control" id="doencascronicas1" name="doencas_cronicas"
+                  value="{{prontuario.doencas_cronicas}}" >
+              </div>
+            </div>
+            <!--Queixa-->
+            <div class="form-row">
+              <div class="form-group col -auto">
+                <label>Queixa no momento:</label>
+                <input type="text" class="form-control" id="queixamomento1" name="queixa_momento"
+                  value="{{prontuario.queixa_momento}}">
+              </div>
+            </div>
+
+            <!--Anamnese-->
+            <div class="form-row">
+
+              <div class="form-group col -auto">
+                <label>Anamnese</label>
+                <textarea class="form-control" id="anamnese1" name="anamnese"
+                  rows="4">{{prontuario.anamnese}}</textarea>
+              </div>
+            </div>
+
+            <!-- Exame fisico -->
+            <div class="form-row">
+              <div class="form-group col -auto">
+                <label>Exame Fisico</label>
+                <textarea class="form-control" id="examefisico" name="exame_fisico"
+                  rows="4">{{prontuario.exame_fisico}}</textarea>
+              </div>
+            </div>
+
+            <!-- Botão cadastrar -->
+            <center>
+              <button type="submit" name="salvar" class="btn btn-primary">Salvar</button>
+
+              <!--Botão voltar -->
+
+              <a class="btn btn-secondary" href="/showprontuarios">Voltar</a>
+            </center>
+          </form>
+          <!-- div container fluid -->
         </div>
-      </footer>
-      <!-- End of Footer -->
+
+        <!-- End of Main Content -->
+
+       
+        <!-- End of Footer -->
+
+      </div>
+      <!-- End of Content Wrapper -->
+
+       <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; Prontuário Eletrônico 2019</span>
+            </div>
+          </div>
+        </footer>
 
     </div>
-    <!-- End of Content Wrapper -->
+    <!-- End of Page Wrapper -->
 
-  </div>
-  <!-- End of Page Wrapper -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Deseja Sair?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Selecione "Sim" abaixo caso queira sair da sua sessão atual.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Não</button>
-          <a class="btn btn-primary" name="sairsim" href="404.html">Sim</a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Deseja Sair?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Selecione "Sim" abaixo caso queira sair da sua sessão atual.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Não</button>
+            <a class="btn btn-primary" name="sairsim" href="/logout">Sim</a>
+          </div>
         </div>
       </div>
     </div>

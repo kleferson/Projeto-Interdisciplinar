@@ -28,6 +28,46 @@ router.get('/showprontuarios/edit/:id', eAdmin, (req, res) => {
 
 })
 
+router.post('/showprontuarios/edit', (req, res) => {
+    prontuario.findOne({ _id: req.body.id }).then((prontuario) => {
+            prontuario.cpf = req.body.cpf,
+            prontuario.nome = req.body.nome,
+            prontuario.data_nasc = req.body.data_nasc,
+            prontuario.ocupacao = req.body.ocupacao,
+            prontuario.email = req.body.email,
+            prontuario.telefone = req.body.telefone,
+            prontuario.sexo = req.body.sexo,
+            prontuario.escolaridade = req.body.escolaridade,
+            prontuario.observacoes = req.body.observacoes,
+            prontuario.cep = req.body.cep,
+            prontuario.endereco = req.body.endereco,
+            prontuario.numero = req.body.numero,
+            prontuario.complemento = req.body.complemento,
+            prontuario.bairro = req.body.bairro,
+            prontuario.cidade = req.body.cidade,
+            prontuario.estado = req.body.estado,
+            prontuario.pais = req.body.pais,
+            prontuario.limitacao = req.body.limitacao,
+            prontuario.alergia = req.body.alergia,
+            prontuario.motivo_atendimento = req.body.motivo_atendimento,
+            prontuario.pa = req.body.pa,
+            prontuario.fc = req.body.fc,
+            prontuario.fr = req.body.fr,
+            prontuario.t = req.body.t,
+            prontuario.doencas_cronicas = req.body.doencas_cronicas,
+            prontuario.queixa_momento = req.body.queixa_momento,
+            prontuario.anamnese = req.body.anamnese,
+            prontuario.exame_fisico = req.body.exame_fisico
+        prontuario.save().then(() => {
+            req.flash('success_msg', 'Prontuário editado com sucesso!')
+            res.redirect('/admin')
+        })
+    }).catch((erro) => {
+        req.flash('error_msg', 'Houve um erro ao editar prontuário')
+        res.redirect('/admin')
+    })
+})
+
 //Deletar Prontuário
 router.post('/showprontuarios/delete', (req, res) => {
     prontuario.remove({ _id: req.body.id }).then(() => {

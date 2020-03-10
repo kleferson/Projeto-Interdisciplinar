@@ -59,12 +59,6 @@
                     <span>Inicío</span></a>
             </li>
 
-            <!-- Formularios nav-item -->
-            <li class="nav-item">
-                <a class="nav-link" href="/showprontuarios">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Formulários</span></a>
-            </li>
 
             <!-- Nav Item - Prontuarios -->
             <li class="nav-item">
@@ -105,18 +99,11 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Pesquisar..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
+                    <div>
+                        <div>
+                            <h1 style="font-size: xx-large;">Painel do Administrador</h1>
                         </div>
-                    </form>
+                    </div>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -144,38 +131,27 @@
                                 </form>
                             </div>
                         </li>
-                        <div class="topbar-divider d-none d-sm-block"></div>
+
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
                                 {{#if user}}
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user.nome}}</span>
                                 {{/if}}
                             </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="404.html">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Perfil
-                                </a>
-                                <a class="dropdown-item" href="404.html">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Configurações
-                                </a>
-                                <a class="dropdown-item" href="404.html">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Registro de atividades
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/logout" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Sair
-                                </a>
-                            </div>
                         </li>
+                        <div class=" topbar-divider d-none d-sm-block"></div>
+
+
+
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" style="color:#4e73df;" href="/logout"
+                                data-toggle="modal" data-target="#logoutModal"> Sair</a>
+                        </li>
+
+
 
                     </ul>
 
@@ -185,9 +161,6 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Formulários</h1>
-
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -195,6 +168,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
+                                {{>_msg}}
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
@@ -223,7 +197,7 @@
                                         <tr>
                                             <td>{{nome}}</td>
                                             <td>{{email}}</td>
-                                            <td></td>
+                                            <td>{{cpf}}</td>
                                             <td>{{telefone}}</td>
                                             <td><a href="/admin/showprontuarios/edit/{{_id}}"><button
                                                         class="btn btn-success">Editar</button></a>
