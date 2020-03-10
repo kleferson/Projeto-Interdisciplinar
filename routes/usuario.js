@@ -53,6 +53,7 @@ router.post('/cadastrar-prontuario/new-prontuario', (req, res) => {
             estado: req.body.estado,
             pais: req.body.pais,
             limitacao: req.body.limitacao,
+            outrasLimitacoes: req.body.outrasLimitacoes,
             alergia: req.body.alergia,
             motivo_atendimento: req.body.motivo_atendimento,
             pa: req.body.pa,

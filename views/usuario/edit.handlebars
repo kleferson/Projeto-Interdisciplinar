@@ -239,41 +239,14 @@
             <div class="form-row">
 
               <label>Limitação</label>
-              <div class="form-group col">
-
-                <input type="text" class="form-control" placeholder="Outras" id="outras1" name="outras">
-              </div>
-
               <div class="col">
-                <select class="form-control" name="cognitiva" id="cognitiva1">
-                  <option>...</option>
-                  <option>Cognitiva</option>
-                </select>
+                <input type="text" class="form-control" id="limitacao" name="limitacao"
+                  value="{{prontuario.limitacao}}" disabled>
               </div>
-
-              <div class="col">
-                <select class="form-control" name="locomocao" id="locomocao1">
-                  <option>...</option>
-                  <option>Locomoção</option>
-                </select>
+              <label>Outras limitações</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control" id="outrasLimitacoes" name="outrasLimitacoes" value="{{prontuario.outrasLimitacoes}}" disabled>
               </div>
-
-              <div class="col">
-                <select class="form-control" name="visao" id="visao1">
-                  <option>...</option>
-                  <option>Visão</option>
-                </select>
-              </div>
-
-              <div class="col">
-                <select class="form-control" name="audicao" id="audicao1">
-                  <option>...</option>
-                  <option>Audição</option>
-                </select>
-              </div>
-
-
-
             </div>
 
             <!--Sinais Vitais-->
@@ -361,20 +334,20 @@
 
         <!-- End of Main Content -->
 
-       
+
         <!-- End of Footer -->
 
       </div>
       <!-- End of Content Wrapper -->
 
-       <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <span>Copyright &copy; Prontuário Eletrônico 2019</span>
-            </div>
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Prontuário Eletrônico 2019</span>
           </div>
-        </footer>
+        </div>
+      </footer>
 
     </div>
     <!-- End of Page Wrapper -->
