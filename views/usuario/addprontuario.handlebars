@@ -106,7 +106,7 @@
           <!-- Topbar Search -->
           <div>
             <div>
-              <h1 style="font-size: xx-large;">Cadastro de Prontuário</h1>
+              <h1 style="font-size: xx-large; padding: 0 0 0 30px; margin:auto">Cadastro de Prontuário</h1>
             </div>
           </div>
 
@@ -178,7 +178,7 @@
             {{else}}
 
             {{/each}}
-            <h1>Novo Prontuário</h1>
+            <h1 style="text-align: center;">Novo Prontuário</h1>
             <br>
 
             <div class="form-row ">
@@ -247,10 +247,8 @@
               <label>Nome, Telefone ou outro tipo tipo de contato do responsável/cuidador (se aplicável)</label>
               <input type="text" class="form-control" id="cuidador1" name="observacoes">
             </div>
-            <br>
-            <hr>
-            <h1>Dados Clínicos</h1>
-            <br>
+
+            
             <!--Alergia, ocupação-->
             <div class="form-row">
               <div class="form-group col">
@@ -274,7 +272,7 @@
 
               <label>Limitação</label>
               <div class="form-group col">
-                <select class="selectpicker" name="limitacao" id="limitacao" multiple data-live-search="true">
+                <select class="selectpicker" name="limitacao" id="limitacao" multiple>
                   <option>Cognitiva</option>
                   <option>Locomoção</option>
                   <option>Visão</option>

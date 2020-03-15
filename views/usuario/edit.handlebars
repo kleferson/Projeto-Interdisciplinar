@@ -90,7 +90,7 @@
           <!-- Topbar Search -->
           <div>
             <div>
-              <h1 style="font-size: xx-large;">Editar</h1>
+              <h1 style="font-size: xx-large; padding: 0 0 0 30px; margin:auto">Editar</h1>
             </div>
           </div>
 
@@ -110,7 +110,7 @@
 
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" style="color:#4e73df;" href="/logout" data-toggle="modal"
-                ddata-target="#exampleModal"> Sair</a>
+                ddata-target="#exampleModal">Sair</a>
             </li>
 
 
@@ -134,7 +134,7 @@
             {{else}}
 
             {{/each}}
-            <h1>Editar Prontuário</h1>
+            <h1 style="text-align: center;">Editar Prontuário</h1>
             <br>
 
             <div class="form-row ">
@@ -196,10 +196,7 @@
               <input type="text" class="form-control" id="cuidador1" name="observacoes"
                 value="{{prontuario.observacoes}}" disabled>
             </div>
-            <br>
-            <hr>
-            <h1>Dados Clínicos</h1>
-            <br>
+            
             <!--Alergia, ocupação-->
             <div class="form-row">
               <div class="form-group col">
