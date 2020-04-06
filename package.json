@@ -16,6 +16,7 @@
     "mongodb": "^3.3.3",
     "mongoose": "^5.7.7",
     "mysql2": "^1.7.0",
+    "nodemon": "^2.0.2",
     "npm": "^6.12.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
@@ -24,7 +25,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon src/server.js"
   },
   "repository": {
     "type": "git",
