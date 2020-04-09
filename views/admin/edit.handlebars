@@ -90,7 +90,7 @@
           <!-- Topbar Search -->
           <div>
             <div>
-              <h1 style="font-size: xx-large;">Editar</h1>
+              <h1 style="font-size: xx-large; padding: 0 0 0 30px; margin:auto">Editar</h1>
             </div>
           </div>
 
@@ -135,7 +135,7 @@
 
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" style="color:#4e73df;" href="/logout" data-toggle="modal"
-                data-target="#logoutModal"> Sair</a>     
+                data-target="#logoutModal"> Sair</a>
             </li>
 
           </ul>
@@ -158,7 +158,8 @@
             {{else}}
 
             {{/each}}
-            <h1>Editar Prontuário</h1>
+            <h1 style="text-align: center;">Dados Pessoais</h1>
+            <hr class="sidebar-divider my-0">
             <br>
 
             <div class="form-row ">
@@ -168,7 +169,7 @@
               </div>
               <div class="col">
                 <label>Nome completo</label>
-                <input type="text" class="form-control" id="nome" name="nome" value="{{prontuario.nome}}" >
+                <input type="text" class="form-control" id="nome" name="nome" value="{{prontuario.nome}}">
               </div>
 
             </div>
@@ -177,19 +178,18 @@
             <div class="form-row">
               <div class="form-group col-md-2">
                 <label>Data de nascimento</label>
-                <input type="text" class="form-control" id="data_nasc" name="data_nasc" value="{{prontuario.data_nasc}}"
-                  >
+                <input type="text" class="form-control" id="data_nasc" name="data_nasc"
+                  value="{{prontuario.data_nasc}}">
               </div>
 
               <div class="col">
                 <label>Endereço</label>
-                <input type="text" class="form-control" id="endereco" name="endereco" value="{{prontuario.endereco}}"
-                  >
+                <input type="text" class="form-control" id="endereco" name="endereco" value="{{prontuario.endereco}}">
               </div>
 
               <div class="col-md-2" id="sexo">
                 <label>Sexo:</label>
-                <input type="text" class="form-control" id="sexo" name="sexo" value="{{prontuario.sexo}}" >
+                <input type="text" class="form-control" id="sexo" name="sexo" value="{{prontuario.sexo}}">
               </div>
 
             </div>
@@ -198,18 +198,17 @@
             <div class="form-row">
               <div class="form-group col">
                 <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control" id="email1" name="email" value="{{prontuario.email}}" >
+                <input type="email" class="form-control" id="email1" name="email" value="{{prontuario.email}}">
               </div>
               <div class="col">
                 <label for="inputPassword4">Telefone</label>
-                <input type="text" class="form-control" id="telefone" name="telefone" value="{{prontuario.telefone}}"
-                  >
+                <input type="text" class="form-control" id="telefone" name="telefone" value="{{prontuario.telefone}}">
               </div>
 
               <div class="col">
                 <label>Escolaridade</label>
                 <input type="text" class="form-control" id="escolaridade" name="escolaridade"
-                  value="{{prontuario.escolaridade}}" >
+                  value="{{prontuario.escolaridade}}">
               </div>
 
             </div>
@@ -218,21 +217,24 @@
             <div class="form-group" id="cuidador">
               <label>Nome, Telefone ou outro tipo tipo de contato do responsável/cuidador (se aplicável)</label>
               <input type="text" class="form-control" id="cuidador1" name="observacoes"
-                value="{{prontuario.observacoes}}" >
+                value="{{prontuario.observacoes}}">
             </div>
-            
+
+            <br>
+            <h1 style="text-align: center;">Dados Clínicos</h1>
+            <hr class="sidebar-divider my-0">
+            <br>
+
             <!--Alergia, ocupação-->
             <div class="form-row">
               <div class="form-group col">
                 <label>Alergia</label>
-                <input type="text" class="form-control" id="alergia" name="alergia" value="{{prontuario.alergia}}"
-                  >
+                <input type="text" class="form-control" id="alergia" name="alergia" value="{{prontuario.alergia}}">
               </div>
 
               <div class="col">
                 <label>Ocupação</label>
-                <input type="text" class="form-control" id="ocupacao" name="ocupacao" value="{{prontuario.ocupacao}}"
-                  >
+                <input type="text" class="form-control" id="ocupacao" name="ocupacao" value="{{prontuario.ocupacao}}">
               </div>
 
             </div>
@@ -243,12 +245,14 @@
 
               <label>Limitação</label>
               <div class="col">
-                <input type="text" class="form-control" id="limitacao" name="limitacao" value="{{prontuario.limitacao}}" >
+                <input type="text" class="form-control" id="limitacao" name="limitacao"
+                  value="{{prontuario.limitacao}}">
               </div>
               <label>Outras limitações</label>
-            <div class="col-md-6">
-              <input type="text" class="form-control" id="outrasLimitacoes" name="outrasLimitacoes" value="{{prontuario.outrasLimitacoes}}">
-            </div>
+              <div class="col-md-6">
+                <input type="text" class="form-control" id="outrasLimitacoes" name="outrasLimitacoes"
+                  value="{{prontuario.outrasLimitacoes}}">
+              </div>
 
 
             </div>
@@ -260,22 +264,22 @@
               &nbsp;
               <label>PA</label>
               <div class="form-group col">
-                <input type="number" class="form-control" id="pa" name="pa" value="{{prontuario.pa}}" >
+                <input type="number" class="form-control" id="pa" name="pa" value="{{prontuario.pa}}">
               </div>
               &nbsp;&nbsp;&nbsp;&nbsp;
               <label>FC</label>
               <div class="form-group col">
-                <input type="number" class="form-control" id="fc" name="fc" value="{{prontuario.fc}}" >
+                <input type="number" class="form-control" id="fc" name="fc" value="{{prontuario.fc}}">
               </div>
               &nbsp;&nbsp;&nbsp;&nbsp;
               <label>FR</label>
               <div class="form-group col">
-                <input type="number" class="form-control" id="fr" name="fr" value="{{prontuario.fr}}" >
+                <input type="number" class="form-control" id="fr" name="fr" value="{{prontuario.fr}}">
               </div>
               &nbsp;&nbsp;&nbsp;&nbsp;
               <label>T</label>
               <div class="form-group col">
-                <input type="number" class="form-control" id="t" name="t" value="{{prontuario.t}}" >
+                <input type="number" class="form-control" id="t" name="t" value="{{prontuario.t}}">
               </div>
             </div>
 
@@ -283,7 +287,7 @@
             <div class="form-group">
               <label>Motivo do Atendimento</label>
               <input type="text" class="form-control" id="motivoatendimento1" name="motivo_atendimento"
-                value="{{prontuario.motivo_atendimento}}" >
+                value="{{prontuario.motivo_atendimento}}">
             </div>
 
 
@@ -293,7 +297,7 @@
               <div class="form-group col -auto">
                 <label>Doenças Cronicas:</label>
                 <input type="text" class="form-control" id="doencascronicas1" name="doencas_cronicas"
-                  value="{{prontuario.doencas_cronicas}}" >
+                  value="{{prontuario.doencas_cronicas}}">
               </div>
             </div>
             <!--Queixa-->
@@ -333,25 +337,26 @@
               <a class="btn btn-secondary" href="/showprontuarios">Voltar</a>
             </center>
           </form>
+          <br>
           <!-- div container fluid -->
         </div>
 
         <!-- End of Main Content -->
 
-       
+
         <!-- End of Footer -->
 
       </div>
       <!-- End of Content Wrapper -->
 
-       <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <span>Copyright &copy; Prontuário Eletrônico 2019</span>
-            </div>
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Prontuário Eletrônico 2019</span>
           </div>
-        </footer>
+        </div>
+      </footer>
 
     </div>
     <!-- End of Page Wrapper -->

@@ -92,7 +92,7 @@
           <!-- Topbar Search -->
           <div>
             <div>
-              <h1 style="font-size: xx-large; padding: 0 0 0 30px; margin:auto">Inicío</h1>
+              <h1 style="font-size: xx-large; padding: 0 0 0 30px; margin:auto">Mural</h1>
             </div>
           </div>
 
@@ -125,7 +125,6 @@
         <div class="container">
           <div class="container-fluid">
             <!-- Noticia1 -->
-            <h1>Mural</h1>
             {{#if user.admin}}
             {{>_msg}}
             {{#each erros}}
@@ -151,6 +150,11 @@
                 </form>
               </div>
             </div>
+
+           
+            <hr class="sidebar-divider my-0">
+            <br>
+
             {{/if}}
 
             {{#each postagens}}

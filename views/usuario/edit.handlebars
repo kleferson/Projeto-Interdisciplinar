@@ -90,7 +90,7 @@
           <!-- Topbar Search -->
           <div>
             <div>
-              <h1 style="font-size: xx-large; padding: 0 0 0 30px; margin:auto">Editar</h1>
+              <h1 style="font-size: xx-large; padding: 0 0 0 30px; margin:auto">{{prontuario.nome}}</h1>
             </div>
           </div>
 
@@ -134,7 +134,8 @@
             {{else}}
 
             {{/each}}
-            <h1 style="text-align: center;">Editar Prontuário</h1>
+            <h1 style="text-align: center;">Dados Pessoais</h1>
+            <hr class="sidebar-divider my-0">
             <br>
 
             <div class="form-row ">
@@ -196,6 +197,10 @@
               <input type="text" class="form-control" id="cuidador1" name="observacoes"
                 value="{{prontuario.observacoes}}" disabled>
             </div>
+            <br>
+            <h1 style="text-align: center;">Dados Clínicos</h1>
+            <hr class="sidebar-divider my-0">
+            <br>
             
             <!--Alergia, ocupação-->
             <div class="form-row">
@@ -308,6 +313,7 @@
               <a class="btn btn-secondary" href="/showprontuarios">Voltar</a>
             </center>
           </form>
+          <br>
           <!-- div container fluid -->
         </div>
 
