@@ -3,19 +3,25 @@
     <link rel="stylesheet" href="/css/viewprontuario.css">
 </head>
 <div class="container">
-    <table style="width: 649px;" border="1">
+    <table style="width: 750px;" border="1">
         <tbody>
-            <tr>
-                <td style="width: 655px;">Prontuário Eletronico FASIPE-CPA</td>
+            <tr style="height: 175px;">
+                <td style="width: 191px; height: 175px;">Aqui logo enfermagem</a></td>
+                <td style="width: 487px; height: 175px;">
+                    <p>&nbsp;<b>Nome:</b> {{prontuario.nome}}</p>
+                    <p>&nbsp;<b>Data de nascimento:</b> {{prontuario.data_nasc}} &nbsp;&nbsp;&nbsp; <b>Sexo:</b>
+                        {{prontuario.sexo}}</p>
+                    <p>&nbsp;<b>Endereço:</b> {{prontuario.endereco}}</p>
+                    <p>&nbsp;<b>Cpf:</b> {{prontuario.cpf}}&nbsp;</p>
+                </td>
             </tr>
         </tbody>
     </table>
-    <table style="width: 649px;" border="1">
+    </table>
+    <table style="width: 750px;" border="1">
         <tbody>
-            <tr>
-                <td style="width: 109px;">{{prontuario.cpf}}</td>
-                <td style="width: 462px; text-align:center">{{prontuario.nome}}</td>
-                <td style="width: 100px;">{{prontuario.data_nasc}}</td>
+            <tr style="height: 800px;">
+                <td style="width: 676px; height: 441px;">&nbsp;</td>
             </tr>
         </tbody>
     </table>
