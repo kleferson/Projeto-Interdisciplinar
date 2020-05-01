@@ -7,7 +7,7 @@ const { eUser } = require('../helpers/eUser')
 const LoginController = require('../controllers/LoginController')
 const IndexController = require('../controllers/IndexController')
 const ProntuarioController = require('../controllers/ProntuarioController')
-const PostagemController = require('../controllers/PostagemController')
+const PostagemController = require('../controllers/admin/PostagemController')
 
 //rotas
 router.get('/', eUser, IndexController.index)
@@ -20,7 +20,6 @@ router.post('/cadastrar-prontuario/new-prontuario', eUser, ProntuarioController.
 
 //rota de cadastro de postagens
 router.post('/newpost', PostagemController.create)
-
 
 //rota de visualização para impressão
 router.get('/showprontuarios/view/:id', eUser, ProntuarioController.print)

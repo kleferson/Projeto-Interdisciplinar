@@ -4,8 +4,8 @@ const mongoose = require('mongoose')
 require("../models/usuario")
 require("../models/prontuario")
 const { eAdmin } = require('../helpers/eAdmin')
-const PainelAdminController = require('../controllers/PainelAdminController')
-const UserController = require('../controllers/UserController')
+const PainelAdminController = require('../controllers/admin/PainelAdminController')
+const UserController = require('../controllers/admin/UserController')
 
 router.get('/', eAdmin, PainelAdminController.index)
 

@@ -101,7 +101,8 @@
                     <!-- Topbar Search -->
                     <div>
                         <div>
-                            <h1 style="font-size: xx-large; padding: 0 0 0 30px; margin:auto">Painel do Administrador</h1>
+                            <h1 style="font-size: xx-large; padding: 0 0 0 30px; margin:auto">Painel do Administrador
+                            </h1>
                         </div>
                     </div>
 
@@ -160,73 +161,62 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Registro</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                {{>_msg}}
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Nome</th>
-                                            <th>Email</th>
-                                            <th>CPF</th>
-                                            <th>Telefone</th>
-                                            <th>Editar</th>
-                                            <th>Visualizar</th>
-                                            <th>Deletar</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Nome</th>
-                                            <th>Email</th>
-                                            <th>CPF</th>
-                                            <th>Telefone</th>
-                                            <th>Editar</th>
-                                            <th>Visualizar</th>
-                                            <th>Deletar</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        {{#each prontuarios}}
-                                        <tr>
-                                            <td>{{nome}}</td>
-                                            <td>{{email}}</td>
-                                            <td>{{cpf}}</td>
-                                            <td>{{telefone}}</td>
-                                            <td><a href="/admin/showprontuarios/edit/{{_id}}"><button
-                                                        class="btn btn-success">Editar</button></a>
-                                            </td>
-                                            <td><a href="/showprontuarios/view/{{_id}}"><button
-                                                        class="btn btn-primary">Visualizar</button></a>
-                                            </td>
-                                            <td>
-                                                <form action="/admin/showprontuarios/delete/" method="POST">
-                                                    <input type="hidden" name="id" value="{{_id}}">
-                                                    <button type="submit" class="btn btn-danger">Deletar</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        {{else}}
-                                        <div class="card mt-4">
-                                            <div class="card-body">
-                                                <h4>Nenhum prontuário cadastrado!</h4>
-                                            </div>
-                                        </div>
-                            </div>
-                            {{/each}}
-                            </tbody>
-                            </table>
+                    <div class="search">
+                        <div class="container">
+                            <input class="form-control " type="text" id="search" placeholder="Pesquisar"
+                                aria-label="Search">
                         </div>
                     </div>
+                    <br>
+                    <div class="table-responsive">
+                        {{>_msg}}
+                        <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Email</th>
+                                    <th>CPF</th>
+                                    <th>Telefone</th>
+                                    <th>Editar</th>
+                                    <th>Visualizar</th>
+                                    <th>Deletar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each prontuarios}}
+                                <tr>
+                                    <td>{{nome}}</td>
+                                    <td>{{email}}</td>
+                                    <td>{{cpf}}</td>
+                                    <td>{{telefone}}</td>
+                                    <td><a href="/admin/showprontuarios/edit/{{_id}}"><button
+                                                class="btn btn-success">Editar</button></a>
+                                    </td>
+                                    <td><a href="/showprontuarios/view/{{_id}}"><button
+                                                class="btn btn-primary">Visualizar</button></a>
+                                    </td>
+                                    <td>
+                                        <form action="/admin/showprontuarios/delete/" method="POST">
+                                            <input type="hidden" name="id" value="{{_id}}">
+                                            <button type="submit" class="btn btn-danger">Deletar</button>
+                                        </form>
+                                    </td>
+                                    {{else}}
+                                    <div class="card mt-4">
+                                        <div class="card-body">
+                                            <h4>Nenhum prontuário cadastrado!</h4>
+                                        </div>
+                                    </div>
+                    </div>
+                    </tr>
+                    {{/each}}
+                    </tbody>
+                    </table>
                 </div>
 
             </div>
+
+
 
             <!-- /.container-fluid -->
         </div>
@@ -289,5 +279,6 @@
     <script src="js/demo/datatables-demo.js"></script>
 
 </body>
+    <script src="js/search.js"></script>
 
 </html>
