@@ -21,9 +21,6 @@ router.post('/showprontuarios/edit', PainelAdminController.edit)
 //Deletar Prontuário
 router.post('/showprontuarios/delete', PainelAdminController.delete)
 
-//rota de visualização de usuarios
-router.get('/showuser', eAdmin, UserController.show)
-
 //rota de edição de usuarios
 router.get('/showuser/edit/:id', eAdmin, UserController.search_edit)
 
@@ -32,7 +29,7 @@ router.post('/showuser/edit', UserController.edit)
 router.post('/showuser/delete', UserController.delete)
 
 //rota de cadastro de usuarios
-router.get('/cadastrar-usuario', eAdmin, UserController.form)
+router.get('/cadastrar-usuario', eAdmin, UserController.show)
 
 //validando cadastro
 router.post('/cadastrar-usuario/newuser', UserController.create)

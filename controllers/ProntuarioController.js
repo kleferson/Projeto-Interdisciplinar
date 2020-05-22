@@ -9,7 +9,8 @@ module.exports = {
         }
 
         if (erros.length > 0) {
-            res.render('usuario/addprontuario', { erros: erros })
+            req.flash('error_msg', 'Houve um erro ao cadastrar o prontuário!')
+            res.redirect('/cadastrar-prontuario')
         } else {
             const novoProntuario = {
                 data_abertura: req.body.exibeDataAtual,
