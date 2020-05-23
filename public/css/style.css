@@ -4,7 +4,7 @@
 
 
 html{
-    background-color: #f7f8ff;
+    background-color: #ffffff;
 }
 
 .main-card{
@@ -44,8 +44,8 @@ html{
 }
 
 .side-bar a{
-    width: 115px;
-    padding: 10px 20px 10px 20px;
+    width: 100px;
+    padding: 10px 10px 10px 10px;
     margin-bottom: 10px;
     margin-left: auto;
     margin-right: auto;
@@ -87,7 +87,7 @@ html{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: #f7f8ff;
+    background-color: #ffffff;
 }
 
 .nav-bar input{
@@ -96,8 +96,8 @@ html{
     height: 50px;
     border-radius: 15px;
     padding: 20px 20px;
-    background-color: #ebedfa;
-    border: 0px;
+    background-color: #ffffff;
+    border: 1px solid grey;
 }
 
 .nav-bar span{
@@ -129,7 +129,7 @@ html{
 .main{
     width: 100%;
     display: flex;
-    background-color: #f7f8ff;
+    background-color: #ffffff;
 }
 
 #form-prontuario{
