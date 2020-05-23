@@ -4,16 +4,17 @@
 
 
 html{
-    background-color: #ffffff;
+    background-color: #f7f8ff;
 }
 
 .main-card{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
+    margin-left: 170px;
+    margin-right: 50px;
     height: 200px;
-    background-color: #ebedfa;
+    background-color: #d4edda;
     border-radius: 20px;
 }
 
@@ -25,7 +26,7 @@ html{
 .card-title p{
     padding: 40px 0px 0px 150px;
     font-size: 24px;
-    color: #3734a7;
+    color: green;
     font-weight: bold;
 }
 
@@ -38,19 +39,18 @@ html{
     height: 100%;
     display: flex;
     flex-direction: column;
-    width: 160px;
+    width: 130px;
     background-color: #3734a7;
 }
 
 .side-bar a{
-    width: 130px;
-    padding: 30px 20px;
+    width: 115px;
+    padding: 10px 20px 10px 20px;
     margin-bottom: 10px;
     margin-left: auto;
     margin-right: auto;
     list-style: none;
-    font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
     text-decoration: none;
     text-align: center;
     color: #ffffff;
@@ -67,8 +67,8 @@ html{
 }
 
 .logo{
-    color: #6b75ca;
-    padding-top: 35px;
+    color: #ffffff;
+    padding-top: 22px;
     font-size: 32px;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
@@ -87,20 +87,17 @@ html{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: #ffffff;
+    background-color: #f7f8ff;
 }
 
 .nav-bar input{
-    margin-left: 240px;
+    margin-left: 170px;
     width: 500px;
     height: 50px;
     border-radius: 15px;
     padding: 20px 20px;
-    background-color: #f5f6fd;
-}
-
-.nav-bar input:focus{
-    border: 2px solid #aecbe9 ;
+    background-color: #ebedfa;
+    border: 0px;
 }
 
 .nav-bar span{
@@ -130,10 +127,9 @@ html{
 }
 
 .main{
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: white;
+    background-color: #f7f8ff;
 }
 
 #form-prontuario{
@@ -143,7 +139,8 @@ html{
 }
 
 #table{
-    margin-left: 240px;
+    margin-left: 170px;
+    width: 100%;
     margin-right: 50px;
     margin-bottom: 20px;
 }
@@ -180,19 +177,33 @@ html{
 }
 
 .main-dashboard{
+    width: 100%;
     display: flex;
     flex-direction: column;
-    margin-left: 240px;
-    margin-right: 50px;
 }
 
 .main-dashboard form{
     background-color: #ffffff;
-    padding: 50px;
-    width: 700px;
+    padding: 30px 30px 20px 30px ;
+    width: 600px;
     margin-top: 40px;
-    box-shadow: 0px 20px 60px rgba(80, 87, 150, 0.2);
+    margin-left: 170px;
+    box-shadow: 0px 2px 4px rgba(80, 87, 150, 0.2);
     border-radius: 20px;
+}
+
+.main-dashboard form label{
+    margin-bottom: 5px;
+}
+
+.main-dashboard form textarea{
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.main-dashboard form input{
+    width: 380px;
+    border-radius: 8px;
 }
 
 .main-dashboard form button{
@@ -201,6 +212,7 @@ html{
     background-color: #3734a7;
     border: 0px;
     color: white;
+    width: 200px;
     box-shadow: 0px 2px 4px rgba(138, 149, 158, 0.2);
 }
 
@@ -222,6 +234,8 @@ html{
 
 .main-dashboard .teste {
     padding-bottom: 10px;
+    width: 900px;
+    margin-left: 170px;
 }
 
 #selecionado{
@@ -291,6 +305,7 @@ html{
     background-color: white;
     width: 100%;
     margin-top: 40px;
+
     padding: 30px 30px 0px 30px;
     border-radius: 20px;
     box-shadow: 0px 20px 60px rgba(80, 87, 150, 0.2);
@@ -316,4 +331,5 @@ html{
 
 .search{
     display: flex;
+    flex-direction: row;
 }

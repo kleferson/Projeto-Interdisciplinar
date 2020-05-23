@@ -53,7 +53,7 @@
         </div>
         <img src="img/undraw_doctor_kw5l.svg" alt="">
       </div>
-      
+
 
       {{#if user.admin}}
       {{>_msg}}
@@ -64,14 +64,11 @@
 
       <form action="/newpost" method="POST">
         <input type="hidden" name="autor" value="{{user.nome}}">
-        <div class="form-group">
-          <label for="titulo">Titulo:</label>
+          <label for="titulo"><b>Titulo</b></label>
           <input type="text" class="form-control" name="titulo"><br>
-          <label for="">Texto:</label>
+          <label for=""><b>Texto</b></label>
           <textarea type="text" class="form-control" name="conteudo" rows="4"></textarea>
-        </div>
-
-        <button type="submit">Publicar</button>
+          <button type="submit">Publicar</button>
       </form>
       {{/if}}
 

@@ -50,5 +50,7 @@
 .right form input{
     width: 380px;
     margin-bottom: 20px;
-    background-color: #f5f6fd;
+    background-color: #f3f3f4;
+    border: 0px;
+    border-radius: 8px;
 }
