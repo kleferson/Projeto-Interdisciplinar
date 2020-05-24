@@ -4,7 +4,7 @@
 
 
 html{
-    background-color: #f0f3f5;
+    background-color: #FAFCFF;
 }
 
 .main-card{
@@ -40,7 +40,8 @@ html{
     display: flex;
     flex-direction: column;
     width: 130px;
-    background-color: #212c4f;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 10px rgba(161, 182, 229, 0.25);
 }
 
 .side-bar a{
@@ -53,21 +54,25 @@ html{
     font-size: 14px;
     text-decoration: none;
     text-align: center;
-    color: #ffffff;
-    background-color: #212c4f;
+    color: #A1B6E5;
+    background-color: #ffffff;
     border-radius: 20px;
 }
 
 .side-bar a:hover{
     text-decoration: none;
-    border-radius: 20px;
-    background-color: #ffffff;
-    color: #212c4f;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    background-color: #E3ECFF;
+    color: #A1B6E5;
+}
+
+.side-bar a:active{
+    background-color: #E3ECFF;
+    color: #3672f8;
 }
 
 .logo{
-    color: #ffffff;
+    color: #3672f8;
     padding-top: 22px;
     font-size: 32px;
     text-align: center;
@@ -87,7 +92,7 @@ html{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: #f0f3f5;
+    background-color: #FAFCFF;
 }
 
 .nav-bar input{
@@ -97,7 +102,7 @@ html{
     border-radius: 8px;
     padding: 20px 20px;
     background-color: #ffffff;
-    border: 1px solid #212c4f;
+    border: 1px solid #E3ECFF;
 }
 
 .nav-bar span{
@@ -129,7 +134,7 @@ html{
 .main{
     width: 100%;
     display: flex;
-    background-color: #f0f3f5;
+    background-color: #FAFCFF;
 }
 
 #form-prontuario{
@@ -240,10 +245,9 @@ html{
 
 #selecionado{
     text-decoration: none;
-    border-radius: 20px;
-    background-color: #ffffff;
-    color: #212c4f;
-    box-shadow: 0px 4px 8px rgba(80, 87, 150, 0.2);
+    border-radius: 8px;
+    background-color: #E3ECFF;
+    color: #3672f8;
 }
 .btn1 {
     border-radius: 10px;
@@ -290,7 +294,7 @@ html{
     width: 200px;
     height: 50px;
     border: 0px;
-    background-color: #212c4f;
+    background-color: #3672f8;
     color: #ffffff;
     box-shadow: 0px 4px 8px rgba(138, 149, 158, 0.2);
 }
