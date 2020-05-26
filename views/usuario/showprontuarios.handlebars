@@ -17,16 +17,18 @@
 
 <body>
     <div class="side-bar">
-        <div class="logo">
-            Logo
-        </div>
         <div class="bar">
+            <h1>Logo</h1>
             <a href="/"><span class="material-icons">dashboard</span><br>Dashboard</a>
             {{#if user.admin}}
             <a href="/admin"><span class="material-icons">description</span><br>Editar</a>
             <a href="/admin/cadastrar-usuario"><span class="material-icons">account_box</span><br>Usuários</a>
             {{/if}}
             <a href="/showprontuarios" id="selecionado"><span class="material-icons">view_list</span><br>Prontuários</a>
+        </div>
+        <div class="logout">
+            <p>{{user.nome}}</p>
+            <a href="/logout"><span class="material-icons">exit_to_app</span><br>Logout</a>
         </div>
     </div>
 
@@ -37,7 +39,7 @@
         <div class="user-info">
             <span>Olá, <b>{{user.nome}}</b></span>
             <div class="divider"></div>
-             <a href="/logout" data-toggle="modal" data-target="#logoutModal" class="material-icons">exit_to_app</a>
+            <a href="/logout" data-toggle="modal" data-target="#logoutModal" class="material-icons">exit_to_app</a>
         </div>
     </div>
 
@@ -67,7 +69,7 @@
                             <td>{{email}}</td>
                             <td>{{data_abertura}}</td>
                             <td>{{telefone}}</td>
-                            <td><a href="/showprontuarios/edit/{{_id}}">Adcionar</a>
+                            <td><a href="/showprontuarios/edit/{{_id}}">Atualizar</a>
                             </td>
                             <td><a href="/showprontuarios/view/{{_id}}">Visualizar</a>
                             </td>

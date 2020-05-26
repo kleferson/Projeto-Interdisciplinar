@@ -13,7 +13,7 @@
 }
 
 .left{
-    background-color: #E5F2FF;
+    background-color: #E8F1FA;
     width: 38%;
     height: 100%;
     display: flex;
@@ -43,6 +43,11 @@
     align-items: center;
 }
 
+.right h1{
+    margin-bottom: 20px;
+    font-family: sans-serif;
+}
+
 .right form label{
     margin-bottom: 5px;
 }
@@ -52,5 +57,5 @@
     margin-bottom: 20px;
     background-color: #f3f3f4;
     border: 0px;
-    border-radius: 8px;
+    border-radius: 10px;
 }

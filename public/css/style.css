@@ -4,7 +4,7 @@
 
 
 html{
-    background-color: #FAFCFF;
+    background-color: #f2f7fe;
 }
 
 .main-card{
@@ -15,7 +15,7 @@ html{
     margin-right: 50px;
     height: 200px;
     background-color: #d4edda;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .main-card img{
@@ -39,6 +39,7 @@ html{
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 130px;
     background-color: #ffffff;
     box-shadow: 0px 4px 10px rgba(161, 182, 229, 0.25);
@@ -56,12 +57,12 @@ html{
     text-align: center;
     color: #A1B6E5;
     background-color: #ffffff;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .side-bar a:hover{
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 10px;
     background-color: #E3ECFF;
     color: #A1B6E5;
 }
@@ -73,16 +74,22 @@ html{
 
 .logo{
     color: #3672f8;
-    padding-top: 22px;
+    margin-bottom: 20px;
     font-size: 32px;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .bar{
-    margin-top: 45px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
+}
+
+.bar h1{
+    margin-left: 20px;
+    margin-right: auto;
+    margin-bottom: 35px;
 }
 
 .nav-bar{
@@ -92,14 +99,14 @@ html{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: #FAFCFF;
+    background-color: #f2f7fe;
 }
 
 .nav-bar input{
     margin-left: 170px;
     width: 500px;
-    height: 25px;
-    border-radius: 8px;
+    height: 50px;
+    border-radius: 10px;
     padding: 20px 20px;
     background-color: #ffffff;
     border: 1px solid #E3ECFF;
@@ -112,6 +119,20 @@ html{
 .user-info{
     display: flex;
     flex-direction: row;
+}
+
+.search h1{
+    font-size: 24px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: black;
+    margin-left: 170px;
+    border-style: solid;
+    border-bottom-width: 4px;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-left-width: 0;
+    border-color: #3672f8;
 }
 
 .nav-bar .user-info a{
@@ -131,10 +152,34 @@ html{
     border: 1px solid #DCDCDC;
 }
 
+.logout{
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+}
+
+.logout p{
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 25px;
+    margin-right: 25px;
+    text-align: center;
+}
+
+.logout a{
+    color: #3672f8;
+}
+
+.logout a:hover{
+    color: #3672f8;
+}
+
+
 .main{
     width: 100%;
     display: flex;
-    background-color: #FAFCFF;
+    background-color: #f2f7fe;
 }
 
 #form-prontuario{
@@ -153,7 +198,7 @@ html{
 .main-user{
     display: flex;
     flex-direction: row;
-    margin-left: 240px;
+    margin-left: 170px;
     margin-right: 50px;
 }
 
@@ -164,21 +209,21 @@ html{
     height: 490px;
     margin-top: 40px;
     box-shadow: 0px 4px 8px rgba(80, 87, 150, 0.2);
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .main-user form button{
     width: 400px;
     border-radius: 10px;
     padding: 10px;
-    background-color: #3734a7;
+    background-color: #3672f8;
     border: 0px;
     color: white;
     box-shadow: 0px 4px 8px rgba(138, 149, 158, 0.2);
 }
 
 .main-user form button:hover{
-    background-color: #151282;
+    background-color: #007bff;
 }
 
 .main-dashboard{
@@ -194,7 +239,7 @@ html{
     margin-top: 40px;
     margin-left: 170px;
     box-shadow: 0px 4px 8px rgba(80, 87, 150, 0.2);
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .main-dashboard form label{
@@ -203,12 +248,12 @@ html{
 
 .main-dashboard form textarea{
     margin-bottom: 20px;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .main-dashboard form input{
     width: 380px;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .main-dashboard form button{
@@ -222,7 +267,7 @@ html{
 }
 
 .main-dashboard form button:hover{
-    background-color: #151282;
+    background-color: #007bff;
 }
 
 .main-dashboard .mural h1{
@@ -245,7 +290,7 @@ html{
 
 #selecionado{
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 10px;
     background-color: #E3ECFF;
     color: #3672f8;
 }
@@ -265,7 +310,7 @@ html{
 .btn2{
     border-radius: 10px;
     padding: 10px;
-    background-color: #CC3B2D;
+    background-color: #ea4335;
     border: 0px;
     color: white;
     box-shadow: 0px 4px 8px rgba(138, 149, 158, 0.2);
@@ -300,7 +345,7 @@ html{
 }
 
 .btn4:hover{
-    background-color: #151282;
+    background-color: #007bff;
 }
 
 .teste{
@@ -311,7 +356,7 @@ html{
     margin-top: 40px;
 
     padding: 30px 30px 0px 30px;
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(80, 87, 150, 0.2);
 }
 
@@ -319,8 +364,9 @@ html{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin-bottom: 24px;
 }
+
 
 .main-user .teste{
     display: flex;
@@ -329,7 +375,7 @@ html{
     width: 100%;
     margin-left: 30px;
     padding: 30px 30px 0px 30px;
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(80, 87, 150, 0.2);
 }
 

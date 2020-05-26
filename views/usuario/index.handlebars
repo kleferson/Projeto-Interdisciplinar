@@ -17,10 +17,8 @@
 
 <body>
   <div class="side-bar">
-    <div class="logo">
-      Logo
-    </div>
     <div class="bar">
+      <h1>Logo</h1>
       <a href="/" id="selecionado"><span class="material-icons">dashboard</span><br>Dashboard</a>
       {{#if user.admin}}
       <a href="/admin"><span class="material-icons">description</span><br>Editar</a>
@@ -28,18 +26,20 @@
       {{/if}}
       <a href="/showprontuarios"><span class="material-icons">view_list</span><br>Prontuários</a>
     </div>
+    <div class="logout">
+      <p>{{user.nome}}</p>
+       <a href="/logout"><span class="material-icons">exit_to_app</span><br>Logout</a>
+    </div>
   </div>
 
   <div class="nav-bar">
-    <div class="search">
-      <input class="form-control" type="text" id="search" placeholder="Pesquisar" aria-label="Search">
+        <div class="search">
+            <h1>Dashboard</h1>
+        </div>
+        <div class="user-info">
+            <a href="/cadastrar-prontuario"><button class="btn4">Novo Prontuário</button></a>
+        </div>
     </div>
-    <div class="user-info">
-      <span>Olá, <b>{{user.nome}}</b></span>
-      <div class="divider"></div>
-      <a href="/logout" data-toggle="modal" data-target="#logoutModal" class="material-icons">exit_to_app</a>
-    </div>
-  </div>
 
   <div class="main">
     <div class="main-dashboard">
@@ -64,11 +64,11 @@
 
       <form action="/newpost" method="POST">
         <input type="hidden" name="autor" value="{{user.nome}}">
-          <label for="titulo"><b>Titulo</b></label>
-          <input type="text" class="form-control" name="titulo"><br>
-          <label for=""><b>Texto</b></label>
-          <textarea type="text" class="form-control" name="conteudo" rows="4"></textarea>
-          <button type="submit">Publicar</button>
+        <label for="titulo"><b>Titulo</b></label>
+        <input type="text" class="form-control" name="titulo"><br>
+        <label for=""><b>Texto</b></label>
+        <textarea type="text" class="form-control" name="conteudo" rows="4"></textarea>
+        <button type="submit">Publicar</button>
       </form>
       {{/if}}
 
