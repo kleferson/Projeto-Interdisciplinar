@@ -4,7 +4,7 @@
 
 
 html{
-    background-color: #f2f7fe;
+    background-color: #f3f6fb;
 }
 
 .main-card{
@@ -13,25 +13,26 @@ html{
     justify-content: space-between;
     margin-left: 170px;
     margin-right: 50px;
+    margin-top: 20px;
     height: 200px;
+    width: 700px;
     background-color: #d4edda;
     border-radius: 10px;
 }
 
 .main-card img{
     height: 200px;
-    margin-right: 150px;
 }
 
 .card-title p{
-    padding: 40px 0px 0px 150px;
+    padding: 20px;
     font-size: 24px;
     color: green;
     font-weight: bold;
 }
 
 .card-subtitle{
-    margin-left: 150px;
+    margin-left: 20px;
 }
 
 .side-bar{
@@ -40,9 +41,15 @@ html{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     width: 130px;
-    background-color: #ffffff;
+    background-color: #3672f8;
     box-shadow: 0px 4px 10px rgba(161, 182, 229, 0.25);
+}
+
+.side-bar h1{
+    margin-top: 20px;
+    color: #ffffff;
 }
 
 .side-bar a{
@@ -55,16 +62,16 @@ html{
     font-size: 14px;
     text-decoration: none;
     text-align: center;
-    color: #A1B6E5;
-    background-color: #ffffff;
+    color: #ffffff;
+    background-color: #3672f8;
     border-radius: 10px;
 }
 
 .side-bar a:hover{
     text-decoration: none;
     border-radius: 10px;
-    background-color: #E3ECFF;
-    color: #A1B6E5;
+    background-color: #ffffff;
+    color: #3672f8;
 }
 
 .side-bar a:active{
@@ -99,7 +106,8 @@ html{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: #f2f7fe;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 10px rgba(161, 182, 229, 0.25);
 }
 
 .nav-bar input{
@@ -119,9 +127,10 @@ html{
 .user-info{
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
-.search h1{
+.description h1{
     font-size: 24px;
     font-family: sans-serif;
     font-weight: bold;
@@ -135,21 +144,14 @@ html{
     border-color: #3672f8;
 }
 
-.nav-bar .user-info a{
+.nav-bar .user-info span{
     text-decoration: none;
     color: #212c4f;
     margin-right: 50px;
 }
 
-.nav-bar .user-info a:hover{
-    color: #151282;
-}
-
-.divider{   
-    width: 0px;
-    height: 26px;
-    margin: 0 10px;
-    border: 1px solid #DCDCDC;
+.nav-bar a{
+    margin-right: 15px;
 }
 
 .logout{
@@ -158,17 +160,8 @@ html{
     flex-direction: column;
 }
 
-.logout p{
-    font-family: sans-serif;
-    font-weight: bold;
-    font-size: 14px;
-    margin-left: 25px;
-    margin-right: 25px;
-    text-align: center;
-}
-
 .logout a{
-    color: #3672f8;
+    color: #ffffff;
 }
 
 .logout a:hover{
@@ -179,7 +172,7 @@ html{
 .main{
     width: 100%;
     display: flex;
-    background-color: #f2f7fe;
+    background-color: #f3f6fb;
 }
 
 #form-prontuario{
@@ -270,30 +263,22 @@ html{
     background-color: #007bff;
 }
 
-.main-dashboard .mural h1{
-    font-size: 40px;
+.mural{
+    display: flex;
 }
 
-.main-dashboard .mural p{
-    font-size: 24px;
-}
-
-.main-dashboard .mural span{
-    font-size: 12px;
-}
-
-.main-dashboard .teste {
-    padding-bottom: 10px;
-    width: 900px;
-    margin-left: 170px;
+.mural .teste{
+    margin-left: 20px;
+    margin-right: 50px;
 }
 
 #selecionado{
     text-decoration: none;
     border-radius: 10px;
-    background-color: #E3ECFF;
+    background-color: #ffffff;
     color: #3672f8;
 }
+
 .btn1 {
     border-radius: 10px;
     padding: 10px;
@@ -338,7 +323,7 @@ html{
     padding: 0px;
     width: 200px;
     height: 50px;
-    border: 0px;
+    border: 0px; 
     background-color: #3672f8;
     color: #ffffff;
     box-shadow: 0px 4px 8px rgba(138, 149, 158, 0.2);
@@ -346,6 +331,16 @@ html{
 
 .btn4:hover{
     background-color: #007bff;
+}
+
+.btn-add{
+    border-radius: 10px;
+    padding: 0px;
+    width: 200px;
+    height: 50px;
+    border: 0px; 
+    background-color: #e8f4ff;
+    color: #3672f8;
 }
 
 .teste{
@@ -363,10 +358,28 @@ html{
 .title{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: row;
+    align-items: center;
     margin-bottom: 24px;
 }
 
+.title a{
+    margin-left: auto;
+}
+
+.title h1{
+    font-size: 32px;
+}
+
+.title .search input{
+    height: 50px;
+    border-radius: 10px;
+    padding: 20px 20px;
+    background-color: #f3f6fb;
+    border: 1px solid #E3ECFF;
+    margin-left: 30px;
+    width: 300px;
+}
 
 .main-user .teste{
     display: flex;

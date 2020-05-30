@@ -17,28 +17,26 @@
 
 <body>
   <div class="side-bar">
-    <div class="bar">
-      <h1>Logo</h1>
-      <a href="/"><span class="material-icons">dashboard</span><br>Dashboard</a>
-      {{#if user.admin}}
-      <a href="/admin"><span class="material-icons">description</span><br>Editar</a>
-      <a href="/admin/cadastrar-usuario" id="selecionado"><span
-          class="material-icons">account_box</span><br>Usuários</a>
-      {{/if}}
-      <a href="/showprontuarios"><span class="material-icons">view_list</span><br>Prontuários</a>
+        <h1>Logo</h1>
+        <div class="bar">
+            <a href="/"><span class="material-icons">dashboard</span>Dashboard</a>
+            <a href="/showprontuarios"><span class="material-icons">view_list</span><br>Prontuários</a>
+            {{#if user.admin}}
+            <a href="/admin"><span class="material-icons">description</span><br>Editar</a>
+            <a href="/admin/cadastrar-usuario"  id="selecionado"><span class="material-icons">account_box</span><br>Usuários</a>
+            {{/if}}
+        </div>
+        <div class="logout">
+            <a href="/logout"><span class="material-icons">exit_to_app</span><br>Logout</a>
+        </div>
     </div>
-    <div class="logout">
-      <p>{{user.nome}}</p>
-      <a href="/logout"><span class="material-icons">exit_to_app</span><br>Logout</a>
-    </div>
-  </div>
 
   <div class="nav-bar">
-    <input class="form-control " type="text" id="search" placeholder="Pesquisar" aria-label="Search">
+    <div class="description">
+      <h1>Usuários</h1>
+    </div>
     <div class="user-info">
-      <span>Olá, <b>{{user.nome}}</b></span>
-      <div class="divider"></div>
-      <a href="/logout" data-toggle="modal" data-target="#logoutModal" class="material-icons">exit_to_app</a>
+      <span>Olá,<b> {{user.nome}}</b></span>
     </div>
   </div>
 

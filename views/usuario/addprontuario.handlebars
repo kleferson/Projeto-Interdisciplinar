@@ -36,14 +36,14 @@
 
 <body>
   <div class="side-bar">
+    <h1>Logo</h1>
     <div class="bar">
-      <h1>Logo</h1>
-      <a href="/"><span class="material-icons">dashboard</span><br>Dashboard</a>
+      <a href="/"><span class="material-icons">dashboard</span>Dashboard</a>
+      <a href="/showprontuarios"><span class="material-icons">view_list</span><br>Prontuários</a>
       {{#if user.admin}}
       <a href="/admin"><span class="material-icons">description</span><br>Editar</a>
       <a href="/admin/cadastrar-usuario"><span class="material-icons">account_box</span><br>Usuários</a>
       {{/if}}
-      <a href="/showprontuarios"><span class="material-icons">view_list</span><br>Prontuários</a>
     </div>
     <div class="logout">
       <a href="/logout"><span class="material-icons">exit_to_app</span><br>Logout</a>
@@ -55,7 +55,8 @@
       <input class="form-control" type="text" id="search" placeholder="Pesquisar" aria-label="Search">
     </div>
     <div class="user-info">
-      <span>Olá, <b>{{user.nome}}</b></span>
+      <a class="material-icons">account_circle</a>
+      <span>Olá,<b> {{user.nome}}</b></span>
     </div>
   </div>
 
