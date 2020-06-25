@@ -19,27 +19,28 @@
   <div class="side-bar">
     <h1>Logo</h1>
     <div class="bar">
-      <a href="/" id="selecionado"><span class="material-icons">dashboard</span>Dashboard</a>
-      <a href="/showprontuarios"><span class="material-icons">view_list</span><br>Prontuários</a>
+      <a href="/" id="selecionado" class="material-icons">home</a>
+      <a href="/showprontuarios" class="material-icons">group</a>
       {{#if user.admin}}
-      <a href="/admin"><span class="material-icons">description</span><br>Editar</a>
-      <a href="/admin/cadastrar-usuario"><span class="material-icons">account_box</span><br>Usuários</a>
+      <a href="/admin" class="material-icons">admin_panel_settings</a>
+      <a href="/admin/cadastrar-usuario" class="material-icons">account_box</a>
       {{/if}}
+      <a href="#" class="material-icons">settings</a>
     </div>
     <div class="logout">
-       <a href="/logout"><span class="material-icons">exit_to_app</span><br>Logout</a>
+      <a href="/logout" class="material-icons">exit_to_app</a>
     </div>
   </div>
 
   <div class="nav-bar">
-        <div class="description">
-            <h1>Dashboard</h1>
-        </div>
-        <div class="user-info">
-            <a href="/cadastrar-prontuario"><button class="btn-add">Novo Paciente</button></a>
-            <span>Olá,<b> {{user.nome}}</b></span>
-        </div>
+    <div class="description">
+      <h1>Início</h1>
     </div>
+    <div class="user-info">
+      <a href="/cadastrar-prontuario"><button class="btn-add">Novo Paciente</button></a>
+      <span>Olá,<b> {{user.nome}}</b></span>
+    </div>
+  </div>
 
   <div class="main">
     <div class="main-dashboard">
@@ -54,37 +55,6 @@
         <img src="img/undraw_doctor_kw5l.svg" alt="">
       </div>
 
-
-      {{#if user.admin}}
-      {{>_msg}}
-      {{#each erros}}
-      <div class="alert alert-danger">{{texto}}</div>
-      {{else}}
-      {{/each}}
-
-<div class="mural">
-      <form action="/newpost" method="POST">
-        <input type="hidden" name="autor" value="{{user.nome}}">
-        <label for="titulo"><b>Titulo</b></label>
-        <input type="text" class="form-control" name="titulo"><br>
-        <label for=""><b>Texto</b></label>
-        <textarea type="text" class="form-control" name="conteudo" rows="4"></textarea>
-        <button type="submit">Publicar</button>
-      </form>
-      {{/if}}
-
-      <div class="teste">
-        {{#each postagens}}
-        <div class="mural">
-          <h1>{{titulo}}</h1>
-          <p>{{conteudo}}</p>
-          <span>{{date}}</span>
-        </div>
-        {{/each}}
-      </div>
-</div>
-
-      
     </div>
   </div>
 </body>

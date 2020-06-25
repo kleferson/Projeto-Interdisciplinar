@@ -19,17 +19,19 @@
     <div class="side-bar">
         <h1>Logo</h1>
         <div class="bar">
-            <a href="/"><span class="material-icons">dashboard</span>Dashboard</a>
-            <a href="/showprontuarios" id="selecionado"><span class="material-icons">view_list</span><br>Prontuários</a>
+            <a href="/" class="material-icons">home</a>
+            <a href="/showprontuarios" class="material-icons" id="selecionado">group</a>
             {{#if user.admin}}
-            <a href="/admin"><span class="material-icons">description</span><br>Editar</a>
-            <a href="/admin/cadastrar-usuario"><span class="material-icons">account_box</span><br>Usuários</a>
+            <a href="/admin" class="material-icons">admin_panel_settings</a>
+            <a href="/admin/cadastrar-usuario" class="material-icons">account_box</a>
             {{/if}}
+            <a href="#" class="material-icons">settings</a>
         </div>
         <div class="logout">
-            <a href="/logout"><span class="material-icons">exit_to_app</span><br>Logout</a>
+            <a href="/logout" class="material-icons">exit_to_app</a>
         </div>
     </div>
+
 
     <div class="nav-bar">
         <div class="description">
@@ -42,8 +44,8 @@
 
     <div class="main">
         <div id="table">
-            {{>_msg}}
             <div class="teste">
+                {{>_msg}}
                 <div class="title">
                     <h1>Pacientes</h1>
                     <div class="search">
@@ -69,7 +71,8 @@
                             <td>{{email}}</td>
                             <td>{{data_abertura}}</td>
                             <td>{{telefone}}</td>
-                            <td><a href="/showprontuarios/edit/{{_id}}">Atualizar</a>
+                            <td>
+                                <a href="/showprontuarios/edit/{{_id}}">Atualizar</a>
                             </td>
                             <td><a href="/showprontuarios/view/{{_id}}">Visualizar</a>
                             </td>

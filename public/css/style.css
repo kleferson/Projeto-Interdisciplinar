@@ -4,29 +4,33 @@
 
 
 html{
-    background-color: #f3f6fb;
+    background-color: #F1F3F8;
+}
+
+label{
+    font-weight: bold;
 }
 
 .main-card{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-left: 170px;
+    margin-left: 115px;
     margin-right: 50px;
-    margin-top: 20px;
-    height: 200px;
+    height: 180px;
     width: 700px;
     background-color: #d4edda;
+    box-shadow: 0px 4px 8px rgba(212, 237, 218, 0.3);
     border-radius: 10px;
 }
 
 .main-card img{
-    height: 200px;
+    height: 100%;
 }
 
 .card-title p{
     padding: 20px;
-    font-size: 24px;
+    font-size: 20px;
     color: green;
     font-weight: bold;
 }
@@ -42,24 +46,25 @@ html{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 130px;
+    width: 80px;
     background-color: #3672f8;
-    box-shadow: 0px 4px 10px rgba(161, 182, 229, 0.25);
+    box-shadow: 0px 4px px rgba(54, 114, 248, 0.2);
 }
 
 .side-bar h1{
-    margin-top: 20px;
+    margin-top: 10px;
+    font-size: 32px;
     color: #ffffff;
 }
 
 .side-bar a{
-    width: 100px;
     padding: 10px 10px 10px 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
     list-style: none;
-    font-size: 14px;
+    font-size: 24px;
     text-decoration: none;
     text-align: center;
     color: #ffffff;
@@ -71,6 +76,7 @@ html{
     text-decoration: none;
     border-radius: 10px;
     background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
     color: #3672f8;
 }
 
@@ -101,12 +107,12 @@ html{
 
 .nav-bar{
     width: 100%;
-    height: 100px;
+    height: 80px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: #ffffff;
+    background-color: #F1F3F8;
     box-shadow: 0px 4px 10px rgba(161, 182, 229, 0.25);
 }
 
@@ -135,12 +141,13 @@ html{
     font-family: sans-serif;
     font-weight: bold;
     color: black;
-    margin-left: 170px;
+    margin-left: 115px;
     border-style: solid;
-    border-bottom-width: 4px;
+    border-bottom-width: 0;
     border-top-width: 0;
     border-right-width: 0;
-    border-left-width: 0;
+    border-left-width: 4px;
+    padding-left: 10px;
     border-color: #3672f8;
 }
 
@@ -172,7 +179,7 @@ html{
 .main{
     width: 100%;
     display: flex;
-    background-color: #f3f6fb;
+    background-color: #F1F3F8;
 }
 
 #form-prontuario{
@@ -182,16 +189,21 @@ html{
 }
 
 #table{
-    margin-left: 170px;
+    margin-left: 115px;
     width: 100%;
     margin-right: 50px;
     margin-bottom: 20px;
+    display: flex;
+}
+
+#table a{
+    text-decoration: none;
 }
 
 .main-user{
     display: flex;
     flex-direction: row;
-    margin-left: 170px;
+    margin-left: 115px;
     margin-right: 50px;
 }
 
@@ -230,7 +242,7 @@ html{
     padding: 30px 30px 20px 30px ;
     width: 600px;
     margin-top: 40px;
-    margin-left: 170px;
+    margin-left: 145px;
     box-shadow: 0px 4px 8px rgba(80, 87, 150, 0.2);
     border-radius: 10px;
 }
@@ -240,11 +252,13 @@ html{
 }
 
 .main-dashboard form textarea{
+    border: 1px solid #3672f8;
     margin-bottom: 20px;
     border-radius: 10px;
 }
 
 .main-dashboard form input{
+    border: 1px solid #3672f8;
     width: 380px;
     border-radius: 10px;
 }
@@ -276,6 +290,7 @@ html{
     text-decoration: none;
     border-radius: 10px;
     background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
     color: #3672f8;
 }
 
@@ -325,11 +340,19 @@ html{
     height: 50px;
     border: 0px; 
     background-color: #3672f8;
+    box-shadow: 0px 4px 8px rgba(54, 114, 248, 0.2);
     color: #ffffff;
-    box-shadow: 0px 4px 8px rgba(138, 149, 158, 0.2);
+    
 }
 
 .btn4:hover{
+    border-radius: 10px;
+    padding: 0px;
+    width: 200px;
+    height: 50px;
+    border: 0px; 
+    color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(54, 114, 248, 0.2);
     background-color: #007bff;
 }
 
@@ -339,8 +362,20 @@ html{
     width: 200px;
     height: 50px;
     border: 0px; 
-    background-color: #e8f4ff;
-    color: #3672f8;
+    background-color: #3672f8;
+    box-shadow: 0px 4px 8px rgba(54, 114, 248, 0.2);
+    color: #ffffff;
+}
+
+.btn-add:hover{
+    border-radius: 10px;
+    padding: 0px;
+    width: 200px;
+    height: 50px;
+    border: 0px; 
+    color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(54, 114, 248, 0.2);
+    background-color: #007bff;
 }
 
 .teste{
@@ -348,8 +383,7 @@ html{
     flex-direction: column;
     background-color: white;
     width: 100%;
-    margin-top: 40px;
-
+    margin-top: 10px;
     padding: 30px 30px 0px 30px;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(80, 87, 150, 0.2);
@@ -358,7 +392,7 @@ html{
 .title{
     display: flex;
     flex-direction: row;
-    justify-content: row;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 24px;
 }
@@ -368,15 +402,16 @@ html{
 }
 
 .title h1{
-    font-size: 32px;
+    font-weight: bold;
+    font-size: 24px;
 }
 
 .title .search input{
     height: 50px;
     border-radius: 10px;
     padding: 20px 20px;
-    background-color: #f3f6fb;
-    border: 1px solid #E3ECFF;
+    background-color: #ffffff;
+    border: 1px solid #3672f8;
     margin-left: 30px;
     width: 300px;
 }
@@ -395,4 +430,20 @@ html{
 .search{
     display: flex;
     flex-direction: row;
+}
+
+.teste2{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 70%;
+    margin-top: 10px;
+    padding: 30px 30px 0px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(80, 87, 150, 0.2);
+}
+
+.body{
+    display: flex;
+    justify-content: space-between;
 }

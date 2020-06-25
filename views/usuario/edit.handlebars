@@ -1,379 +1,270 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Prontuário Eletrônico</title>
-
-  <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
-
-  <!-- Custom styles for this template-->
-  <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novo Prontuário</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
 
 </head>
 
-<body id="page-top">
-
-  <!-- Page Wrapper -->
-  <div id="wrapper">
-
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-      <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">Painel <sup></sup></div>
-      </a>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Opções
-      </div>
-
-      <!-- inicio nav-item -->
-      <li class="nav-item">
-        <a class="nav-link" href="/">
-          <i class="fas fa-fw fa-home"></i>
-          <span>Inicío</span></a>
-      </li>
-
-      <!-- Formularios nav-item -->
-      <li class="nav-item">
-        <a class="nav-link" href="/showprontuarios">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Prontuários</span></a>
-      </li>
-
-
-
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
-
-
-
-    </ul>
-    <!-- End of Sidebar -->
-
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-
-      <!-- Main Content -->
-      <div id="content">
-
-        <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-          <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
-
-          <!-- Topbar Search -->
-          <div>
-            <div>
-              <h1 style="font-size: xx-large; padding: 0 0 0 30px; margin:auto">{{prontuario.nome}}</h1>
-            </div>
-          </div>
-
-          <!-- Topbar Navbar -->
-          <ul class="navbar-nav ml-auto">
-
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                {{#if user}}
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user.nome}}</span>
-                {{/if}}
-              </a>
-            </li>
-            <div class=" topbar-divider d-none d-sm-block"></div>
-
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" style="color:#4e73df;" href="/logout" data-toggle="modal"
-                ddata-target="#exampleModal">Sair</a>
-            </li>
-
-
-          </ul>
-
-        </nav>
-      </div>
-      <!-- End of Topbar -->
-
-      <div class="container">
-        <div class="container-fluid">
-
-          <form action="/showprontuarios/edit" method="POST">
-            <input type="hidden" value="{{prontuario._id}}" name="id">
-            <br>
-            <!-- inicio do Prontuário -->
-            <!-- Nome do prontuario e nome completo,data de abertura-->
-            {{>_msg}}
-            {{#each erros}}
-            <div class="alert alert-danger">{{texto}}</div>
-            {{else}}
-
-            {{/each}}
-            <h1 style="text-align: center;">Dados Pessoais</h1>
-            <hr class="sidebar-divider my-0">
-            <br>
-
-            <div class="form-row ">
-              <div class="form-group col-md-2">
-                <label>CPF</label>
-                <input type="text" class="form-control" id="cpf" name="cpf" value="{{prontuario.cpf}}" disabled>
-              </div>
-              <div class="col">
-                <label>Nome completo</label>
-                <input type="text" class="form-control" id="nome" name="nome" value="{{prontuario.nome}}" disabled>
-              </div>
-
-            </div>
-
-            <!-- data nascimento,endereço,sexo -->
-            <div class="form-row">
-              <div class="form-group col-md-2">
-                <label>Data de nascimento</label>
-                <input type="text" class="form-control" id="data_nasc" name="data_nasc" value="{{prontuario.data_nasc}}"
-                  disabled>
-              </div>
-
-              <div class="col">
-                <label>Endereço</label>
-                <input type="text" class="form-control" id="endereco" name="endereco" value="{{prontuario.endereco}}"
-                  disabled>
-              </div>
-
-              <div class="col-md-2" id="sexo">
-                <label>Sexo:</label>
-                <input type="text" class="form-control" id="sexo" name="sexo" value="{{prontuario.sexo}}" disabled>
-              </div>
-
-            </div>
-
-            <!-- Email,telefone,nome responsavel,escolaridade -->
-            <div class="form-row">
-              <div class="form-group col">
-                <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control" id="email1" name="email" value="{{prontuario.email}}" disabled>
-              </div>
-              <div class="col">
-                <label for="inputPassword4">Telefone</label>
-                <input type="text" class="form-control" id="telefone" name="telefone" value="{{prontuario.telefone}}"
-                  disabled>
-              </div>
-
-              <div class="col">
-                <label>Escolaridade</label>
-                <input type="text" class="form-control" id="escolaridade" name="escolaridade"
-                  value="{{prontuario.escolaridade}}" disabled>
-              </div>
-
-            </div>
-
-            <!-- contato,nome responsavel/cuidador -->
-            <div class="form-group" id="cuidador">
-              <label>Nome, Telefone ou outro tipo tipo de contato do responsável/cuidador (se aplicável)</label>
-              <input type="text" class="form-control" id="cuidador1" name="observacoes"
-                value="{{prontuario.observacoes}}" disabled>
-            </div>
-            <br>
-            <h1 style="text-align: center;">Dados Clínicos</h1>
-            <hr class="sidebar-divider my-0">
-            <br>
-            
-            <!--Alergia, ocupação-->
-            <div class="form-row">
-              <div class="form-group col">
-                <label>Alergia</label>
-                <input type="text" class="form-control" id="alergia" name="alergia" value="{{prontuario.alergia}}"
-                  disabled>
-              </div>
-
-              <div class="col">
-                <label>Ocupação</label>
-                <input type="text" class="form-control" id="ocupacao" name="ocupacao" value="{{prontuario.ocupacao}}"
-                  disabled>
-              </div>
-
-            </div>
-
-            <!--limitações-->
-            </br>
-            <div class="form-row">
-
-              <label>Limitação</label>
-              <div class="col">
-                <input type="text" class="form-control" id="limitacao" name="limitacao"
-                  value="{{prontuario.limitacao}}" disabled>
-              </div>
-              <label>Outras limitações</label>
-              <div class="col-md-6">
-                <input type="text" class="form-control" id="outrasLimitacoes" name="outrasLimitacoes" value="{{prontuario.outrasLimitacoes}}" disabled>
-              </div>
-            </div>
-
-            <!--Sinais Vitais-->
-            <br>
-            <div class="form-row">
-              <label>Sinais Vitais:</label>
-              &nbsp;
-              <label>PA</label>
-              <div class="form-group col">
-                <input type="number" class="form-control" id="pa" name="pa" value="{{prontuario.pa}}" disabled>
-              </div>
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <label>FC</label>
-              <div class="form-group col">
-                <input type="number" class="form-control" id="fc" name="fc" value="{{prontuario.fc}}" disabled>
-              </div>
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <label>FR</label>
-              <div class="form-group col">
-                <input type="number" class="form-control" id="fr" name="fr" value="{{prontuario.fr}}" disabled>
-              </div>
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <label>T</label>
-              <div class="form-group col">
-                <input type="number" class="form-control" id="t" name="t" value="{{prontuario.t}}" disabled>
-              </div>
-            </div>
-
-            <!--Motivo do atendimento-->
-            <div class="form-group">
-              <label>Motivo do Atendimento</label>
-              <input type="text" class="form-control" id="motivoatendimento1" name="motivo_atendimento"
-                value="{{prontuario.motivo_atendimento}}" disabled>
-            </div>
-
-
-
-            <!--Doencas Cronicas-->
-            <div class="form-row">
-              <div class="form-group col -auto">
-                <label>Doenças Cronicas:</label>
-                <input type="text" class="form-control" id="doencascronicas1" name="doencas_cronicas"
-                  value="{{prontuario.doencas_cronicas}}" disabled>
-              </div>
-            </div>
-            <!--Queixa-->
-            <div class="form-row">
-              <div class="form-group col -auto">
-                <label>Queixa no momento:</label>
-                <input type="text" class="form-control" id="queixamomento1" name="queixa_momento"
-                  value="{{prontuario.queixa_momento}}" disabled>
-              </div>
-            </div>
-
-            <!--Anamnese-->
-            <div class="form-row">
-
-              <div class="form-group col -auto">
-                <label>Anamnese</label>
-                <textarea class="form-control" id="anamnese1" name="anamnese"
-                  rows="4">{{prontuario.anamnese}}</textarea>
-              </div>
-            </div>
-
-            <!-- Exame fisico -->
-            <div class="form-row">
-              <div class="form-group col -auto">
-                <label>Exame Fisico</label>
-                <textarea class="form-control" id="examefisico" name="exame_fisico"
-                  rows="4">{{prontuario.exame_fisico}}</textarea>
-              </div>
-            </div>
-
-            <!-- Botão cadastrar -->
-            <center>
-              <button type="submit" name="salvar" class="btn btn-primary">Salvar</button>
-
-              <!--Botão voltar -->
-
-              <a class="btn btn-secondary" href="/showprontuarios">Voltar</a>
-            </center>
-          </form>
-          <br>
-          <!-- div container fluid -->
-        </div>
-
-        <!-- End of Main Content -->
-
-
-        <!-- End of Footer -->
-
-      </div>
-      <!-- End of Content Wrapper -->
-
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Prontuário Eletrônico 2019</span>
-          </div>
-        </div>
-      </footer>
-
+<body>
+  <div class="side-bar">
+    <h1>Logo</h1>
+    <div class="bar">
+      <a href="/" class="material-icons">dashboard</a>
+      <a href="/showprontuarios" class="material-icons">view_list</a>
+      {{#if user.admin}}
+      <a href="/admin" class="material-icons">description</a>
+      <a href="/admin/cadastrar-usuario" class="material-icons">account_box</a>
+      {{/if}}
     </div>
-    <!-- End of Page Wrapper -->
+    <div class="logout">
+      <a href="/logout" class="material-icons">exit_to_app</a>
+    </div>
+  </div>
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-      <i class="fas fa-angle-up"></i>
-    </a>
+  <div class="nav-bar">
+    <div class="description">
+      <h1>Editar Prontuário</h1>
+    </div>
+    <div class="user-info">
+      <span>Olá,<b> {{user.nome}}</b></span>
+    </div>
+  </div>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Deseja Sair?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
+  <div class="main">
+    <div id="table">
+      <div class="teste" style="padding-bottom: 30px; width: 900px;">
+
+        <form action="/showprontuarios/edit" method="POST">
+          <input type="hidden" value="{{prontuario._id}}" name="id">
+
+          <!-- inicio do Prontuário -->
+          <!-- Nome do prontuario e nome completo,data de abertura-->
+          {{>_msg}}
+          {{#each erros}}
+          <div class="alert alert-danger">{{texto}}</div>
+          {{else}}
+
+          {{/each}}
+          <h1 style="font-size: 36px; margin-bottom: 16px;">Dados Pessoais</h1>
+
+          <div class="form-row ">
+            <div class="form-group col-md-4">
+              <label>CPF</label>
+              <input type="text" class="form-control" id="cpf" name="cpf" placeholder="___.___.___-__"
+                value="{{prontuario.cpf}}" disabled>
+            </div>
+            <div class="col">
+              <label>Nome completo</label>
+              <input type="text" class="form-control" id="nome" name="nome" value="{{prontuario.nome}}" disabled>
+            </div>
           </div>
-          <div class="modal-body">Selecione "Sim" abaixo caso queira sair da sua sessão atual.</div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Não</button>
-            <a class="btn btn-primary" name="sairsim" href="/logout">Sim</a>
+
+          <!--endereço,sexo -->
+          <div class="form-row">
+
+            <div class="form-group col-md-4">
+              <label>Data de nasc.</label>
+              <input type="text" class="form-control" id="data_nasc" name="data_nasc" placeholder="dd/mm/aaaa"
+                value="{{prontuario.data_nasc}}" disabled>
+            </div>
+            <div class="col-md-3" id="sexo">
+              <label>Sexo:</label>
+              <input type="text" class="form-control" value="{{prontuario.sexo}}" disabled>
+            </div>
+            <div class="col">
+              <label>Escolaridade</label>
+              <input type="text" class="form-control" value="{{prontuario.escolaridade}}" disabled>
+            </div>
+          </div>
+
+
+          <!-- contato,nome responsavel/cuidador -->
+          <div class="form-group" id="cuidador">
+            <label>Nome, Telefone ou outro tipo tipo de contato do responsável/cuidador (se aplicável)</label>
+            <input type="text" class="form-control" value="{{prontuario.observacoes}}" disabled>
+          </div>
+
+          <br>
+          <h1 style="font-size: 36px;">Contatos</h1>
+          <hr>
+          <br>
+
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="inputPassword4">Tel. Residencial</label>
+              <input type="text" class="form-control" id="telefone" name="telefone" value="{{prontuario.telefone}}"
+                disabled>
+            </div>
+
+            <div class="col-md-4">
+              <label for="inputPassword4">Celular</label>
+              <input type="text" class="form-control" id="celular" name="celular" placeholder="(99) 99999-9999">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-8">
+              <label for="inputEmail4">Email</label>
+              <input type="email" class="form-control" id="email1" name="email" value="{{prontuario.email}}" disabled>
+            </div>
+          </div>
+
+          <br>
+          <h1 style="font-size: 36px;">Endereço</h1>
+          <hr>
+          <br>
+
+
+          <div class="form-row">
+            <div class="col-md-12">
+              <label>Endereço</label>
+              <input type="text" class="form-control" id="endereco" name="endereco" value="{{prontuario.endereco}}"
+                disabled>
+            </div>
+          </div>
+
+      </div>
+
+
+      <br>
+
+
+      <div class="teste" style="margin-left: 20px;">
+        <h1 style="font-size: 36px; margin-bottom: 16px;">Dados Clínicos</h1>
+
+        <!--Alergia, ocupação-->
+        <div class="form-row">
+          <div class="form-group col">
+            <label>Alergia</label>
+            <input type="text" class="form-control" id="alergia1" name="alergia" value="{{prontuario.alergia}}"
+              disabled>
+          </div>
+
+          <div class="col">
+            <label>Ocupação</label>
+            <input class="form-control" name="ocupacao" id="ocupacao1" value="{{prontuario.ocupacao}}" disabled>
+          </div>
+
+        </div>
+
+        <!--limitações-->
+        </br>
+        <div class="form-row">
+
+          <label style="padding-left: 4px;">Limitação</label>
+          <div class="form-group col">
+            <select class="selectpicker" name="limitacao" id="limitacao" multiple>
+              <option>Cognitiva</option>
+              <option>Locomoção</option>
+              <option>Visão</option>
+              <option>Audição</option>
+            </select>
+          </div>
+          <label>Outras limitações</label>
+          <div class="col-md-7">
+            <input type="text" class="form-control" id="outrasLimitacoes" name="outrasLimitacoes"
+              value="{{prontuario.outrasLimitacoes}}" disabled>
           </div>
         </div>
+
+
+        <!--Sinais Vitais-->
+        <br>
+        <div class="form-row">
+          <label style="padding-left: 4px;">Sinais Vitais:</label>
+          &nbsp;
+          <label>PA</label>
+          <div class="form-group col">
+            <input type="number" class="form-control" id="pa1" name="pa" value="{{prontuario.pa}}" disabled>
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <label>FC</label>
+          <div class="form-group col">
+            <input type="number" class="form-control" id="fc1" name="fc" value="{{prontuario.fc}}" disabled>
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <label>FR</label>
+          <div class="form-group col">
+            <input type="number" class="form-control" id="fr1" name="fr" value="{{prontuario.fr}}" disabled>
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <label>T</label>
+          <div class="form-group col">
+            <input type="number" class="form-control" id="t1" name="t" value="{{prontuario.t}}" disabled>
+          </div>
+        </div>
+
+        <!--Motivo do atendimento-->
+        <div class="form-group">
+          <label>Motivo do Atendimento</label>
+          <input type="text" class="form-control" id="motivoatendimento1" name="motivo_atendimento"
+            value="{{prontuario.motivo_atendimento}}" disabled>
+        </div>
+
+
+
+        <!--Doencas Cronicas-->
+        <div class="form-row">
+          <div class="form-group col -auto">
+            <label>Doenças Cronicas:</label>
+            <input type="text" class="form-control" id="doencascronicas1" name="doencas_cronicas"
+              value="{{prontuario.doencas_cronicas}}" disabled>
+          </div>
+        </div>
+        <!--Queixa-->
+        <div class="form-row">
+          <div class="form-group col -auto">
+            <label>Queixa no momento:</label>
+            <input type="text" class="form-control" id="queixamomento1" name="queixa_momento"
+              value="{{prontuario.queixa_momento}}" disabled>
+          </div>
+        </div>
+
+        <!--Anamnese-->
+        <div class="form-row">
+
+          <div class="form-group col -auto">
+            <label>Anamnese</label>
+            <textarea class="form-control" id="anamnese1" name="anamnese" rows="4">{{prontuario.anamnese}}</textarea>
+          </div>
+        </div>
+
+        <!-- Exame fisico -->
+        <div class="form-row">
+          <div class="form-group col -auto">
+            <label>Exame Fisico</label>
+            <textarea class="form-control" id="examefisico1" name="exame_fisico"
+              rows="4">{{prontuario.exame_fisico}}</textarea>
+          </div>
+        </div>
+
+        <!-- Botão cadastrar -->
+        <center>
+          <button type="submit" class="btn1" data-toggle="modal" data-target="#exampleModal">
+            Salvar
+          </button>
+          <!--Botão resetar -->
+          <button type="reset" class="btn2">Limpar</button>
+        </center>
+        <br>
+        </form>
       </div>
     </div>
   </div>
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script>
-
 </body>
+<script src="js/search.js"></script>
+<script src="js/mask.js"></script>
 
 </html>

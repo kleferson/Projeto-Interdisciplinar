@@ -19,15 +19,16 @@
     <div class="side-bar">
         <h1>Logo</h1>
         <div class="bar">
-            <a href="/"><span class="material-icons">dashboard</span>Dashboard</a>
-            <a href="/showprontuarios"><span class="material-icons">view_list</span><br>Prontuários</a>
+            <a href="/" class="material-icons">home</a>
+            <a href="/showprontuarios" class="material-icons">group</a>
             {{#if user.admin}}
-            <a href="/admin" id="selecionado"><span class="material-icons">description</span><br>Editar</a>
-            <a href="/admin/cadastrar-usuario"><span class="material-icons">account_box</span><br>Usuários</a>
+            <a href="/admin" class="material-icons" id="selecionado">admin_panel_settings</a>
+            <a href="/admin/cadastrar-usuario" class="material-icons">account_box</a>
             {{/if}}
+            <a href="#" class="material-icons">settings</a>
         </div>
         <div class="logout">
-            <a href="/logout"><span class="material-icons">exit_to_app</span><br>Logout</a>
+            <a href="/logout" class="material-icons">exit_to_app</a>
         </div>
     </div>
 

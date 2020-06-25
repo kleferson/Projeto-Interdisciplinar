@@ -38,36 +38,36 @@
   <div class="side-bar">
     <h1>Logo</h1>
     <div class="bar">
-      <a href="/"><span class="material-icons">dashboard</span>Dashboard</a>
-      <a href="/showprontuarios"><span class="material-icons">view_list</span><br>Prontuários</a>
+      <a href="/" class="material-icons">home</a>
+      <a href="/showprontuarios" class="material-icons">group</a>
       {{#if user.admin}}
-      <a href="/admin"><span class="material-icons">description</span><br>Editar</a>
-      <a href="/admin/cadastrar-usuario"><span class="material-icons">account_box</span><br>Usuários</a>
+      <a href="/admin" class="material-icons">admin_panel_settings</a>
+      <a href="/admin/cadastrar-usuario" class="material-icons">account_box</a>
       {{/if}}
+      <a href="#" class="material-icons">settings</a>
     </div>
     <div class="logout">
-      <a href="/logout"><span class="material-icons">exit_to_app</span><br>Logout</a>
+      <a href="/logout" class="material-icons">exit_to_app</a>
     </div>
   </div>
 
   <div class="nav-bar">
-    <div class="search">
-      <input class="form-control" type="text" id="search" placeholder="Pesquisar" aria-label="Search">
+    <div class="description">
+      <h1>Novo Paciente</h1>
     </div>
     <div class="user-info">
-      <a class="material-icons">account_circle</a>
       <span>Olá,<b> {{user.nome}}</b></span>
     </div>
   </div>
 
   <div class="main">
     <div id="table">
-      <div class="teste" style="padding-bottom: 30px;">
+      <div class="teste" style="padding-bottom: 30px; width: 900px;">
 
         <form action="/cadastrar-prontuario/new-prontuario" method="POST">
           <input type="hidden" name="aluno" value="{{user.nome}}">
           <input type="hidden" name="exibeDataAtual" value="exibeDataAtual">
-          <br>
+
           <!-- inicio do Prontuário -->
           <!-- Nome do prontuario e nome completo,data de abertura-->
           {{>_msg}}
@@ -76,12 +76,10 @@
           {{else}}
 
           {{/each}}
-          <h1 style="font-size: 36px;">Dados Pessoais</h1>
-          <hr>
-          <br>
+          <h1 style="font-size: 36px; margin-bottom: 16px;">Dados Pessoais</h1>
 
           <div class="form-row ">
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-4">
               <label>CPF</label>
               <input type="text" class="form-control" id="cpf" name="cpf" placeholder="___.___.___-__">
             </div>
@@ -89,22 +87,16 @@
               <label>Nome completo</label>
               <input type="text" class="form-control" id="nome" name="nome">
             </div>
-
           </div>
 
-          <!-- data nascimento,endereço,sexo -->
+          <!--endereço,sexo -->
           <div class="form-row">
-            <div class="form-group col-md-2">
-              <label>Data de nascimento</label>
+
+            <div class="form-group col-md-4">
+              <label>Data de nasc.</label>
               <input type="text" class="form-control" id="data_nasc" name="data_nasc" placeholder="dd/mm/aaaa">
             </div>
-
-            <div class="col">
-              <label>Endereço</label>
-              <input type="text" class="form-control" id="endereco" name="endereco">
-            </div>
-
-            <div class="col-md-2" id="sexo">
+            <div class="col-md-3" id="sexo">
               <label>Sexo:</label>
               <select class="form-control" name="sexo">
                 <option>...</option>
@@ -113,20 +105,6 @@
 
               </select>
             </div>
-
-          </div>
-
-          <!-- Email,telefone,nome responsavel,escolaridade -->
-          <div class="form-row">
-            <div class="form-group col">
-              <label for="inputEmail4">Email</label>
-              <input type="email" class="form-control" id="email1" name="email" placeholder="Email@exemplo.com">
-            </div>
-            <div class="col">
-              <label for="inputPassword4">Telefone</label>
-              <input type="text" class="form-control" id="telefone" name="telefone" placeholder="(99) 99999-9999">
-            </div>
-
             <div class="col">
               <label>Escolaridade</label>
               <select class="form-control" name="escolaridade" id="escol">
@@ -139,129 +117,174 @@
               </select>
             </div>
 
+
+
           </div>
+
 
           <!-- contato,nome responsavel/cuidador -->
           <div class="form-group" id="cuidador">
             <label>Nome, Telefone ou outro tipo tipo de contato do responsável/cuidador (se aplicável)</label>
-            <input type="text" class="form-control" id="cuidador1" name="observacoes">
+            <textarea class="form-control" id="cuidador1" name="observacoes" rows="2"></textarea>
           </div>
+
           <br>
-          <h1 style="font-size: 36px;">Dados Clínicos</h1>
+          <h1 style="font-size: 36px;">Contatos</h1>
           <hr>
           <br>
 
-          <!--Alergia, ocupação-->
           <div class="form-row">
-            <div class="form-group col">
-              <label>Alergia</label>
-              <input type="text" class="form-control" id="alergia1" name="alergia">
+            <div class="form-group col-md-4">
+              <label for="inputPassword4">Tel. Residencial</label>
+              <input type="text" class="form-control" id="telefone" name="telefone" placeholder="(99) 99999-9999">
             </div>
 
-            <div class="col">
-              <label>Ocupação</label>
-              <select class="form-control" name="ocupacao" id="ocupacao1">
-                <option>Estudante</option>
-                <option>Profissional</option>
-              </select>
+            <div class="col-md-4">
+              <label for="inputPassword4">Celular</label>
+              <input type="text" class="form-control" id="celular" name="celular" placeholder="(99) 99999-9999">
             </div>
-
           </div>
-
-          <!--limitações-->
-          </br>
           <div class="form-row">
-
-            <label style="padding-left: 4px;">Limitação</label>
-            <div class="form-group col">
-              <select class="selectpicker" name="limitacao" id="limitacao" multiple>
-                <option>Cognitiva</option>
-                <option>Locomoção</option>
-                <option>Visão</option>
-                <option>Audição</option>
-              </select>
-            </div>
-            <label>Outras limitações</label>
-            <div class="col-md-7">
-              <input type="text" class="form-control" id="outrasLimitacoes" name="outrasLimitacoes">
+            <div class="form-group col-md-8">
+              <label for="inputEmail4">Email</label>
+              <input type="email" class="form-control" id="email1" name="email" placeholder="Email@exemplo.com">
             </div>
           </div>
 
-
-          <!--Sinais Vitais-->
           <br>
+          <h1 style="font-size: 36px;">Endereço</h1>
+          <hr>
+          <br>
+
+
           <div class="form-row">
-            <label style="padding-left: 4px;">Sinais Vitais:</label>
-            &nbsp;
-            <label>PA</label>
-            <div class="form-group col">
-              <input type="number" class="form-control" id="pa1" name="pa">
-            </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <label>FC</label>
-            <div class="form-group col">
-              <input type="number" class="form-control" id="fc1" name="fc">
-            </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <label>FR</label>
-            <div class="form-group col">
-              <input type="number" class="form-control" id="fr1" name="fr">
-            </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <label>T</label>
-            <div class="form-group col">
-              <input type="number" class="form-control" id="t1" name="t">
+            <div class="col-md-12">
+              <label>Endereço</label>
+              <input type="text" class="form-control" id="endereco" name="endereco">
             </div>
           </div>
 
-          <!--Motivo do atendimento-->
-          <div class="form-group">
-            <label>Motivo do Atendimento</label>
-            <input type="text" class="form-control" id="motivoatendimento1" name="motivo_atendimento">
+      </div>
+
+
+      <br>
+
+
+      <div class="teste" style="margin-left: 20px;">
+        <h1 style="font-size: 36px; margin-bottom: 16px;">Dados Clínicos</h1>
+
+        <!--Alergia, ocupação-->
+        <div class="form-row">
+          <div class="form-group col">
+            <label>Alergia</label>
+            <input type="text" class="form-control" id="alergia1" name="alergia">
           </div>
 
-
-
-          <!--Doencas Cronicas-->
-          <div class="form-row">
-            <div class="form-group col -auto">
-              <label>Doenças Cronicas:</label>
-              <input type="text" class="form-control" id="doencascronicas1" name="doencas_cronicas">
-            </div>
-          </div>
-          <!--Queixa-->
-          <div class="form-row">
-            <div class="form-group col -auto">
-              <label>Queixa no momento:</label>
-              <input type="text" class="form-control" id="queixamomento1" name="queixa_momento">
-            </div>
+          <div class="col">
+            <label>Ocupação</label>
+            <select class="form-control" name="ocupacao" id="ocupacao1">
+              <option>Estudante</option>
+              <option>Profissional</option>
+            </select>
           </div>
 
-          <!--Anamnese-->
-          <div class="form-row">
+        </div>
 
-            <div class="form-group col -auto">
-              <label>Anamnese</label>
-              <textarea class="form-control" id="anamnese1" name="anamnese" rows="4"></textarea>
-            </div>
+        <!--limitações-->
+        </br>
+        <div class="form-row">
+
+          <label style="padding-left: 4px;">Limitação</label>
+          <div class="form-group col">
+            <select class="selectpicker" name="limitacao" id="limitacao" multiple>
+              <option>Cognitiva</option>
+              <option>Locomoção</option>
+              <option>Visão</option>
+              <option>Audição</option>
+            </select>
           </div>
-
-          <!-- Exame fisico -->
-          <div class="form-row">
-            <div class="form-group col -auto">
-              <label>Exame Fisico</label>
-              <textarea class="form-control" id="examefisico1" name="exame_fisico" rows="4"></textarea>
-            </div>
+          <label>Outras limitações</label>
+          <div class="col-md-7">
+            <input type="text" class="form-control" id="outrasLimitacoes" name="outrasLimitacoes">
           </div>
+        </div>
 
-          <!-- Botão cadastrar -->
-          <center>
-            <button type="submit" class="btn1" data-toggle="modal" data-target="#exampleModal">
-              Cadastrar
-            </button>
-            <!--Botão resetar -->
-            <button type="reset" class="btn2">Limpar</button>
-          </center>
+
+        <!--Sinais Vitais-->
+        <br>
+        <div class="form-row">
+          <label style="padding-left: 4px;">Sinais Vitais:</label>
+          &nbsp;
+          <label>PA</label>
+          <div class="form-group col">
+            <input type="number" class="form-control" id="pa1" name="pa">
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <label>FC</label>
+          <div class="form-group col">
+            <input type="number" class="form-control" id="fc1" name="fc">
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <label>FR</label>
+          <div class="form-group col">
+            <input type="number" class="form-control" id="fr1" name="fr">
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <label>T</label>
+          <div class="form-group col">
+            <input type="number" class="form-control" id="t1" name="t">
+          </div>
+        </div>
+
+        <!--Motivo do atendimento-->
+        <div class="form-group">
+          <label>Motivo do Atendimento</label>
+          <input type="text" class="form-control" id="motivoatendimento1" name="motivo_atendimento">
+        </div>
+
+
+
+        <!--Doencas Cronicas-->
+        <div class="form-row">
+          <div class="form-group col -auto">
+            <label>Doenças Cronicas:</label>
+            <input type="text" class="form-control" id="doencascronicas1" name="doencas_cronicas">
+          </div>
+        </div>
+        <!--Queixa-->
+        <div class="form-row">
+          <div class="form-group col -auto">
+            <label>Queixa no momento:</label>
+            <input type="text" class="form-control" id="queixamomento1" name="queixa_momento">
+          </div>
+        </div>
+
+        <!--Anamnese-->
+        <div class="form-row">
+
+          <div class="form-group col -auto">
+            <label>Anamnese</label>
+            <textarea class="form-control" id="anamnese1" name="anamnese" rows="4"></textarea>
+          </div>
+        </div>
+
+        <!-- Exame fisico -->
+        <div class="form-row">
+          <div class="form-group col -auto">
+            <label>Exame Fisico</label>
+            <textarea class="form-control" id="examefisico1" name="exame_fisico" rows="4"></textarea>
+          </div>
+        </div>
+
+        <!-- Botão cadastrar -->
+        <center>
+          <button type="submit" class="btn1" data-toggle="modal" data-target="#exampleModal">
+            Cadastrar
+          </button>
+          <!--Botão resetar -->
+          <button type="reset" class="btn2">Limpar</button>
+        </center>
+        <br>
         </form>
       </div>
     </div>
