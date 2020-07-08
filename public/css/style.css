@@ -4,7 +4,7 @@
 
 
 html{
-    background-color: #F1F3F8;
+    background-color: #ffffff;
 }
 
 label{
@@ -15,13 +15,13 @@ label{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-left: 115px;
+    margin-left: 225px;
     margin-right: 50px;
     height: 180px;
-    width: 700px;
+    width: 1000px;
     background-color: #d4edda;
     box-shadow: 0px 4px 8px rgba(212, 237, 218, 0.3);
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 .main-card img{
@@ -44,53 +44,80 @@ label{
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 80px;
-    background-color: #3672f8;
-    box-shadow: 0px 4px px rgba(54, 114, 248, 0.2);
+    width: 200px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
 }
 
-.side-bar h1{
-    margin-top: 10px;
-    font-size: 32px;
+#new-paciente{
     color: #ffffff;
+    background-color: #3672f8;
+    margin-right: 16px;
+    box-shadow: 0px 4px 8px rgba(54, 114, 248, 0.2);    
+}
+
+#new-paciente:hover{
+    background-color: #3672f8;
+    color: #ffffff;
+}
+
+#user-nome{
+    margin-top: 20px;
+    margin-left: 16px;
+    margin-bottom: 0px;
+    padding: 0px 0px 0px 10px;
+    font-size: 16px;
+}
+
+#user-email{
+    margin-left: 16px;
+    margin-right: 16px;
+    padding: 0px 0px 0px 10px;
+    font-size: 12px;
 }
 
 .side-bar a{
+    display: flex;
     padding: 10px 10px 10px 10px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 8px;
+    margin-left: 16px;
     list-style: none;
-    font-size: 24px;
     text-decoration: none;
-    text-align: center;
-    color: #ffffff;
-    background-color: #3672f8;
-    border-radius: 10px;
+    font-size: 14px;
+    color: #90969b;
+    background-color: #ffffff;
+    border-radius: 8px;
 }
 
 .side-bar a:hover{
     text-decoration: none;
-    border-radius: 10px;
-    background-color: #ffffff;
+    border-radius: 8px;
+    margin-right: 16px;
+    background-color: #f8f9fd;
+    color: #90969b;
     box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
-    color: #3672f8;
+
 }
 
-.side-bar a:active{
-    background-color: #E3ECFF;
-    color: #3672f8;
+
+.side-bar span{
+    margin-right: 8px;
+    font-size: 20px;
 }
 
 .logo{
-    color: #3672f8;
+    color: #90969b;
     margin-bottom: 20px;
     font-size: 32px;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.side-bar-itens{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 
 .bar{
@@ -112,7 +139,7 @@ label{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: #F1F3F8;
+    background-color: #ffffff;
     box-shadow: 0px 4px 10px rgba(161, 182, 229, 0.25);
 }
 
@@ -120,7 +147,7 @@ label{
     margin-left: 170px;
     width: 500px;
     height: 50px;
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 20px 20px;
     background-color: #ffffff;
     border: 1px solid #E3ECFF;
@@ -137,11 +164,11 @@ label{
 }
 
 .description h1{
-    font-size: 24px;
+    font-size: 20px;
     font-family: sans-serif;
     font-weight: bold;
     color: black;
-    margin-left: 115px;
+    margin-left: 225px;
     border-style: solid;
     border-bottom-width: 0;
     border-top-width: 0;
@@ -153,8 +180,8 @@ label{
 
 .nav-bar .user-info span{
     text-decoration: none;
-    color: #212c4f;
-    margin-right: 50px;
+    color: #3672f8;
+    margin-right: 20px;
 }
 
 .nav-bar a{
@@ -168,18 +195,18 @@ label{
 }
 
 .logout a{
-    color: #ffffff;
+    color: #90969b;
 }
 
 .logout a:hover{
-    color: #3672f8;
+    color: #90969b;
 }
 
 
 .main{
     width: 100%;
     display: flex;
-    background-color: #F1F3F8;
+    background-color: #ffffff;
 }
 
 #form-prontuario{
@@ -189,9 +216,9 @@ label{
 }
 
 #table{
-    margin-left: 115px;
+    margin-left: 225px;
     width: 100%;
-    margin-right: 50px;
+    margin-right: 20px;
     margin-bottom: 20px;
     display: flex;
 }
@@ -203,7 +230,7 @@ label{
 .main-user{
     display: flex;
     flex-direction: row;
-    margin-left: 115px;
+    margin-left: 225px;
     margin-right: 50px;
 }
 
@@ -214,12 +241,12 @@ label{
     height: 490px;
     margin-top: 40px;
     box-shadow: 0px 4px 8px rgba(80, 87, 150, 0.2);
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 .main-user form button{
     width: 400px;
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 10px;
     background-color: #3672f8;
     border: 0px;
@@ -244,7 +271,7 @@ label{
     margin-top: 40px;
     margin-left: 145px;
     box-shadow: 0px 4px 8px rgba(80, 87, 150, 0.2);
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 .main-dashboard form label{
@@ -254,17 +281,17 @@ label{
 .main-dashboard form textarea{
     border: 1px solid #3672f8;
     margin-bottom: 20px;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 .main-dashboard form input{
     border: 1px solid #3672f8;
     width: 380px;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 .main-dashboard form button{
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 10px;
     background-color: #3672f8;
     border: 0px;
@@ -288,14 +315,13 @@ label{
 
 #selecionado{
     text-decoration: none;
-    border-radius: 10px;
-    background-color: #ffffff;
-    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    margin-right: 16px;
     color: #3672f8;
 }
 
 .btn1 {
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 10px;
     background-color: #3672f8;
     border: 0px;
@@ -308,7 +334,7 @@ label{
 }
 
 .btn2{
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 10px;
     background-color: #ea4335;
     border: 0px;
@@ -321,7 +347,7 @@ label{
 }
 
 .btn3 {
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 10px;
     background-color: #0E9664;
     color: white;
@@ -334,7 +360,7 @@ label{
 }
 
 .btn4{
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 0px;
     width: 200px;
     height: 50px;
@@ -346,7 +372,7 @@ label{
 }
 
 .btn4:hover{
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 0px;
     width: 200px;
     height: 50px;
@@ -357,7 +383,7 @@ label{
 }
 
 .btn-add{
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 0px;
     width: 200px;
     height: 50px;
@@ -368,13 +394,12 @@ label{
 }
 
 .btn-add:hover{
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 0px;
     width: 200px;
     height: 50px;
     border: 0px; 
     color: #ffffff;
-    box-shadow: 0px 4px 8px rgba(54, 114, 248, 0.2);
     background-color: #007bff;
 }
 
@@ -384,9 +409,21 @@ label{
     background-color: white;
     width: 100%;
     margin-top: 10px;
-    padding: 30px 30px 0px 30px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(80, 87, 150, 0.2);
+    padding: 10px 10px 0px 10px;
+    border-radius: 8px;
+    border: 1px; 
+}
+
+.teste input:focus{
+    border: 1px solid #3672f8;
+}
+
+.teste textarea:focus{
+    border: 1px solid #3672f8; 
+}
+
+.teste select:focus{
+    border: 1px solid #3672f8;
 }
 
 .title{
@@ -408,12 +445,15 @@ label{
 
 .title .search input{
     height: 50px;
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 20px 20px;
-    background-color: #ffffff;
-    border: 1px solid #3672f8;
+    background-color: #f8f9fd;
     margin-left: 30px;
     width: 300px;
+}
+
+.title .search input:focus{
+    border: 1px solid #3672f8;
 }
 
 .main-user .teste{
@@ -423,7 +463,7 @@ label{
     width: 100%;
     margin-left: 30px;
     padding: 30px 30px 0px 30px;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(80, 87, 150, 0.2);
 }
 
@@ -439,7 +479,7 @@ label{
     width: 70%;
     margin-top: 10px;
     padding: 30px 30px 0px 30px;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(80, 87, 150, 0.2);
 }
 
