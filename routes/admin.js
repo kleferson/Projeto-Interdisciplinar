@@ -26,7 +26,7 @@ router.get('/showuser/edit/:id', eAdmin, UserController.search_edit)
 
 router.post('/showuser/edit', UserController.edit)
 
-router.post('/showuser/delete', UserController.delete)
+router.post('/cadastrar-usuario/delete', UserController.delete)
 
 //rota de cadastro de usuarios
 router.get('/cadastrar-usuario', eAdmin, UserController.show)

@@ -17,13 +17,14 @@
 
 <body>
   <div class="side-bar">
+    <img src="/img/undraw_medical_care_movn.svg">
     <h1 id="user-nome">{{user.nome}}</h1>
     <span id="user-email">{{user.email}}</span>
     <div class="side-bar-itens">
       <div class="bar">
         <a href="/cadastrar-prontuario" id="new-paciente">Novo Paciente<span class="material-icons"
             style="margin-left: 30px;">add</span></a>
-        <a href="/" ><span class="material-icons">home</span>Inicio</a>
+        <a href="/"><span class="material-icons">home</span>Inicio</a>
         <a href="/showprontuarios"><span class="material-icons">group</span>Pacientes</a>
         {{#if user.admin}}
         <a href="/admin"><span class="material-icons">admin_panel_settings</span>Painel do administrador</a>
@@ -42,11 +43,9 @@
       <h1>Usuários</h1>
     </div>
   </div>
-
   <div class="main">
     <div class="main-user">
       <form action="/admin/cadastrar-usuario/newuser" method="POST">
-        {{>_msg}}
         {{#each erros}}
         <div class="alert alert-danger">{{texto}}</div>
         {{else}}
@@ -80,30 +79,39 @@
         <button type="submit">Cadastrar</button>
       </form>
 
-      <div class="teste">
-        <div class="title">
-          <h1>Usuários Cadastrados</h1>
-        </div>
-        <table class="table table-hover" id="table-users">
-          <thead>
-            <tr>
-              <th>Usuário</th>
-              <th>Email</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {{#each usuarios}}
-            <tr>
-              <td>{{nome}}</td>
-              <td>{{email}}</td>
-              <td><a href="#"><button class="btn2">Excluir</button></a></td>
-            </tr>
-            {{else}}
-            {{/each}}
-          </tbody>
-        </table>
+
+    </div>
+
+    <div class="teste">
+      <div class="title">
+        <h1>Usuários Cadastrados</h1>
+        {{>_msg}}
       </div>
+      <table class="table table-hover" id="table-users">
+        <thead>
+          <tr>
+            <th>Usuário</th>
+            <th>Email</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each usuarios}}
+          <tr>
+            <td>{{nome}}</td>
+            <td>{{email}}</td>
+            <td>
+              <form action="/admin/cadastrar-usuario/delete" method="POST">
+                <input type="hidden" name="id" value="{{_id}}">
+                <button class="btn2" type="submit">Deletar</button>
+              </form>
+            </td>
+          </tr>
+          {{else}}
+          {{/each}}
+        </tbody>
+      </table>
+
     </div>
   </div>
 </body>

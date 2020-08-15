@@ -17,6 +17,7 @@
 
 <body>
   <div class="side-bar">
+    <img src="img/undraw_medical_care_movn.svg">
     <h1 id="user-nome">{{user.nome}}</h1>
     <span id="user-email">{{user.email}}</span>
     <div class="side-bar-itens">
@@ -43,7 +44,7 @@
     </div>
   </div>
 
-  <div class="main">
+  <div id="main">
     <div class="main-dashboard">
 
       <div class="main-card">
@@ -55,8 +56,24 @@
         </div>
         <img src="img/undraw_doctor_kw5l.svg" alt="">
       </div>
-
     </div>
+
+    <h1>Últimos prontuários</h1>
+
+    <div class="wrap-content">
+
+    {{#each prontuarios}}
+    <div class="card-primary">
+      <div class="body-info">
+        <span>{{data_abertura}}</span><br>
+        <small>{{nome}}</small>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+
+
   </div>
 </body>
 <script src="js/search.js"></script>

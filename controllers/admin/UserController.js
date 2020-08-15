@@ -138,10 +138,10 @@ module.exports = {
     delete(req, res) {
         Usuario.remove({ _id: req.body.id }).then(() => {
             req.flash('success_msg', 'Usuário deletado com sucesso!')
-            res.redirect('/admin/showuser')
+            res.redirect('/admin/cadastrar-usuario')
         }).catch((erro) => {
             req.flash('error_msg', 'Houve um erro ao deletar o prontuario')
-            res.redirect('/admin/showuser')
+            res.redirect('/admin/cadastrar-usuario')
         })
     },
 

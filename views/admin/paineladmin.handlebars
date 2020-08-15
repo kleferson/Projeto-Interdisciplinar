@@ -17,6 +17,7 @@
 
 <body>
     <div class="side-bar">
+        <img src="img/undraw_medical_care_movn.svg">
         <h1 id="user-nome">{{user.nome}}</h1>
         <span id="user-email">{{user.email}}</span>
         <div class="side-bar-itens">
@@ -26,7 +27,8 @@
                 <a href="/"><span class="material-icons">home</span>Inicio</a>
                 <a href="/showprontuarios"><span class="material-icons">group</span>Pacientes</a>
                 {{#if user.admin}}
-                <a href="/admin" id="selecionado"><span class="material-icons">admin_panel_settings</span>Painel do administrador</a>
+                <a href="/admin" id="selecionado"><span class="material-icons">admin_panel_settings</span>Painel do
+                    administrador</a>
                 <a href="/admin/cadastrar-usuario"><span class="material-icons">account_box</span>Usuarios</a>
                 {{/if}}
                 <a href="#"><span class="material-icons">settings</span>Configurações</a>

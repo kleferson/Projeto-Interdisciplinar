@@ -17,6 +17,7 @@
 
 <body>
     <div class="side-bar">
+        <img src="/img/undraw_medical_care_movn.svg">
         <h1 id="user-nome">{{user.nome}}</h1>
         <span id="user-email">{{user.email}}</span>
         <div class="side-bar-itens">
@@ -24,7 +25,7 @@
                 <a href="/cadastrar-prontuario" id="new-paciente">Novo Paciente<span class="material-icons"
                         style="margin-left: 30px;">add</span></a>
                 <a href="/"><span class="material-icons">home</span>Inicio</a>
-                <a href="/showprontuarios"><span class="material-icons">group</span>Pacientes</a>
+                <a href="/showprontuarios" id="selecionado"><span class="material-icons">group</span>Pacientes</a>
                 {{#if user.admin}}
                 <a href="/admin"><span class="material-icons">admin_panel_settings</span>Painel do administrador</a>
                 <a href="/admin/cadastrar-usuario"><span class="material-icons">account_box</span>Usuarios</a>
@@ -48,24 +49,78 @@
         <div id="table">
             <div class="teste2">
                 <div class="title">
-                    <h1>{{prontuario.nome}}</h1>
+                    <h1>Dados Pessoais</h1>
                 </div>
-                <div class="body">
-                    <div class="inf1">
+                <div class="body-line">
+                    <div>
+                        <label for="">Nome</label>
+                        <p>{{prontuario.nome}}</p>
                         <label for="">Endereço</label>
                         <p>{{prontuario.endereco}}</p>
+                        <label for="">Observações</label>
+                        <p>{{prontuario.observacoes}}</p>
                     </div>
-                    <div class="inf2">
-                        <label for="">Telefone</label>
-                        <p>{{prontuario.telefone}}</p>
-                    </div>
-                    <div class="inf3">
+                    <div>
                         <label for="">Email</label>
                         <p>{{prontuario.email}}</p>
+                        <label for="">Sexo</label>
+                        <p>{{prontuario.sexo}}</p>
                     </div>
-                    <div class="inf4">
+                    <div>
+                        <label for="">Telefone</label>
+                        <p>{{prontuario.telefone}}</p>
                         <label for="">Escolaridade</label>
                         <p>{{prontuario.escolaridade}}</p>
+                    </div>
+                    <div>
+                        <label for="">Data de Nascimento</label>
+                        <p>{{prontuario.data_nasc}}</p>
+                    </div>
+                </div>
+
+                <br>
+                <div class="title">
+                    <h1>Dados Clínicos</h1>
+                </div>
+                <div class="body-line">
+                    <div>
+                        <label for="">Ocupação</label>
+                        <p>{{prontuario.ocupacao}}</p>
+                        <label for="">Pressão Arterial</label>
+                        <p>{{prontuario.pa}}</p>
+                        <label for="">Motivo do Atendimento</label>
+                        <p>{{prontuario.motivo_atendimento}}</p>
+                        <label for="">Doenças cronicas</label>
+                        <p>{{prontuario.doencas_cronicas}}</p>
+                    </div>
+                    <div>
+                        <label for="">Alergia</label>
+                        <p>{{prontuario.alergia}}</p>
+                        <label for="">Frequência Cardíaca</label>
+                        <p>{{prontuario.fc}}</p>
+                        <label for="">Queixa do Momento</label>
+                        <p>{{prontuario.queixa_momento}}</p>
+                    </div>
+                    <div>
+                        <label for="">Limitações</label>
+                        <p>{{prontuario.limitacao}}</p>
+                        <label for="">Frequência Respiratória</label>
+                        <p>{{prontuario.fr}}</p>
+                    </div>
+                    <div>
+                        <label for="">Outras Limitações</label>
+                        <p>{{prontuario.outrasLimitacoes}}</p>
+                        <label for="">T</label>
+                        <p>{{prontuario.t}}</p>
+                    </div>
+                </div>
+
+                <div class="body-line">
+                    <div>
+                        <label for="">Anamnese</label>
+                        <p>{{prontuario.anamnese}}</p>
+                        <label for="">Exame Fisico</label>
+                        <p>{{prontuario.exame_fisico}}</p>
                     </div>
                 </div>
             </div>

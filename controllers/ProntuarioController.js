@@ -84,7 +84,7 @@ module.exports = {
     },
 
     show(req, res) {
-        prontuario.find().sort({ date: 'desc' }).then((prontuarios) => {
+        prontuario.find().sort({ '_id': -1 }).then((prontuarios) => {
             res.render('usuario/showprontuarios', { prontuarios: prontuarios })
         }).catch((erro) => {
             req.flash('error_msg', 'Houve um erro ao listar os prontuarios')
